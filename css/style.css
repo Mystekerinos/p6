@@ -51,22 +51,22 @@ header {
     color:white;
   
 }
-.city , .country {
+.card_location {
     color:  #901C1C;
     font-size: 13px;
     
 }
 
-.tagline {  
+.card_tagline {  
     font-size: 10px;
     
 }
-.price {  
+.card_price {  
     font-size: 9px;
     
 }
 
-.image{
+.card_image{
     height:223px;
     width:223px;
 }
@@ -76,5 +76,33 @@ header {
     border: none;
     border-radius : 75px;
     
+}
+
+.photograph_Creations{
+
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
+}
+
+
+.photograph-header{
+    display:flex;
+    flex-direction:row;
+}
+
+.photograph-header_description_picture{
+    width : 150px; height : 150px;
+    border: none;
+    border-radius : 75px;  
+}
+
+
+.photographersDescription{
+    display:flex;
+    flex-direction:column;
 }
 

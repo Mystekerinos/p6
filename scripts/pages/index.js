@@ -51,6 +51,7 @@ async function displayData(photographers) {
 async function init() {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
+  console.log("index.js", photographers);
   displayData(photographers);
 }
 
