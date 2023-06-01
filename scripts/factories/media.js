@@ -19,7 +19,7 @@ export function mediaFactory(data) {
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const Image = `assets/images/${photographerId}/${image}`;
   const Video = `assets/images/${photographerId}/${video}`;
-  function getMediaCardDOM() {
+  function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
     card.id = id;
@@ -79,10 +79,6 @@ export function mediaFactory(data) {
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
 
-    // Create an image element for the portrait
-    const isPicture = document.createElement("img");
-    isPicture.classList.add("photograph-header_description_picture");
-    isPicture.setAttribute("src", picture);
     // Create a price element for the artist price
 
     const isPrice = document.createElement("div");
@@ -96,9 +92,27 @@ export function mediaFactory(data) {
     article.appendChild(isTagline);
     article.appendChild(isPrice);
 
-    article.appendChild(isPicture);
     return article;
   }
 
-  return { getMediaCardDOM, getPhotographerIdentityCardDOM };
+  function getPhotographyUserDOM() {
+    // Create an article element
+    const userPhoto = document.createElement("article");
+
+    // Create an image element for the portrait
+    const isPicture = document.createElement("img");
+    isPicture.classList.add("photograph-header_description_picture_user");
+    isPicture.setAttribute("src", picture);
+
+    // append  an Image, a date, a likes, a title,  an image to the header element
+
+    userPhoto.appendChild(isPicture);
+    return userPhoto;
+  }
+
+  return {
+    getPhotographerCreationCardDOM,
+    getPhotographerIdentityCardDOM,
+    getPhotographyUserDOM,
+  };
 }

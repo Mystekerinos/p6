@@ -83,16 +83,11 @@ header {
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-   
-   
+    align-items: center; 
 }
 
 
-.photograph-header{
-    display:flex;
-    flex-direction:row;
-}
+
 
 .photograph-header_description_picture{
     width : 150px; height : 150px;
@@ -101,8 +96,9 @@ header {
 }
 
 
-.photographersDescription{
+
+.photograph-header_description {
     display:flex;
-    flex-direction:column;
+    flex-direction: row;   
 }
 
