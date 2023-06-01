@@ -6,6 +6,7 @@ async function displayData(media, photographers, user) {
   const photographersProfil = document.querySelector("#main");
   const photographersPortrait = document.querySelector(".user");
   const photographersProfile = document.querySelector(".photograph-profile");
+
   const photographersCreation = document.createElement("div");
   photographersCreation.classList.add("photograph_Creations");
   photographersProfil.appendChild(photographersCreation);
@@ -17,6 +18,14 @@ async function displayData(media, photographers, user) {
   const photographersHeaderDescription = document.createElement("div");
   photographersHeaderDescription.classList.add("profile");
   photographersProfile.appendChild(photographersHeaderDescription);
+
+  //  Description element photographer
+  const photographersHeaderDescriptionSection =
+    document.createElement("section");
+  photographersHeaderDescriptionSection.classList.add(
+    "photograph_Creations_card"
+  );
+  photographersCreation.appendChild(photographersHeaderDescriptionSection);
 
   //  Description element photographer
   const photographersHeaderPicture = document.createElement(
@@ -39,7 +48,9 @@ async function displayData(media, photographers, user) {
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     console.log("photographerMedia", userPhotographerCreationCardDOM);
-    photographersCreation.appendChild(userPhotographerCreationCardDOM);
+    photographersHeaderDescriptionSection.appendChild(
+      userPhotographerCreationCardDOM
+    );
   });
   photographers.forEach((mediaData) => {
     const pictureMedia = mediaFactory(mediaData);

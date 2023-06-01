@@ -17,25 +17,39 @@ export function mediaFactory(data) {
   } = data;
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-  const Image = `assets/images/${photographerId}/${image}`;
-  const Video = `assets/images/${photographerId}/${video}`;
+
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
     card.id = id;
 
+    const description = document.createElement("div");
+    description.classList.add("card_description");
     // Create a image element for the artist image
     const isImage = document.createElement("img");
-    isImage.classList.add("card_image");
-    isImage.setAttribute("src", Image);
+    const isVideo = document.createElement("video");
+    if (image) {
+      const Image = `assets/images/${photographerId}/${image}`;
+      isImage.classList.add("card_image");
+      isImage.setAttribute("src", Image);
+      card.appendChild(isImage);
+    }
 
     // Create a image element for the artist image
-    const isVideo = document.createElement("video");
-    isVideo.setAttribute("source", Video);
+
+    if (video) {
+      console.log("video", video);
+      const Video = `assets/images/${photographerId}/${video}`;
+      isVideo.classList.add("card_video");
+      isVideo.setAttribute("src", Video);
+      card.appendChild(isVideo);
+    }
 
     // Create a likes element for the artist likes
     const isLikes = document.createElement("div");
-    isLikes.classList.add("card_likes");
+
+    isLikes.classList.add("card_description_likes");
+
     isLikes.textContent = likes;
 
     // Create a date element for the artist date
@@ -47,16 +61,16 @@ export function mediaFactory(data) {
     // Create a title element for the artist title
 
     const isTitle = document.createElement("div");
-    isTitle.classList.add("card_title");
+    isTitle.classList.add("card_description_title");
     isTitle.textContent = title;
 
-    // append  an Image, a date, a likes, a title,  an image to the article element
-    card.appendChild(isVideo);
-    card.appendChild(isImage);
-    card.appendChild(isDate);
-    card.appendChild(isLikes);
+    // new node
+    description.appendChild(isTitle);
+    description.appendChild(isLikes);
 
-    card.appendChild(isTitle);
+    // append  an Image, a date, a likes, a title,  an image to the article element
+
+    card.appendChild(description);
 
     return card;
   }
