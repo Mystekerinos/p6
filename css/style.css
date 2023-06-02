@@ -1,11 +1,8 @@
 @import url("photographer.css");
-
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
-
-
 header {
     display: flex;
     flex-direction: row;
@@ -13,21 +10,16 @@ header {
     align-items: center;
     height: 90px;
 }
-
-
-
 .logo {
     height: 50px;
     margin-left: 100px;
 }
-
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
 }
-
 .photographer_section article {
     justify-self: center;
     display: flex;
@@ -35,116 +27,85 @@ header {
     align-items: center;
     flex-direction: column;
 }
-
 .photographer_section article h2 {
     color: #D3573C;
     margin-top:0px;
     margin-bottom:0px;
 }
-
 .photographerLink{
     justify-self: center;
-    display: flex;  
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color:white;
-  
 }
 .card_location {
-    color:  #901C1C;
+    color: #901C1C;
     font-size: 13px;
-    
 }
-
-.card_tagline {  
+.card_tagline {
     font-size: 10px;
-    
 }
-.card_price {  
+.card_price {
     font-size: 9px;
-    
 }
-
-
-
 .photographer_section article img {
-    width : 150px; height : 150px;
+    width : 150px;
+    height : 150px;
     border: none;
     border-radius : 75px;
-    
 }
-
-
-
-
-
 .photograph-header_description_picture{
-    width : 150px; height : 150px;
+    width : 150px;
+    height : 150px;
     border: none;
-    border-radius : 75px;  
+    border-radius : 75px;
 }
-
-
-
 .photograph-header_description {
     display:flex;
-    flex-direction: row;   
+    flex-direction: row;
 }
-
 .photograph_Creations{
     display:flex;
     gap:15px;
     padding:15px;
     margin: 0 100px;
 }
-
 .photograph_Creations_card{
- margin-top:23px;
- display:flex;
- flex-wrap: wrap;
- justify-content: space-around;
-   
- }
- .card_description_title{
-  margin-right:90px;
- font-size:18px;
- color: #901C1C;
-
-   
- }
- .card_image{
-  
+    margin-top:23px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card_description_title{
+    margin-right:90px;
+    font-size:18px;
+    color: #901C1C;
+}
+.card_image{
     width:350px;
     height:300px;
     margin-bottom:10px;
-    
-      
-    }
-    .card_descriptio{
-  
-       display:flex;
-       flex-direction: row;
-       margin:8px;
-       
-          
-        }
-    .card_video{
-  
-        width:350px;
-        height:300px;
-      
-       
-          
-        }
-    .card_description_likes{
-        font-size: 16px;
-       color: #901C1C;
-
-    }
-    .card_description{
-        display:flex;
-        flex-direction: row;
-        align-items:center;
-         margin-bottom:8px;
-    }
+    object-fit: cover;
+}
+.card_descriptio{
+    display:flex;
+    flex-direction: row;
+    margin:8px;
+}
+.card_video{
+    width:350px;
+    height:300px;
+    object-fit: cover;
+}
+.card_description_likes{
+    font-size: 16px;
+    color: #901C1C;
+}
+.card_description{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    margin-bottom:8px;
+}
