@@ -106,6 +106,8 @@ header {
  .card_description_title{
   margin-right:90px;
  font-size:18px;
+ color: #901C1C;
+
    
  }
  .card_image{
@@ -132,6 +134,8 @@ header {
         }
     .card_description_likes{
         font-size: 16px;
+       color: #901C1C;
+
     }
     .card_description{
         display:flex;
