@@ -96,13 +96,14 @@ header {
     display:flex;
     gap:15px;
     padding:15px;
+    margin: 0 100px;
 }
 
 .photograph_Creations_card{
-  
- margin-top:200px;
+ margin-top:23px;
  display:flex;
  flex-wrap: wrap;
+ justify-content: space-around;
    
  }
  .card_description_title{
@@ -116,7 +117,7 @@ header {
   
     width:350px;
     height:300px;
-
+    margin-bottom:10px;
     
       
     }
@@ -124,6 +125,7 @@ header {
   
        display:flex;
        flex-direction: row;
+       margin:8px;
        
           
         }
@@ -131,6 +133,7 @@ header {
   
         width:350px;
         height:300px;
+      
        
           
         }
@@ -143,5 +146,5 @@ header {
         display:flex;
         flex-direction: row;
         align-items:center;
-    
+         margin-bottom:8px;
     }
