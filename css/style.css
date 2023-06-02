@@ -101,6 +101,8 @@ header {
 .photograph_Creations_card{
   
  margin-top:200px;
+ display:flex;
+ flex-wrap: wrap;
    
  }
  .card_description_title{
