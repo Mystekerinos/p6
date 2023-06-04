@@ -18,7 +18,10 @@ export function mediaFactory(data) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
-  console.log("heart", heart);
+  const option1 = "Popularité";
+  const option2 = "Date";
+  const option3 = "Titre";
+
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
@@ -128,9 +131,40 @@ export function mediaFactory(data) {
     return userPhoto;
   }
 
+  function getDropDownMenu() {
+    // Create an article element
+    const dropDownMenuSection = document.createElement("select");
+
+    // Create an image element for the portrait
+    const dropDownOption = document.createElement("option");
+    dropDownOption.classList.add("dropdown-options");
+    dropDownOption.textContent = option1;
+    dropDownOption.textContent = option2;
+    dropDownOption.textContent = option3;
+    console.log("option", option1);
+    console.log("dropDownOption", dropDownOption);
+
+    // // sort Menu
+    // const dropDown = document.createElement("select");
+    // dropDown.classList.add("dropDown");
+    // dropDown.textContent = "Trier par";
+
+    // // sort Element
+    // const dropDownOption = document.createElement("option");
+    // dropDownOption.classList.add("dropDownOption");
+    // dropDownOption;
+
+    // append  an Image, a date, a likes, a title,  an image to the header element
+
+    dropDownMenuSection.appendChild(dropDownOption);
+    console.log("dropDownMenuSection", dropDownMenuSection);
+    return dropDownMenuSection;
+  }
+
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographyUserDOM,
+    getDropDownMenu,
   };
 }

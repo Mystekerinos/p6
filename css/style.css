@@ -71,6 +71,7 @@ header {
     gap:15px;
     padding:15px;
     margin: 0 100px;
+    flex-direction: column;
 }
 .photograph_Creations_card{
     margin-top:23px;
@@ -108,4 +109,14 @@ header {
     flex-direction: row;
     align-items:center;
     margin-bottom:8px;
+}
+
+.dashBoard{
+    z-index:1;
+    right:2.25rem;
+    left:unset;
+    width:fit-content;
+    background:#db8876;
+    font-size:1.5rem;
+    font-weight:500;
 }
