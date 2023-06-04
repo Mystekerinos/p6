@@ -17,7 +17,8 @@ export function mediaFactory(data) {
   } = data;
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-
+  const heart = "assets/images/likes.svg";
+  console.log("heart", heart);
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
@@ -50,9 +51,10 @@ export function mediaFactory(data) {
     isLikes.classList.add("card_description_likes");
     isLikes.textContent = likes;
 
-    const isHeart = document.createElement("i");
+    const isHeart = document.createElement("img");
     isHeart.classList.add("heart");
-    isHeart.textContent = "fa-heart";
+    isHeart.setAttribute("src", heart);
+
     // Create a date element for the artist date
 
     const isDate = document.createElement("div");
