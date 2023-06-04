@@ -134,7 +134,7 @@ export function mediaFactory(data) {
   function getDropDownMenu() {
     // Create an article element
     const dropDownMenuSection = document.createElement("select");
-
+    dropDownMenuSection.classList.add("dropdown-menu");
     // Create an image element for the portrait
     const dropDownOption = document.createElement("option");
     dropDownOption.classList.add("dropdown-options");
