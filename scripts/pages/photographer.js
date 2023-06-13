@@ -56,6 +56,7 @@ async function displayData(media, photographers, user) {
     const DropDownCreationDOM = DropDownCreation.getDropDownMenu();
     console.log("DropDownCreationDOM", DropDownCreationDOM);
     photographersHeaderDescriptionDropdown.appendChild(DropDownCreationDOM);
+    DropDownCreation.dropDownEventListener();
   });
 
   media.forEach((mediaData) => {
@@ -69,7 +70,7 @@ async function displayData(media, photographers, user) {
     );
   });
   photographers.forEach((mediaData) => {
-    const pictureMedia = mediaFactory(mediaData);
+    const pictureMedia = photographerFactory(mediaData);
 
     const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
     console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
@@ -77,34 +78,34 @@ async function displayData(media, photographers, user) {
   });
 }
 
-async function sortMediaSection() {
-  //   // Retrieve the selected option value
-  //   const selectedOption = this.value;
-  //   // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
-  //   if (selectedOption == "Popularité") {
-  //     await photographerMedia.sort((a, b) => {
-  //       return b.likes - a.likes;
-  //     });
-  //   }
-  //   // Sort the photographerMedia array using the date key if the selected option is "Date"
-  //   if (selectedOption == "Date") {
-  //     await photographerMedia.sort((a, b) => {
-  //       return new Date(a.date) - new Date(b.date);
-  //     });
-  //   }
-  //   // Sort the photographerMedia array using the title key if the selected option is "Titre"
-  //   if (selectedOption == "Titre") {
-  //     await photographerMedia.sort((a, b) => {
-  //       if (a.title < b.title) {
-  //         return -1;
-  //       }
-  //       if (a.title > b.title) {
-  //         return 1;
-  //       }
-  //       return 0;
-  //     });
-  //   }
-}
+// async function sortMediaSection() {
+//   // Retrieve the selected option value
+//   const selectedOption = this.value;
+//   // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
+//   if (selectedOption == "Popularité") {
+//     await photographerMedia.sort((a, b) => {
+//       return b.likes - a.likes;
+//     });
+//   }
+//   // Sort the photographerMedia array using the date key if the selected option is "Date"
+//   if (selectedOption == "Date") {
+//     await photographerMedia.sort((a, b) => {
+//       return new Date(a.date) - new Date(b.date);
+//     });
+//   }
+//   // Sort the photographerMedia array using the title key if the selected option is "Titre"
+//   if (selectedOption == "Titre") {
+//     await photographerMedia.sort((a, b) => {
+//       if (a.title < b.title) {
+//         return -1;
+//       }
+//       if (a.title > b.title) {
+//         return 1;
+//       }
+//       return 0;
+//     });
+//   }
+// }
 
 // function addEventListeners() {
 //   // Add an event listener to the dropdown menu to sort the media section on change
@@ -123,22 +124,9 @@ async function sortMediaSection() {
 //     closeModal("contactModal");
 //   });
 
-//   // Add an event listener to validate the contact modal form on submit
-//   const modalForm = document.getElementById("modalForm");
-//   modalForm.addEventListener("submit", validateModalForm);
-
-//   // Add an event listener to each media card button to open the lightbox modal on click
-//   const mediaCardButtons = document.querySelectorAll(".media-card-button");
-//   mediaCardButtons.forEach((card) => {
-//     card.addEventListener("click", () => {
-//       const mediaId = card.parentElement.id;
-//       renderLightBoxMedia(mediaId);
-//       displayModal("lightboxModal");
-//     });
-//   });
 // };
 
-async function mediaInit() {
+export async function mediaInit() {
   // Récupère les datas des photographes
   let { media, photographers } = await getPhotographers();
   console.log(media, photographers);

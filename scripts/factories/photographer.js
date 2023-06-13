@@ -52,5 +52,44 @@ function photographerFactory(data) {
     article.appendChild(isPrice);
     return article;
   }
-  return { getUserCardDOM };
+
+  function sortPhotographerCreationCardDOM(e) {
+    // Retrieve the selected option value
+    const selectedOption = e.currentTarget.value;
+    console.log("selectedOption", selectedOption);
+    console.log(e);
+    if (selectedOption == "Popularité") {
+      data.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+    }
+
+    if (selectedOption == "Date") {
+      data.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+    }
+
+    if (selectedOption == "Titre") {
+      data.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+  }
+
+  function dropDownEventListener() {
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+    dropdownMenu.addEventListener("change", sortPhotographerCreationCardDOM);
+  }
+  return {
+    sortPhotographerCreationCardDOM,
+    dropDownEventListener,
+    getUserCardDOM,
+  };
 }

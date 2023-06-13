@@ -21,6 +21,7 @@ export function mediaFactory(data) {
   const option1 = "Popularité";
   const option2 = "Date";
   const option3 = "Titre";
+  const photographerMedia = data;
 
   function getPhotographerCreationCardDOM() {
     // Create an article element
@@ -138,9 +139,17 @@ export function mediaFactory(data) {
     // Create an image element for the portrait
     const dropDownOption = document.createElement("option");
     dropDownOption.classList.add("dropdown-options");
+    dropDownOption.value = option1;
     dropDownOption.textContent = option1;
-    dropDownOption.textContent = option2;
-    dropDownOption.textContent = option3;
+    const dropDownOption2 = document.createElement("option");
+    dropDownOption2.classList.add("dropdown-options");
+    dropDownOption2.value = option2;
+    dropDownOption2.textContent = option2;
+    const dropDownOption3 = document.createElement("option");
+    dropDownOption3.classList.add("dropdown-options");
+    dropDownOption3.value = option3;
+    dropDownOption3.textContent = option3;
+
     console.log("option", option1);
     console.log("dropDownOption", dropDownOption);
 
@@ -157,14 +166,53 @@ export function mediaFactory(data) {
     // append  an Image, a date, a likes, a title,  an image to the header element
 
     dropDownMenuSection.appendChild(dropDownOption);
+    dropDownMenuSection.appendChild(dropDownOption2);
+    dropDownMenuSection.appendChild(dropDownOption3);
     console.log("dropDownMenuSection", dropDownMenuSection);
+
     return dropDownMenuSection;
+  }
+
+  function sortPhotographerCreationCardDOM(e) {
+    // Retrieve the selected option value
+    const selectedOption = e.currentTarget.value;
+    console.log("selectedOption", selectedOption);
+    console.log(e);
+    if (selectedOption == "Popularité") {
+      data.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+    }
+
+    if (selectedOption == "Date") {
+      data.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+    }
+
+    if (selectedOption == "Titre") {
+      data.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+  }
+
+  function dropDownEventListener() {
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+    dropdownMenu.addEventListener("change", sortPhotographerCreationCardDOM);
   }
 
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographyUserDOM,
+    dropDownEventListener,
     getDropDownMenu,
   };
 }
