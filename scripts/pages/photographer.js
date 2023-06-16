@@ -12,6 +12,7 @@ async function displayData(media, photographers, user) {
   const photographersDropDownCreation = document.createElement("div");
   photographersDropDownCreation.classList.add("photograph_creations_dropDown");
   photographersProfil.appendChild(photographersCreation);
+  photographersProfil.appendChild(getDropDownMenu());
   const photographersPicture = document.createElement("div");
   photographersPicture.classList.add("picture");
   photographersPortrait.appendChild(photographersPicture);
@@ -51,13 +52,6 @@ async function displayData(media, photographers, user) {
     console.log("photographerIdentity", userPhotographersCardDOM);
     photographersHeaderDescription.appendChild(userPhotographersCardDOM);
   });
-  photographers.forEach((photographersData) => {
-    const DropDownCreation = mediaFactory(photographersData);
-    const DropDownCreationDOM = DropDownCreation.getDropDownMenu();
-    console.log("DropDownCreationDOM", DropDownCreationDOM);
-    photographersHeaderDescriptionDropdown.appendChild(DropDownCreationDOM);
-    DropDownCreation.dropDownEventListener();
-  });
 
   media.forEach((mediaData) => {
     const photographerCreation = mediaFactory(mediaData);
@@ -69,13 +63,13 @@ async function displayData(media, photographers, user) {
       userPhotographerCreationCardDOM
     );
   });
-  photographers.forEach((mediaData) => {
-    const pictureMedia = photographerFactory(mediaData);
+  // photographers.forEach((mediaData) => {
+  //   const pictureMedia = photographerFactory(mediaData);
 
-    const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
-    console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
-    photographersPicture.appendChild(userPictureMediaCardDOM);
-  });
+  //   const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
+  //   console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
+  //   photographersPicture.appendChild(userPictureMediaCardDOM);
+  // });
 }
 
 // async function sortMediaSection() {
@@ -126,6 +120,62 @@ async function displayData(media, photographers, user) {
 
 // };
 
+function getPhotographyUserDOM() {
+  // Create an article element
+  const userPhoto = document.createElement("article");
+
+  // Create an image element for the portrait
+  const isPicture = document.createElement("img");
+  isPicture.classList.add("photograph-header_description_picture_user");
+  isPicture.setAttribute("src", picture);
+
+  // append  an Image, a date, a likes, a title,  an image to the header element
+
+  userPhoto.appendChild(isPicture);
+  return userPhoto;
+}
+
+function getDropDownMenu() {
+  // Create an article element
+  const dropDownMenuSection = document.createElement("select");
+  dropDownMenuSection.classList.add("dropdown-menu");
+  // Create an image element for the portrait
+  const dropDownOption = document.createElement("option");
+  dropDownOption.classList.add("dropdown-options");
+  dropDownOption.value = "Date";
+  dropDownOption.textContent = "Date";
+  const dropDownOption2 = document.createElement("option");
+  dropDownOption2.classList.add("dropdown-options");
+  dropDownOption2.value = "Popularité";
+  dropDownOption2.textContent = "Popularité";
+  const dropDownOption3 = document.createElement("option");
+  dropDownOption3.classList.add("dropdown-options");
+  dropDownOption3.value = "Titre";
+  dropDownOption3.textContent = "Titre";
+
+  // console.log("option"," date");
+  console.log("dropDownOption", dropDownOption);
+
+  // // sort Menu
+  // const dropDown = document.createElement("select");
+  // dropDown.classList.add("dropDown");
+  // dropDown.textContent = "Trier par";
+
+  // // sort Element
+  // const dropDownOption = document.createElement("option");
+  // dropDownOption.classList.add("dropDownOption");
+  // dropDownOption;
+
+  // append  an Image, a date, a likes, a title,  an image to the header element
+
+  dropDownMenuSection.appendChild(dropDownOption);
+  dropDownMenuSection.appendChild(dropDownOption2);
+  dropDownMenuSection.appendChild(dropDownOption3);
+  console.log("dropDownMenuSection", dropDownMenuSection);
+
+  return dropDownMenuSection;
+}
+
 export async function mediaInit() {
   // Récupère les datas des photographes
   let { media, photographers } = await getPhotographers();
@@ -149,4 +199,38 @@ export async function mediaInit() {
   displayData(media, photographers);
 }
 
+function dropDownEventListener() {
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  dropdownMenu.addEventListener("change", (e) => {
+    // Retrieve the selected option value
+    const selectedOption = e.currentTarget.value;
+    console.log("selectedOption", selectedOption);
+    console.log(e);
+    if (selectedOption == "Popularité") {
+      media.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+    }
+
+    if (selectedOption == "Date") {
+      media.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+    }
+
+    if (selectedOption == "Titre") {
+      media.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+  });
+}
+
 mediaInit();
+dropDownEventListener();
