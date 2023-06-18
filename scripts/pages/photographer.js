@@ -1,6 +1,8 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
+let currentMedia = []
+
 async function displayData(media, photographers, user) {
   const photographersHeader = document.querySelector(".photograph-header");
   const photographersProfil = document.querySelector("#main");
@@ -13,6 +15,7 @@ async function displayData(media, photographers, user) {
   photographersDropDownCreation.classList.add("photograph_creations_dropDown");
   photographersProfil.appendChild(photographersCreation);
   photographersProfil.appendChild(getDropDownMenu());
+  dropDownEventListener();
   const photographersPicture = document.createElement("div");
   photographersPicture.classList.add("picture");
   photographersPortrait.appendChild(photographersPicture);
@@ -192,7 +195,8 @@ export async function mediaInit() {
   photographers = photographers.filter(
     (photographersItem) => photographersItem.id === Id
   );
-
+  
+  currentMedia = media
   console.log("mediaFilter", media);
   console.log("photographersFilter", photographers);
 
@@ -207,19 +211,19 @@ function dropDownEventListener() {
     console.log("selectedOption", selectedOption);
     console.log(e);
     if (selectedOption == "Popularité") {
-      media.sort((a, b) => {
+      currentMedia.sort((a, b) => {
         return b.likes - a.likes;
       });
     }
 
     if (selectedOption == "Date") {
-      media.sort((a, b) => {
+      currentMedia.sort((a, b) => {
         return new Date(a.date) - new Date(b.date);
       });
     }
 
     if (selectedOption == "Titre") {
-      media.sort((a, b) => {
+      currentMedia.sort((a, b) => {
         if (a.title < b.title) {
           return -1;
         }
@@ -229,8 +233,23 @@ function dropDownEventListener() {
         return 0;
       });
     }
+    reorderList()
   });
 }
 
+function reorderList() {
+  const mediaList = document.querySelector(".photograph_Creations_card");
+  mediaList.innerHTML = ''
+  currentMedia.forEach((mediaData) => {
+    const photographerCreation = mediaFactory(mediaData);
+    const userPhotographerCreationCardDOM =
+      photographerCreation.getPhotographerCreationCardDOM();
+    mediaList.appendChild(
+      userPhotographerCreationCardDOM
+    );
+  });
+  
+}
+
 mediaInit();
-dropDownEventListener();
+
