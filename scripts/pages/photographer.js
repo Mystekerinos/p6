@@ -1,7 +1,7 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
-let currentMedia = []
+let currentMedia = [];
 
 async function displayData(media, photographers, user) {
   const photographersHeader = document.querySelector(".photograph-header");
@@ -75,54 +75,6 @@ async function displayData(media, photographers, user) {
   // });
 }
 
-// async function sortMediaSection() {
-//   // Retrieve the selected option value
-//   const selectedOption = this.value;
-//   // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
-//   if (selectedOption == "Popularité") {
-//     await photographerMedia.sort((a, b) => {
-//       return b.likes - a.likes;
-//     });
-//   }
-//   // Sort the photographerMedia array using the date key if the selected option is "Date"
-//   if (selectedOption == "Date") {
-//     await photographerMedia.sort((a, b) => {
-//       return new Date(a.date) - new Date(b.date);
-//     });
-//   }
-//   // Sort the photographerMedia array using the title key if the selected option is "Titre"
-//   if (selectedOption == "Titre") {
-//     await photographerMedia.sort((a, b) => {
-//       if (a.title < b.title) {
-//         return -1;
-//       }
-//       if (a.title > b.title) {
-//         return 1;
-//       }
-//       return 0;
-//     });
-//   }
-// }
-
-// function addEventListeners() {
-//   // Add an event listener to the dropdown menu to sort the media section on change
-//   const dropdownMenu = document.getElementById("dropdownMenu");
-//   dropdownMenu.addEventListener("change", sortMediaSection);
-
-//   // Add an event listener to the contact button to open the contact modal on click
-//   const contactBtn = document.getElementById("contactBtn");
-//   contactBtn.addEventListener("click", () => {
-//     displayModal("contactModal");
-//   });
-
-//   // Add an event listener to the close button in the modal to close the contact modal on click
-//   const modalCloseBtn = document.getElementById("modalCloseBtn");
-//   modalCloseBtn.addEventListener("click", () => {
-//     closeModal("contactModal");
-//   });
-
-// };
-
 function getPhotographyUserDOM() {
   // Create an article element
   const userPhoto = document.createElement("article");
@@ -159,18 +111,6 @@ function getDropDownMenu() {
   // console.log("option"," date");
   console.log("dropDownOption", dropDownOption);
 
-  // // sort Menu
-  // const dropDown = document.createElement("select");
-  // dropDown.classList.add("dropDown");
-  // dropDown.textContent = "Trier par";
-
-  // // sort Element
-  // const dropDownOption = document.createElement("option");
-  // dropDownOption.classList.add("dropDownOption");
-  // dropDownOption;
-
-  // append  an Image, a date, a likes, a title,  an image to the header element
-
   dropDownMenuSection.appendChild(dropDownOption);
   dropDownMenuSection.appendChild(dropDownOption2);
   dropDownMenuSection.appendChild(dropDownOption3);
@@ -195,8 +135,8 @@ export async function mediaInit() {
   photographers = photographers.filter(
     (photographersItem) => photographersItem.id === Id
   );
-  
-  currentMedia = media
+
+  currentMedia = media;
   console.log("mediaFilter", media);
   console.log("photographersFilter", photographers);
 
@@ -233,23 +173,19 @@ function dropDownEventListener() {
         return 0;
       });
     }
-    reorderList()
+    reorderList();
   });
 }
 
 function reorderList() {
   const mediaList = document.querySelector(".photograph_Creations_card");
-  mediaList.innerHTML = ''
+  mediaList.innerHTML = "";
   currentMedia.forEach((mediaData) => {
     const photographerCreation = mediaFactory(mediaData);
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
-    mediaList.appendChild(
-      userPhotographerCreationCardDOM
-    );
+    mediaList.appendChild(userPhotographerCreationCardDOM);
   });
-  
 }
 
 mediaInit();
-

@@ -71,7 +71,12 @@ export function mediaFactory(data) {
     isTitle.classList.add("card_description_title");
     isTitle.textContent = title;
 
+    const isTagline = document.createElement("div");
+    isTagline.classList.add("card_description_title");
+    isTagline.textContent = tagline;
+
     // new node
+    description.appendChild(isTagline);
     description.appendChild(isTitle);
     description.appendChild(isLikes);
     description.appendChild(isHeart);
@@ -107,8 +112,11 @@ export function mediaFactory(data) {
     isPrice.classList.add("price");
     isPrice.textContent = `${price}€/jour`;
 
-    // append  an Image, a date, a likes, a title,  an image to the header element
+    const isPicture = document.createElement("img");
+    isPicture.setAttribute("src", picture);
 
+    // append  an Image, a date, a likes, a title,  an image to the header element
+    article.appendChild(isPicture);
     article.appendChild(isName);
     article.appendChild(location);
     article.appendChild(isTagline);

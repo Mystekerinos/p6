@@ -130,3 +130,22 @@ header {
     font-weight: 700;
     line-height: 3rem;
 }
+
+.photographers-about-likes-and-price{
+    z-index: 1;
+    right: 2.25rem;
+    left: unset;
+    width: -webkit-fit-content;
+    
+    width: fit-content;
+    background: #db8876;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.profile article img {
+    width : 150px;
+    height : 150px;
+    border: none;
+    border-radius : 75px;
+}
