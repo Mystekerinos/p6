@@ -1,13 +1,12 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
-let currentMedia = [];
+const photographersHeader = document.querySelector(".photograph-header");
+const photographersProfil = document.querySelector("#main");
+const photographersPortrait = document.querySelector(".user");
+const photographersProfile = document.querySelector(".photograph-profile");
 
-async function displayData(media, photographers, user) {
-  const photographersHeader = document.querySelector(".photograph-header");
-  const photographersProfil = document.querySelector("#main");
-  const photographersPortrait = document.querySelector(".user");
-  const photographersProfile = document.querySelector(".photograph-profile");
+function displayData(media, photographer) {
   const option = "Trier par";
   const photographersCreation = document.createElement("div");
   photographersCreation.classList.add("photograph_Creations");
@@ -15,7 +14,7 @@ async function displayData(media, photographers, user) {
   photographersDropDownCreation.classList.add("photograph_creations_dropDown");
   photographersProfil.appendChild(photographersCreation);
   photographersProfil.appendChild(getDropDownMenu());
-  dropDownEventListener();
+  dropDownEventListener(media);
   const photographersPicture = document.createElement("div");
   photographersPicture.classList.add("picture");
   photographersPortrait.appendChild(photographersPicture);
@@ -33,6 +32,11 @@ async function displayData(media, photographers, user) {
   photographersHeaderDescriptionDropdown.textContent = option;
   photographersCreation.appendChild(photographersHeaderDescriptionDropdown);
 
+  //  Description render like
+  const photographersAboutLike = document.createElement("div");
+  photographersAboutLike.classList.add("about-like-and-price-photographer");
+  photographersHeader.appendChild(photographersAboutLike);
+
   //  Description element photographer
   const photographersHeaderDescriptionSection =
     document.createElement("section");
@@ -48,47 +52,36 @@ async function displayData(media, photographers, user) {
   photographersHeaderPicture.classList.add("photographers-profile");
   photographersHeader.appendChild(photographersHeaderPicture);
 
-  photographers.forEach((photographersData) => {
-    const photographerIdentity = mediaFactory(photographersData);
-    const userPhotographersCardDOM =
-      photographerIdentity.getPhotographerIdentityCardDOM();
-    console.log("photographerIdentity", userPhotographersCardDOM);
-    photographersHeaderDescription.appendChild(userPhotographersCardDOM);
-  });
-
-  media.forEach((mediaData) => {
-    const photographerCreation = mediaFactory(mediaData);
-
-    const userPhotographerCreationCardDOM =
-      photographerCreation.getPhotographerCreationCardDOM();
-    console.log("photographerMedia", userPhotographerCreationCardDOM);
-    photographersHeaderDescriptionSection.appendChild(
-      userPhotographerCreationCardDOM
-    );
-  });
-  // photographers.forEach((mediaData) => {
-  //   const pictureMedia = photographerFactory(mediaData);
-
-  //   const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
-  //   console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
-  //   photographersPicture.appendChild(userPictureMediaCardDOM);
-  // });
+  const photographerIdentity = mediaFactory(photographer);
+  const userPhotographersCardDOM =
+    photographerIdentity.getPhotographerIdentityCardDOM();
+  console.log("photographerIdentity", userPhotographersCardDOM);
+  photographersHeaderDescription.appendChild(userPhotographersCardDOM);
+  displayDataList(media);
 }
 
-function getPhotographyUserDOM() {
-  // Create an article element
-  const userPhoto = document.createElement("article");
+// photographers.forEach((mediaData) => {
+//   const pictureMedia = photographerFactory(mediaData);
 
-  // Create an image element for the portrait
-  const isPicture = document.createElement("img");
-  isPicture.classList.add("photograph-header_description_picture_user");
-  isPicture.setAttribute("src", picture);
+//   const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
+//   console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
+//   photographersPicture.appendChild(userPictureMediaCardDOM);
+// });
 
-  // append  an Image, a date, a likes, a title,  an image to the header element
+// function getPhotographyUserDOM() {
+//   // Create an article element
+//   const userPhoto = document.createElement("article");
 
-  userPhoto.appendChild(isPicture);
-  return userPhoto;
-}
+//   // Create an image element for the portrait
+//   const isPicture = document.createElement("img");
+//   isPicture.classList.add("photograph-header_description_picture_user");
+//   isPicture.setAttribute("src", picture);
+
+//   // append  an Image, a date, a likes, a title,  an image to the header element
+
+//   userPhoto.appendChild(isPicture);
+//   return userPhoto;
+// }
 
 function getDropDownMenu() {
   // Create an article element
@@ -119,6 +112,51 @@ function getDropDownMenu() {
   return dropDownMenuSection;
 }
 
+// function renderLikes() {
+//   // Get the media like span element
+//   const mediaLikeSpanEl = this.parentNode.firstElementChild;
+
+//   // Get the media like icon element
+//   const mediaLikeIconEl = this.firstElementChild;
+
+//   if (mediaLikeIconEl.classList.contains("fa-regular")) {
+//     // Convert media like span content to a number and store it as mediaLikeCount variable
+//     let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
+
+//     // Increment the mediaLikeCount variable
+//     mediaLikeCount++;
+
+//     // Define the mediaLikeCount value as media likes span element new content
+//     mediaLikeSpanEl.textContent = mediaLikeCount;
+
+//     // Render the photographer footer to recalculate the total likes count
+//     renderPhotographFooter(photographerInfo);
+
+//     // Replace the fa-regular with the fa-solid class
+//     mediaLikeIconEl.classList.replace("fa-regular", "fa-solid");
+//   } else if (mediaLikeIconEl.classList.contains("fa-solid")) {
+//     // Convert media like span content to a number and store it as mediaLikeCount variable
+//     let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
+
+//     // Decrease the mediaLikeCount variable
+//     mediaLikeCount--;
+
+//     // Define the mediaLikeCount value as media likes span element new content
+//     mediaLikeSpanEl.textContent = mediaLikeCount;
+
+//     // Render the photographer footer to recalculate the total likes count
+//     renderPhotographFooter(photographerInfo);
+
+//     // Replace the fa-solid with the fa-regular class
+//     mediaLikeIconEl.classList.replace("fa-solid", "fa-regular");
+//   }
+// }
+
+//   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
+//   mediaCardLikeButtons.forEach((button) => {
+//     button.addEventListener("click", renderLikes);
+//   });
+
 export async function mediaInit() {
   // Récupère les datas des photographes
   let { media, photographers } = await getPhotographers();
@@ -132,18 +170,14 @@ export async function mediaInit() {
   media = media.filter(
     (mediaItem) => mediaItem.photographerId === photographerId
   );
-  photographers = photographers.filter(
+  let photographer = photographers.find(
     (photographersItem) => photographersItem.id === Id
   );
 
-  currentMedia = media;
-  console.log("mediaFilter", media);
-  console.log("photographersFilter", photographers);
-
-  displayData(media, photographers);
+  displayData(media, photographer);
 }
 
-function dropDownEventListener() {
+function dropDownEventListener(medias) {
   const dropdownMenu = document.querySelector(".dropdown-menu");
   dropdownMenu.addEventListener("change", (e) => {
     // Retrieve the selected option value
@@ -151,19 +185,19 @@ function dropDownEventListener() {
     console.log("selectedOption", selectedOption);
     console.log(e);
     if (selectedOption == "Popularité") {
-      currentMedia.sort((a, b) => {
+      medias.sort((a, b) => {
         return b.likes - a.likes;
       });
     }
 
     if (selectedOption == "Date") {
-      currentMedia.sort((a, b) => {
+      medias.sort((a, b) => {
         return new Date(a.date) - new Date(b.date);
       });
     }
 
     if (selectedOption == "Titre") {
-      currentMedia.sort((a, b) => {
+      medias.sort((a, b) => {
         if (a.title < b.title) {
           return -1;
         }
@@ -173,14 +207,14 @@ function dropDownEventListener() {
         return 0;
       });
     }
-    reorderList();
+    displayDataList(medias);
   });
 }
 
-function reorderList() {
+function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
-  currentMedia.forEach((mediaData) => {
+  medias.forEach((mediaData) => {
     const photographerCreation = mediaFactory(mediaData);
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();

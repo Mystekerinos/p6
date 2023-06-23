@@ -149,3 +149,15 @@ header {
     border: none;
     border-radius : 75px;
 }
+
+.about-like-and-price-photographer{
+    z-index:1;
+    right: 2.25rem;
+    left: unset;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    background: #db8876;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
