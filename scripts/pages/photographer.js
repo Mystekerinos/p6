@@ -3,7 +3,7 @@ import { mediaFactory } from "../factories/media.js";
 
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
-const photographersPortrait = document.querySelector(".user");
+
 const photographersProfile = document.querySelector(".photograph-profile");
 
 function displayData(media, photographer) {
@@ -13,29 +13,33 @@ function displayData(media, photographer) {
   const photographersDropDownCreation = document.createElement("div");
   photographersDropDownCreation.classList.add("photograph_creations_dropDown");
   photographersProfil.appendChild(photographersCreation);
-  photographersProfil.appendChild(getDropDownMenu());
-  dropDownEventListener(media);
-  const photographersPicture = document.createElement("div");
-  photographersPicture.classList.add("picture");
-  photographersPortrait.appendChild(photographersPicture);
 
   //  Description element photographer
   const photographersHeaderDescription = document.createElement("div");
   photographersHeaderDescription.classList.add("profile");
   photographersProfile.appendChild(photographersHeaderDescription);
 
-  //  Description element photographer
-  const photographersHeaderDescriptionDropdown = document.createElement("span");
-  photographersHeaderDescriptionDropdown.classList.add(
-    "photograph_Creations_dropDown"
-  );
-  photographersHeaderDescriptionDropdown.textContent = option;
-  photographersCreation.appendChild(photographersHeaderDescriptionDropdown);
+  //  Description element dropDown
 
-  //  Description render like
-  const photographersAboutLike = document.createElement("div");
-  photographersAboutLike.classList.add("about-like-and-price-photographer");
-  photographersHeader.appendChild(photographersAboutLike);
+  const dropDownSort = document.createElement("div");
+  dropDownSort.classList.add("dropDownSort");
+
+  photographersCreation.appendChild(dropDownSort);
+
+  const photographersCreationDropDownWord = document.createElement("span");
+  photographersCreationDropDownWord.classList.add(
+    "photograph_Creations_dropDown_word"
+  );
+  photographersCreationDropDownWord.textContent = option;
+  dropDownSort.appendChild(photographersCreationDropDownWord);
+  dropDownSort.appendChild(getDropDownMenu());
+  dropDownEventListener(media);
+
+  //  Description element photographer
+  const dropDown = document.createElement("div");
+  dropDown.classList.add("dropDown");
+
+  dropDownSort.appendChild(dropDown);
 
   //  Description element photographer
   const photographersHeaderDescriptionSection =
@@ -46,42 +50,30 @@ function displayData(media, photographer) {
   photographersCreation.appendChild(photographersHeaderDescriptionSection);
 
   //  Description element photographer
-  const photographersHeaderPicture = document.createElement(
-    "photographers-header-picture"
-  );
-  photographersHeaderPicture.classList.add("photographers-profile");
-  photographersHeader.appendChild(photographersHeaderPicture);
+  const photographersImage = document.createElement("div");
+  photographersImage.classList.add("photographers-Image");
+  photographersHeader.appendChild(photographersImage);
+
+  const artistPrice = document.createElement("div");
+  artistPrice.classList.add("photographers-Price");
+  photographersHeader.appendChild(artistPrice);
 
   const photographerIdentity = mediaFactory(photographer);
   const userPhotographersCardDOM =
     photographerIdentity.getPhotographerIdentityCardDOM();
   console.log("photographerIdentity", userPhotographersCardDOM);
   photographersHeaderDescription.appendChild(userPhotographersCardDOM);
+
+  const userPhotographersPicture = photographerIdentity.getPhotographerImage();
+  console.log("userPhotographersPicture", userPhotographersPicture);
+  photographersImage.appendChild(userPhotographersPicture);
+
+  const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
+  console.log("userPhotographersPrice", userPhotographersPrice);
+  artistPrice.appendChild(userPhotographersPrice);
+
   displayDataList(media);
 }
-
-// photographers.forEach((mediaData) => {
-//   const pictureMedia = photographerFactory(mediaData);
-
-//   const userPictureMediaCardDOM = pictureMedia.getPhotographyUserDOM();
-//   console.log("userPictureMediaCardDOM", userPictureMediaCardDOM);
-//   photographersPicture.appendChild(userPictureMediaCardDOM);
-// });
-
-// function getPhotographyUserDOM() {
-//   // Create an article element
-//   const userPhoto = document.createElement("article");
-
-//   // Create an image element for the portrait
-//   const isPicture = document.createElement("img");
-//   isPicture.classList.add("photograph-header_description_picture_user");
-//   isPicture.setAttribute("src", picture);
-
-//   // append  an Image, a date, a likes, a title,  an image to the header element
-
-//   userPhoto.appendChild(isPicture);
-//   return userPhoto;
-// }
 
 function getDropDownMenu() {
   // Create an article element
@@ -112,50 +104,50 @@ function getDropDownMenu() {
   return dropDownMenuSection;
 }
 
-// function renderLikes() {
-//   // Get the media like span element
-//   const mediaLikeSpanEl = this.parentNode.firstElementChild;
+function renderLikes() {
+  // Get the media like span element
+  const mediaLikeSpanEl = this.parentNode.firstElementChild;
 
-//   // Get the media like icon element
-//   const mediaLikeIconEl = this.firstElementChild;
+  // Get the media like icon element
+  const mediaLikeIconEl = this.firstElementChild;
 
-//   if (mediaLikeIconEl.classList.contains("fa-regular")) {
-//     // Convert media like span content to a number and store it as mediaLikeCount variable
-//     let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
+  if (mediaLikeIconEl.classList.contains("fa-regular")) {
+    // Convert media like span content to a number and store it as mediaLikeCount variable
+    let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
 
-//     // Increment the mediaLikeCount variable
-//     mediaLikeCount++;
+    // Increment the mediaLikeCount variable
+    mediaLikeCount++;
 
-//     // Define the mediaLikeCount value as media likes span element new content
-//     mediaLikeSpanEl.textContent = mediaLikeCount;
+    // Define the mediaLikeCount value as media likes span element new content
+    mediaLikeSpanEl.textContent = mediaLikeCount;
 
-//     // Render the photographer footer to recalculate the total likes count
-//     renderPhotographFooter(photographerInfo);
+    // Render the photographer footer to recalculate the total likes count
+    renderPhotographFooter(photographerInfo);
 
-//     // Replace the fa-regular with the fa-solid class
-//     mediaLikeIconEl.classList.replace("fa-regular", "fa-solid");
-//   } else if (mediaLikeIconEl.classList.contains("fa-solid")) {
-//     // Convert media like span content to a number and store it as mediaLikeCount variable
-//     let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
+    // Replace the fa-regular with the fa-solid class
+    mediaLikeIconEl.classList.replace("fa-regular", "fa-solid");
+  } else if (mediaLikeIconEl.classList.contains("fa-solid")) {
+    // Convert media like span content to a number and store it as mediaLikeCount variable
+    let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
 
-//     // Decrease the mediaLikeCount variable
-//     mediaLikeCount--;
+    // Decrease the mediaLikeCount variable
+    mediaLikeCount--;
 
-//     // Define the mediaLikeCount value as media likes span element new content
-//     mediaLikeSpanEl.textContent = mediaLikeCount;
+    // Define the mediaLikeCount value as media likes span element new content
+    mediaLikeSpanEl.textContent = mediaLikeCount;
 
-//     // Render the photographer footer to recalculate the total likes count
-//     renderPhotographFooter(photographerInfo);
+    // Render the photographer footer to recalculate the total likes count
+    renderPhotographFooter(photographerInfo);
 
-//     // Replace the fa-solid with the fa-regular class
-//     mediaLikeIconEl.classList.replace("fa-solid", "fa-regular");
-//   }
-// }
+    // Replace the fa-solid with the fa-regular class
+    mediaLikeIconEl.classList.replace("fa-solid", "fa-regular");
+  }
+}
 
-//   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
-//   mediaCardLikeButtons.forEach((button) => {
-//     button.addEventListener("click", renderLikes);
-//   });
+const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
+mediaCardLikeButtons.forEach((button) => {
+  button.addEventListener("click", renderLikes);
+});
 
 export async function mediaInit() {
   // Récupère les datas des photographes

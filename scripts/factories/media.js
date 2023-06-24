@@ -18,10 +18,6 @@ export function mediaFactory(data) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
-  const option1 = "Popularité";
-  const option2 = "Date";
-  const option3 = "Titre";
-  const photographerMedia = data;
 
   function getPhotographerCreationCardDOM() {
     // Create an article element
@@ -92,6 +88,7 @@ export function mediaFactory(data) {
     // Create an article element
     const article = document.createElement("article");
     article.id = id;
+
     // Create a location element for the artist city and artist country
     const location = document.createElement("div");
     location.classList.add("photograph-header_description_location");
@@ -106,27 +103,54 @@ export function mediaFactory(data) {
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
 
+    const isPicture = document.createElement("img");
+    isPicture.setAttribute("src", picture);
+
+    // append  an Image, a date, a likes, a title,  an image to the header element
+
+    article.appendChild(isName);
+    article.appendChild(location);
+    article.appendChild(isTagline);
+
+    return article;
+  }
+
+  function getPhotographerImage() {
+    // Create an article element
+    const artistFace = document.createElement("article");
+    artistFace.id = id;
+
+    const isPicture = document.createElement("img");
+    isPicture.setAttribute("src", picture);
+
+    // append  an Image, a date, a likes, a title,  an image to the header element
+    artistFace.appendChild(isPicture);
+
+    return artistFace;
+  }
+
+  function getPhotographerPrice() {
+    // Create an article element
+    const PhotographerPrice = document.createElement("article");
+    PhotographerPrice.id = id;
+
     // Create a price element for the artist price
 
     const isPrice = document.createElement("div");
     isPrice.classList.add("price");
     isPrice.textContent = `${price}€/jour`;
 
-    const isPicture = document.createElement("img");
-    isPicture.setAttribute("src", picture);
-
     // append  an Image, a date, a likes, a title,  an image to the header element
-    article.appendChild(isPicture);
-    article.appendChild(isName);
-    article.appendChild(location);
-    article.appendChild(isTagline);
-    article.appendChild(isPrice);
 
-    return article;
+    PhotographerPrice.appendChild(isPrice);
+
+    return PhotographerPrice;
   }
 
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
+    getPhotographerImage,
+    getPhotographerPrice,
   };
 }

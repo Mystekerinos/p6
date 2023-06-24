@@ -143,14 +143,14 @@ header {
     font-weight: 500;
 }
 
-.profile article img {
+.photographers-Image article img {
     width : 150px;
     height : 150px;
     border: none;
     border-radius : 75px;
 }
 
-.about-like-and-price-photographer{
+.photographers-Price{
     z-index:1;
     right: 2.25rem;
     left: unset;

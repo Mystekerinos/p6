@@ -8,7 +8,7 @@
     margin: 0 100px;
     display:flex;
     flex-direction:row;
-    
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -50,7 +50,6 @@ font-size: 24px;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    margin-left:203px;
 }
 
 .modal {
