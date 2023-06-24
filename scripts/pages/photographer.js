@@ -5,7 +5,7 @@ const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 
 const photographersProfile = document.querySelector(".photograph-profile");
-
+const heart = "assets/images/likes.svg";
 function displayData(media, photographer) {
   const option = "Trier par";
   const photographersCreation = document.createElement("div");

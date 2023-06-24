@@ -19,6 +19,10 @@ export function mediaFactory(data) {
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
 
+  const isHeart = document.createElement("img");
+  isHeart.classList.add("heart");
+  isHeart.setAttribute("src", heart);
+
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
@@ -50,10 +54,6 @@ export function mediaFactory(data) {
     const isLikes = document.createElement("div");
     isLikes.classList.add("card_description_likes");
     isLikes.textContent = likes;
-
-    const isHeart = document.createElement("img");
-    isHeart.classList.add("heart");
-    isHeart.setAttribute("src", heart);
 
     // Create a date element for the artist date
 
@@ -143,7 +143,7 @@ export function mediaFactory(data) {
     // append  an Image, a date, a likes, a title,  an image to the header element
 
     PhotographerPrice.appendChild(isPrice);
-
+    PhotographerPrice.appendChild(isHeart);
     return PhotographerPrice;
   }
 
