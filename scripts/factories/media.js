@@ -75,6 +75,7 @@ export function mediaFactory(data) {
     description.appendChild(isTagline);
     description.appendChild(isTitle);
     description.appendChild(isLikes);
+    description.appendChild(isHeart);
 
     // append  an Image, a date, a likes, a title,  an image to the article element
 
