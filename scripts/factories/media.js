@@ -84,6 +84,8 @@ export function mediaFactory(data) {
     return card;
   }
 
+  function renderLikes() {}
+
   function getPhotographerIdentityCardDOM() {
     // Create an article element
     const article = document.createElement("article");
@@ -146,6 +148,11 @@ export function mediaFactory(data) {
     PhotographerPrice.appendChild(isHeart);
     return PhotographerPrice;
   }
+
+  const mediaCardLikeButtons = document.querySelectorAll("heart");
+  mediaCardLikeButtons.forEach((button) => {
+    button.addEventListener("click", (e) => renderLikes(e, button));
+  });
 
   return {
     getPhotographerCreationCardDOM,
