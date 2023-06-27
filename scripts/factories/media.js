@@ -20,7 +20,7 @@ export function mediaFactory(data) {
   const heart = "assets/images/likes.svg";
 
   const isHeart = document.createElement("img");
-  isHeart.classList.add("heart");
+  isHeart.classList.add("card_image");
   isHeart.setAttribute("src", heart);
 
   function getPhotographerCreationCardDOM() {
@@ -71,11 +71,22 @@ export function mediaFactory(data) {
     isTagline.classList.add("card_description_title");
     isTagline.textContent = tagline;
 
-    // new node
+    const heartButton = document.createElement("button");
+    heartButton.classList.add("heartButton");
+
+    heartButton.addEventListener("click", renderLikes);
+    heartButton.src = "assets/images/likes.svg";
+
+    const isHeart = document.createElement("img");
+    isHeart.classList.add("heart");
+    isHeart.setAttribute("src", heart);
+    heartButton.appendChild(isHeart);
+
     description.appendChild(isTagline);
     description.appendChild(isTitle);
     description.appendChild(isLikes);
     description.appendChild(isHeart);
+    isHeart.addEventListener("click", (e) => renderLikes(e, isHeart));
 
     // append  an Image, a date, a likes, a title,  an image to the article element
 
@@ -84,7 +95,9 @@ export function mediaFactory(data) {
     return card;
   }
 
-  function renderLikes() {}
+  function renderLikes(e, button) {
+    console.log("renderLikes", e, button);
+  }
 
   function getPhotographerIdentityCardDOM() {
     // Create an article element
@@ -152,6 +165,7 @@ export function mediaFactory(data) {
   const mediaCardLikeButtons = document.querySelectorAll("heart");
   mediaCardLikeButtons.forEach((button) => {
     button.addEventListener("click", (e) => renderLikes(e, button));
+    console.log("click", mediaCardLikeButtons);
   });
 
   return {

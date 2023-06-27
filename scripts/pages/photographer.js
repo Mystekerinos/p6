@@ -5,7 +5,7 @@ const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 
 const photographersProfile = document.querySelector(".photograph-profile");
-const heart = "assets/images/likes.svg";
+const heartTotal = "assets/images/likes.svg";
 function displayData(media, photographer) {
   const option = "Trier par";
   const photographersCreation = document.createElement("div");
@@ -68,9 +68,9 @@ function displayData(media, photographer) {
   console.log("userPhotographersPicture", userPhotographersPicture);
   photographersImage.appendChild(userPhotographersPicture);
 
-  const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
-  console.log("userPhotographersPrice", userPhotographersPrice);
-  artistPrice.appendChild(userPhotographersPrice);
+  // const buttonHeart = photographerIdentity.getPhotographerPrice();
+  // console.log("userPhotographersPrice", userPhotographersPrice);
+  // artistPrice.appendChild(userPhotographersPrice);
 
   displayDataList(media);
 }
@@ -103,51 +103,6 @@ function getDropDownMenu() {
 
   return dropDownMenuSection;
 }
-
-function renderLikes() {
-  // Get the media like span element
-  const mediaLikeSpanEl = this.parentNode.firstElementChild;
-
-  // Get the media like icon element
-  const mediaLikeIconEl = this.firstElementChild;
-
-  if (mediaLikeIconEl.classList.contains("fa-regular")) {
-    // Convert media like span content to a number and store it as mediaLikeCount variable
-    let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
-
-    // Increment the mediaLikeCount variable
-    mediaLikeCount++;
-
-    // Define the mediaLikeCount value as media likes span element new content
-    mediaLikeSpanEl.textContent = mediaLikeCount;
-
-    // Render the photographer footer to recalculate the total likes count
-    renderPhotographFooter(photographerInfo);
-
-    // Replace the fa-regular with the fa-solid class
-    mediaLikeIconEl.classList.replace("fa-regular", "fa-solid");
-  } else if (mediaLikeIconEl.classList.contains("fa-solid")) {
-    // Convert media like span content to a number and store it as mediaLikeCount variable
-    let mediaLikeCount = Number(mediaLikeSpanEl.textContent);
-
-    // Decrease the mediaLikeCount variable
-    mediaLikeCount--;
-
-    // Define the mediaLikeCount value as media likes span element new content
-    mediaLikeSpanEl.textContent = mediaLikeCount;
-
-    // Render the photographer footer to recalculate the total likes count
-    renderPhotographFooter(photographerInfo);
-
-    // Replace the fa-solid with the fa-regular class
-    mediaLikeIconEl.classList.replace("fa-solid", "fa-regular");
-  }
-}
-
-const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
-mediaCardLikeButtons.forEach((button) => {
-  button.addEventListener("click", renderLikes);
-});
 
 export async function mediaInit() {
   // Récupère les datas des photographes
