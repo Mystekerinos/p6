@@ -15,12 +15,12 @@ export function mediaFactory(data) {
     name,
     portrait,
   } = data;
-
+  // getPhotographerLikes(data2);
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
 
   const isHeart = document.createElement("img");
-  isHeart.classList.add("card_image");
+  isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
 
   function getPhotographerCreationCardDOM() {
@@ -156,17 +156,8 @@ export function mediaFactory(data) {
     isPrice.textContent = `${price}€/jour`;
     // Create a price element for the artist price
 
-    const allLikes = document.createElement("div");
-    allLikes.classList.add("allLikes");
-    // Calculate total media likes count and store it in a variable
-    allLikes.textContent = 0;
-
-    allLikes.forEach((data) => {
-      allLikes += Number(data.likes);
-    });
-
     // append  an Image, a date, a likes, a title,  an image to the header element
-    PhotographerPrice.appendChild(allLikes);
+
     PhotographerPrice.appendChild(isPrice);
     PhotographerPrice.appendChild(isHeart);
     return PhotographerPrice;
@@ -183,5 +174,25 @@ export function mediaFactory(data) {
     getPhotographerIdentityCardDOM,
     getPhotographerImage,
     getPhotographerPrice,
+  };
+}
+
+export function allLikesFactory(data2) {
+  console.log(data2, "data2");
+  getPhotographerLikes(data2);
+
+  function getPhotographerLikes(medias, i) {
+    console.log("ZZZZZ", medias);
+    let allLikes = 0;
+    for (i = 0; i < medias.length; i++) {
+      allLikes += parseInt(medias[i].likes);
+
+      console.log("YYYYYY", allLikes);
+    }
+
+    return allLikes;
+  }
+  return {
+    getPhotographerLikes,
   };
 }

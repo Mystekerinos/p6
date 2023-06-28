@@ -1,5 +1,6 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
+import { allLikesFactory } from "../factories/media.js";
 
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
@@ -54,9 +55,13 @@ function displayData(media, photographer) {
   photographersImage.classList.add("photographers-Image");
   photographersHeader.appendChild(photographersImage);
 
-  const artistPrice = document.createElement("div");
-  artistPrice.classList.add("photographers-Price");
-  photographersHeader.appendChild(artistPrice);
+  const photographersPrice = document.createElement("div");
+  photographersPrice.classList.add("photographers-Price");
+  photographersHeader.appendChild(photographersPrice);
+
+  const photographersAllLikes = document.createElement("div");
+  photographersAllLikes.classList.add("photographers-allLikes");
+  photographersHeader.appendChild(photographersAllLikes);
 
   const photographerIdentity = mediaFactory(photographer);
   const userPhotographersCardDOM =
@@ -68,10 +73,19 @@ function displayData(media, photographer) {
   console.log("userPhotographersPicture", userPhotographersPicture);
   photographersImage.appendChild(userPhotographersPicture);
 
-  // const buttonHeart = photographerIdentity.getPhotographerPrice();
-  // console.log("userPhotographersPrice", userPhotographersPrice);
-  // artistPrice.appendChild(userPhotographersPrice);
+  const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
+  console.log("userPhotographersPicture", userPhotographersPrice);
+  photographersPrice.appendChild(userPhotographersPrice);
 
+  const photographerAllLikes = allLikesFactory(media);
+  const userPhotographersAllLikes = photographerAllLikes.getPhotographerLikes();
+  console.log("userPhotographersPicture", userPhotographersAllLikes);
+  photographersAllLikes.appendChild(userPhotographersAllLikes);
+
+  const allLikes = document.createElement("div");
+  allLikes.classList.add("allLikes");
+  allLikes.appendChild(photographersCreationAllLikes);
+  allLikesFactory(media);
   displayDataList(media);
 }
 
