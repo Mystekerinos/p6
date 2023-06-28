@@ -154,9 +154,19 @@ export function mediaFactory(data) {
     const isPrice = document.createElement("div");
     isPrice.classList.add("price");
     isPrice.textContent = `${price}€/jour`;
+    // Create a price element for the artist price
+
+    const allLikes = document.createElement("div");
+    allLikes.classList.add("allLikes");
+    // Calculate total media likes count and store it in a variable
+    allLikes.textContent = 0;
+
+    allLikes.forEach((data) => {
+      allLikes += Number(data.likes);
+    });
 
     // append  an Image, a date, a likes, a title,  an image to the header element
-
+    PhotographerPrice.appendChild(allLikes);
     PhotographerPrice.appendChild(isPrice);
     PhotographerPrice.appendChild(isHeart);
     return PhotographerPrice;
