@@ -1,6 +1,5 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
-import { allLikesFactory } from "../factories/media.js";
 
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
@@ -77,15 +76,14 @@ function displayData(media, photographer) {
   console.log("userPhotographersPicture", userPhotographersPrice);
   photographersPrice.appendChild(userPhotographersPrice);
 
-  const photographerAllLikes = allLikesFactory(media);
-  const userPhotographersAllLikes = photographerAllLikes.getPhotographerLikes();
+  const userPhotographersAllLikes = getPhotographerLikes(media);
   console.log("userPhotographersPicture", userPhotographersAllLikes);
-  photographersAllLikes.appendChild(userPhotographersAllLikes);
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
-  allLikes.appendChild(photographersCreationAllLikes);
-  allLikesFactory(media);
+  allLikes.innerHTML = userPhotographersAllLikes;
+  photographersPrice.appendChild(allLikes);
+
   displayDataList(media);
 }
 
@@ -116,6 +114,19 @@ function getDropDownMenu() {
   console.log("dropDownMenuSection", dropDownMenuSection);
 
   return dropDownMenuSection;
+}
+
+function getPhotographerLikes(medias) {
+  let allLikes = 0;
+  if (medias !== undefined) {
+    console.log(medias.length);
+    for (let i = 0; i < medias.length; i++) {
+      allLikes += parseInt(medias[i].likes);
+
+      console.log("YYYYYY", allLikes);
+    }
+    return allLikes;
+  }
 }
 
 export async function mediaInit() {

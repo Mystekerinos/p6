@@ -15,7 +15,7 @@ export function mediaFactory(data) {
     name,
     portrait,
   } = data;
-  // getPhotographerLikes(data2);
+
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
 
@@ -163,36 +163,16 @@ export function mediaFactory(data) {
     return PhotographerPrice;
   }
 
-  const mediaCardLikeButtons = document.querySelectorAll("heart");
-  mediaCardLikeButtons.forEach((button) => {
-    button.addEventListener("click", (e) => renderLikes(e, button));
-    console.log("click", mediaCardLikeButtons);
-  });
+  // const mediaCardLikeButtons = document.querySelectorAll("heart");
+  // mediaCardLikeButtons.forEach((button) => {
+  //   button.addEventListener("click", (e) => renderLikes(e, button));
+  //   console.log("click", mediaCardLikeButtons);
+  // });
 
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographerImage,
     getPhotographerPrice,
-  };
-}
-
-export function allLikesFactory(data2) {
-  console.log(data2, "data2");
-  getPhotographerLikes(data2);
-
-  function getPhotographerLikes(medias, i) {
-    console.log("ZZZZZ", medias);
-    let allLikes = 0;
-    for (i = 0; i < medias.length; i++) {
-      allLikes += parseInt(medias[i].likes);
-
-      console.log("YYYYYY", allLikes);
-    }
-
-    return allLikes;
-  }
-  return {
-    getPhotographerLikes,
   };
 }
