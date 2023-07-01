@@ -72,7 +72,7 @@ export function mediaFactory(data) {
     isTitle.textContent = title;
 
     const isTagline = document.createElement("div");
-    isTagline.classList.add("card_description_title");
+    isTagline.classList.add("card_description_Tagline");
     isTagline.textContent = tagline;
 
     const heartButton = document.createElement("button");
@@ -91,7 +91,10 @@ export function mediaFactory(data) {
     isLikes.classList.add("card_description_likes");
     isLikes.textContent = likes;
 
-    description.appendChild(isTagline);
+    const creationLikes = document.createElement("div");
+    isLikes.classList.add("card_description_creationLikes");
+    creationLikes.textContent = likes;
+
     description.appendChild(isTitle);
     description.appendChild(isLikes);
     description.appendChild(isHeart);

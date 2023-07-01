@@ -80,7 +80,6 @@ header {
     justify-content: space-around;
 }
 .card_description_title{
-    margin-right:90px;
     font-size:18px;
     color: #901C1C;
 }
@@ -107,8 +106,9 @@ header {
 .card_description{
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items:center;
-    margin-bottom:8px;
+    margin-bottom:15px;
 }
 
 .dashBoard{
@@ -130,6 +130,7 @@ header {
     font-weight: 700;
     line-height: 3rem;
 }
+
 
 .photographers-about-likes-and-price{
     z-index: 1;
@@ -160,4 +161,10 @@ header {
     background: #db8876;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+
+.photograph_Creations_dropDown_word{
+    margin-left:2.6vw;
+    margin-right:2.6vw;
 }
