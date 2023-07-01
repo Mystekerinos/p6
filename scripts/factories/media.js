@@ -23,6 +23,15 @@ export function mediaFactory(data) {
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
 
+  function renderLikes(isLikes) {
+    console.log("isLikes", isLikes);
+    let moreLikes = 0;
+    moreLikes = ++isLikes;
+    // allLikes = ++isLikes;
+    console.log("renderLikes", moreLikes);
+    return moreLikes;
+  }
+
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
@@ -49,11 +58,6 @@ export function mediaFactory(data) {
       isVideo.setAttribute("src", Video);
       card.appendChild(isVideo);
     }
-
-    // Create a likes element for the artist likes
-    const isLikes = document.createElement("div");
-    isLikes.classList.add("card_description_likes");
-    isLikes.textContent = likes;
 
     // Create a date element for the artist date
 
@@ -82,11 +86,18 @@ export function mediaFactory(data) {
     isHeart.setAttribute("src", heart);
     heartButton.appendChild(isHeart);
 
+    // Create a likes element for the artist likes
+    const isLikes = document.createElement("div");
+    isLikes.classList.add("card_description_likes");
+    isLikes.textContent = likes;
+
     description.appendChild(isTagline);
     description.appendChild(isTitle);
     description.appendChild(isLikes);
     description.appendChild(isHeart);
-    isHeart.addEventListener("click", (e) => renderLikes(e, isHeart));
+    isHeart.addEventListener("click", () => renderLikes(likes));
+
+    console.log("isHeart", isLikes);
 
     // append  an Image, a date, a likes, a title,  an image to the article element
 
@@ -95,9 +106,9 @@ export function mediaFactory(data) {
     return card;
   }
 
-  function renderLikes(e, button) {
-    console.log("renderLikes", e, button);
-  }
+  //ToDo
+  //recuperer le chiffre total et le chiffre de la card  l'element le plus pres l'id et la classe
+  //je dois les incrementer en meme temps.
 
   function getPhotographerIdentityCardDOM() {
     // Create an article element
@@ -163,16 +174,11 @@ export function mediaFactory(data) {
     return PhotographerPrice;
   }
 
-  // const mediaCardLikeButtons = document.querySelectorAll("heart");
-  // mediaCardLikeButtons.forEach((button) => {
-  //   button.addEventListener("click", (e) => renderLikes(e, button));
-  //   console.log("click", mediaCardLikeButtons);
-  // });
-
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographerImage,
     getPhotographerPrice,
+    renderLikes,
   };
 }

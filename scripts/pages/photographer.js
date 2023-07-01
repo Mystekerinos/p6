@@ -79,10 +79,18 @@ function displayData(media, photographer) {
   const userPhotographersAllLikes = getPhotographerLikes(media);
   console.log("userPhotographersPicture", userPhotographersAllLikes);
 
+  const moreUserPhotographersAllLikes = photographerIdentity.renderLikes();
+  console.log("userPhotographersPicture", moreUserPhotographersAllLikes);
+
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
   allLikes.innerHTML = userPhotographersAllLikes;
+
   photographersPrice.appendChild(allLikes);
+
+  const moreLikes = document.createElement("div");
+  moreLikes.classList.add("moreLikes");
+  moreLikes.innerHTML = moreLikes;
 
   displayDataList(media);
 }
@@ -128,6 +136,15 @@ function getPhotographerLikes(medias) {
     return allLikes;
   }
 }
+
+// function renderLikes(isLikes) {
+//   console.log("isLikes", isLikes);
+//   let moreLikes = 0;
+//   moreLikes = ++isLikes;
+//   allLikes = ++isLikes;
+//   console.log("renderLikes", moreLikes);
+//   return moreLikes;
+// }
 
 export async function mediaInit() {
   // Récupère les datas des photographes
@@ -182,6 +199,74 @@ function dropDownEventListener(medias) {
     displayDataList(medias);
   });
 }
+
+// async function renderLightBoxMedia(mediaId) {
+//   // Get the media object for the specified media id
+//   const mediaObject = await photographerMedia.find(
+//     (media) => media.id == mediaId
+//   );
+
+//   // Update the currentMediaId variable with the current lightbox media id
+//   currentLightboxMediaId = mediaId;
+
+//   // Destructuring the media object to extract its properties
+//   const { title, photographerId, image, video } = mediaObject;
+
+//   // Get the lightboxMedia element
+//   const lightboxMedia = document.getElementById("lightboxMedia");
+
+//   // If the media is an image add the appropriate media card html to the lightboxMedia element
+//   if (image) {
+//     lightboxMedia.innerHTML = `
+//       <img class="lightbox-img" src="assets/images/${photographerId}/${image}" alt="${title}">
+//       <figcaption class="lightbox-caption">${title}</figcaption>
+//   `;
+//   }
+
+//   // If the media is a video add the appropriate media card html to the lightboxMedia element
+//   if (video) {
+//     lightboxMedia.innerHTML = `
+//       <video class="lightbox-video" title="${title}" controls>
+//         <source src="assets/images/${photographerId}/${video}" type="video/mp4">
+//       </video>
+//       <figcaption class="lightbox-caption">${title}</figcaption>
+//   `;
+//   }
+// }
+
+// function nextLightBoxMedia() {
+//   // Find the index of the current media item in the photographerMedia array
+//   const currentIndex = photographerMedia.findIndex(
+//     (media) => media.id == currentLightboxMediaId
+//   );
+
+//   // If the current media item is not the last item in the array, display the next item
+//   if (currentIndex < photographerMedia.length - 1) {
+//     const nextMediaId = photographerMedia[currentIndex + 1].id;
+//     renderLightBoxMedia(nextMediaId);
+//     // Else display the first item of the array
+//   } else {
+//     const nextMediaId = photographerMedia[0].id;
+//     renderLightBoxMedia(nextMediaId);
+//   }
+// }
+
+// function previousLightBoxMedia() {
+//   // Find the index of the current media item in the photographerMedia array
+//   const currentIndex = photographerMedia.findIndex(
+//     (media) => media.id == currentLightboxMediaId
+//   );
+
+//   // If the current media item is not the first item in the array, display the previous item
+//   if (currentIndex > 0) {
+//     const previousMediaId = photographerMedia[currentIndex - 1].id;
+//     renderLightBoxMedia(previousMediaId);
+//     // Else display the last item of the array
+//   } else {
+//     const previousMediaId = photographerMedia[photographerMedia.length - 1].id;
+//     renderLightBoxMedia(previousMediaId);
+//   }
+// }
 
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
