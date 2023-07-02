@@ -159,7 +159,9 @@ header {
 
 .photographers-Price{
     z-index:1;
-    right: 2.25rem;
+    top:868px;
+    position:fixed;
+    right: -0.75rem;
     left: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
