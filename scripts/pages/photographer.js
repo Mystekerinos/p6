@@ -5,7 +5,7 @@ const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 
 const photographersProfile = document.querySelector(".photograph-profile");
-const heartTotal = "assets/images/likes.svg";
+const heartTotal = "assets/images/likesTotal.svg";
 function displayData(media, photographer) {
   const option = "Trier par";
   const photographersCreation = document.createElement("div");
@@ -83,7 +83,7 @@ function displayData(media, photographer) {
   allLikes.innerHTML = userPhotographersAllLikes;
 
   const isHeartPrice = document.createElement("img");
-  isHeartPrice.classList.add("heart");
+  isHeartPrice.classList.add("heartTotal");
   isHeartPrice.setAttribute("src", heartTotal);
 
   const photographersPriceHeart = document.createElement("div");

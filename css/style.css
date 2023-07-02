@@ -157,11 +157,13 @@ header {
     border-radius : 75px;
 }
 
+
+
 .photographers-Price{
     z-index:1;
-    top:868px;
+    top:834px;
     position:fixed;
-    right: -0.75rem;
+    right: 0.25rem;
     left: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -171,6 +173,7 @@ header {
     font-weight: 500;
     display: flex;
     flex-direction: row;
+    padding:16px;
 }
 
 .price{
