@@ -169,7 +169,7 @@ export function mediaFactory(data) {
     // append  an Image, a date, a likes, a title,  an image to the header element
 
     PhotographerPrice.appendChild(isPrice);
-    PhotographerPrice.appendChild(isHeart);
+
     return PhotographerPrice;
   }
 

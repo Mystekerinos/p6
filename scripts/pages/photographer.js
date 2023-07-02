@@ -72,10 +72,6 @@ function displayData(media, photographer) {
   console.log("userPhotographersPicture", userPhotographersPicture);
   photographersImage.appendChild(userPhotographersPicture);
 
-  const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
-  console.log("userPhotographersPicture", userPhotographersPrice);
-  photographersPrice.appendChild(userPhotographersPrice);
-
   const userPhotographersAllLikes = getPhotographerLikes(media);
   console.log("userPhotographersPicture", userPhotographersAllLikes);
 
@@ -86,7 +82,20 @@ function displayData(media, photographer) {
   allLikes.classList.add("allLikes");
   allLikes.innerHTML = userPhotographersAllLikes;
 
-  photographersPrice.appendChild(allLikes);
+  const isHeartPrice = document.createElement("img");
+  isHeartPrice.classList.add("heart");
+  isHeartPrice.setAttribute("src", heartTotal);
+
+  const photographersPriceHeart = document.createElement("div");
+  photographersPriceHeart.classList.add("photographersPriceHeart");
+  photographersPriceHeart.appendChild(allLikes);
+  photographersPriceHeart.appendChild(isHeartPrice);
+
+  photographersPrice.appendChild(photographersPriceHeart);
+
+  const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
+  console.log("userPhotographersPicture", userPhotographersPrice);
+  photographersPrice.appendChild(userPhotographersPrice);
 
   const moreLikes = document.createElement("div");
   moreLikes.classList.add("moreLikes");
