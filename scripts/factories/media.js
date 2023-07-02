@@ -81,24 +81,20 @@ export function mediaFactory(data) {
     heartButton.addEventListener("click", renderLikes);
     heartButton.src = "assets/images/likes.svg";
 
-    const isHeart = document.createElement("img");
-    isHeart.classList.add("heart");
-    isHeart.setAttribute("src", heart);
-    heartButton.appendChild(isHeart);
-
     // Create a likes element for the artist likes
     const isLikes = document.createElement("div");
     isLikes.classList.add("card_description_likes");
     isLikes.textContent = likes;
 
     const creationLikes = document.createElement("div");
-    isLikes.classList.add("card_description_creationLikes");
-    creationLikes.textContent = likes;
+    creationLikes.classList.add("card_description_creationLikes");
+    creationLikes.appendChild(isLikes);
+    creationLikes.appendChild(isHeart);
+    isHeart.addEventListener("click", () => renderLikes(likes));
 
     description.appendChild(isTitle);
-    description.appendChild(isLikes);
-    description.appendChild(isHeart);
-    isHeart.addEventListener("click", () => renderLikes(likes));
+
+    description.appendChild(creationLikes);
 
     console.log("isHeart", isLikes);
 

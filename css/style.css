@@ -97,7 +97,13 @@ header {
 .card_video{
     width:350px;
     height:300px;
+    margin-bottom:10px;
     object-fit: cover;
+}
+
+
+.card_description_creationLikes{
+    display: flex;
 }
 .card_description_likes{
     font-size: 16px;
