@@ -23,15 +23,6 @@ export function mediaFactory(data) {
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
 
-  function renderLikes(isLikes) {
-    console.log("isLikes", isLikes);
-    let moreLikes = 0;
-    moreLikes = ++isLikes;
-    // allLikes = ++isLikes;
-    console.log("renderLikes", moreLikes);
-    return moreLikes;
-  }
-
   function getPhotographerCreationCardDOM() {
     // Create an article element
     const card = document.createElement("card");
@@ -90,8 +81,9 @@ export function mediaFactory(data) {
     creationLikes.classList.add("card_description_creationLikes");
     creationLikes.appendChild(isLikes);
     creationLikes.appendChild(isHeart);
-    isHeart.addEventListener("click", () => renderLikes(likes));
 
+    isHeart.addEventListener("click", () => renderLikes(likes));
+    creationLikes.appendChild(renderLikes(likes));
     description.appendChild(isTitle);
 
     description.appendChild(creationLikes);
@@ -171,6 +163,21 @@ export function mediaFactory(data) {
     PhotographerPrice.appendChild(isPrice);
 
     return PhotographerPrice;
+  }
+
+  function renderLikes(isLikes) {
+    const moreLikeCreation = document.createElement("div");
+    moreLikeCreation.classList.add("card_LikesAdd");
+    const articleLike = document.createElement("div");
+    moreLikeCreation.classList.add("card_LikesAddCreation");
+    console.log("isLikes", isLikes);
+    let moreLikes = 0;
+    moreLikes = ++isLikes;
+    // allLikes = ++isLikes;
+    console.log("renderLikes", moreLikes);
+    moreLikeCreation.innerHTML = moreLikes;
+    articleLike.appendChild(moreLikeCreation);
+    return articleLike;
   }
 
   return {
