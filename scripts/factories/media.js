@@ -69,8 +69,8 @@ export function mediaFactory(data) {
     const heartButton = document.createElement("button");
     heartButton.classList.add("heartButton");
 
-    // heartButton.addEventListener("click", renderLikes);
-    // heartButton.src = "assets/images/likes.svg";
+    heartButton.addEventListener("click", renderLikes);
+    heartButton.src = "assets/images/likes.svg";
 
     // Create a likes element for the artist likes
     const isLikes = document.createElement("div");
@@ -82,8 +82,8 @@ export function mediaFactory(data) {
     creationLikes.appendChild(isLikes);
     creationLikes.appendChild(isHeart);
 
-    // isHeart.addEventListener("click", () => renderLikes(likes));
-    // creationLikes.appendChild(renderLikes(likes));
+    isHeart.addEventListener("click", () => renderLikes(isLikes));
+
     description.appendChild(isTitle);
 
     description.appendChild(creationLikes);
@@ -165,26 +165,26 @@ export function mediaFactory(data) {
     return PhotographerPrice;
   }
 
-  // function renderLikes(isLikes) {
-  //   const moreLikeCreation = document.createElement("div");
-  //   moreLikeCreation.classList.add("card_LikesAdd");
-  //   const articleLike = document.createElement("div");
-  //   moreLikeCreation.classList.add("card_LikesAddCreation");
-  //   console.log("isLikes", isLikes);
-  //   let moreLikes = 0;
-  //   moreLikes = ++isLikes;
-  //   // allLikes = ++isLikes;
-  //   console.log("renderLikes", moreLikes);
-  //   moreLikeCreation.innerHTML = moreLikes;
-  //   articleLike.appendChild(moreLikeCreation);
-  //   return articleLike;
-  // }
+  function renderLikes(isLikes) {
+    let allLikes = document.querySelector(".allLikes");
+    let NbAllLike = parseInt(allLikes.textContent);
+    let NbLike = parseInt(isLikes.textContent);
+    if (NbLike == likes) {
+      NbLike++;
+      NbAllLike++;
+    } else {
+      NbLike--;
+      NbAllLike--;
+    }
+    isLikes.textContent = NbLike;
+    allLikes.textContent = NbAllLike;
+  }
 
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographerImage,
     getPhotographerPrice,
-    // renderLikes,
+    renderLikes,
   };
 }
