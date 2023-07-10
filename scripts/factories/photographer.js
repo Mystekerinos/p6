@@ -20,6 +20,7 @@ function photographerFactory(data) {
     // Create an image element for the portrait
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    img.setAttribute("alt", "text");
 
     // Create a name element for the artist name
     const isName = document.createElement("h2");

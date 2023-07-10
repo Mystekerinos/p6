@@ -32,11 +32,15 @@ export function mediaFactory(data) {
     description.classList.add("card_description");
     // Create a image element for the artist image
     const isImage = document.createElement("img");
+    isImage.setAttribute("alt", "text");
     const isVideo = document.createElement("video");
     if (image) {
       const Image = `assets/images/${photographerId}/${image}`;
       isImage.classList.add("card_image");
       isImage.setAttribute("src", Image);
+      isImage.setAttribute("alt", "text");
+
+      // isImage.addEventListener("click", () => openModal());
       card.appendChild(isImage);
     }
 
@@ -120,7 +124,7 @@ export function mediaFactory(data) {
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
 
-    const isPicture = document.createElement("img");
+    const isPicture = (document.createElement("img").alt = "text");
     isPicture.setAttribute("src", picture);
 
     // append  an Image, a date, a likes, a title,  an image to the header element
@@ -139,6 +143,7 @@ export function mediaFactory(data) {
 
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
+    isPicture.setAttribute("alt", "text");
 
     // append  an Image, a date, a likes, a title,  an image to the header element
     artistFace.appendChild(isPicture);

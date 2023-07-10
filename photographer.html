@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png" >
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
@@ -40,7 +40,7 @@
 
     <div class="id">
       <div class="numbertext">1 / 4</div>
-      <img src="assets/images/`${id}`/`${title}`" style="width:100%" alt="Nature">
+      <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Nature">
     </div>
 
     <div class="mySlides">
@@ -90,7 +90,7 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="text" />
         </header>
 				<form>
 				  <label class="modal-label" for="firstName">Prénom</label><br>
@@ -114,16 +114,16 @@
 
 
 
-<!-- 
+
     <script>
       // Open the Modal
       function openModal() {
-        document.getElementById("myModal").style.display = "block";
+        document.getElementsByClassName("card_image").style.display = "block";
       }
       
       // Close the Modal
       function closeModalLightBox() {
-        document.getElementById("myModal").style.display = "none";
+        document.getElementsByClassName("card_image").style.display = "none";
       }
       
       var slideIndex = 1;
@@ -141,8 +141,8 @@
       
       function showSlides(n) {
         var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
+        var slides = document.getElementsByClassName("card_image");
+        var dots = document.getElementsByClassName("photograph_Creations_card");
         var captionText = document.getElementById("caption");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
@@ -156,7 +156,7 @@
         dots[slideIndex-1].className += " active";
         captionText.innerHTML = dots[slideIndex-1].alt;
       }
-      </script> -->
+      </script>
 
     <script type="module" src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
