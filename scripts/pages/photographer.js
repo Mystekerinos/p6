@@ -82,9 +82,10 @@ function displayData(media, photographer) {
   allLikes.classList.add("allLikes");
   allLikes.innerHTML = userPhotographersAllLikes;
 
-  const isHeartPrice = (document.createElement("img").alt = "text");
+  const isHeartPrice = document.createElement("img");
   isHeartPrice.classList.add("heartTotal");
   isHeartPrice.setAttribute("src", heartTotal);
+  isHeartPrice.setAttribute("alt", "text");
 
   const photographersPriceHeart = document.createElement("div");
   photographersPriceHeart.classList.add("photographersPriceHeart");

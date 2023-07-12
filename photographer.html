@@ -10,17 +10,19 @@
   <body>
     <header>
       <a class="header-link" href="./index.html" aria-label="Lien vers la page d'accueil"></a>
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
+      <img tabinfos="0" src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
     </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <div class="photograph-profile"></div>
+      <div tabinfos="1" class="photograph-header">
+        <div tabinfos="2" class="photograph-profile"></div>
         <button class="contact_button" aria-label="Bouton de fermeture du modal de contact" onclick="displayModal()">Contactez-moi</button>
         
       </div>
+
+  
       <div class="row">
-        <div class="id">
+        <div class="column">
           <img src="assets/images/`${id}`/`${title}`" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="">
         </div>
         <div class="column">
@@ -31,14 +33,14 @@
         </div>
         <div class="column">
           <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="">
-        </div>
+        </div>  
       </div>
       <!-- The Modal/Lightbox -->
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModalLightBox()">&times;</span>
   <div class="modal-content">
 
-    <div class="id">
+    <div class="mySlides">
       <div class="numbertext">1 / 4</div>
       <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Nature">
     </div>
@@ -47,12 +49,12 @@
       <div class="numbertext">2 / 4</div>
       <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Snow">
     </div>
-
+  
     <div class="mySlides">
       <div class="numbertext">3 / 4</div>
       <img src="/assets/images/930/Sport_Next_Hold.jpg" style="width:100%" alt="Mountains">
     </div>
-
+    
     <div class="mySlides">
       <div class="numbertext">4 / 4</div>
       <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" style="width:100%" alt="Lights">
@@ -70,18 +72,6 @@
     <!-- Thumbnail image controls -->
     <div class="column">
       <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
     </div>
   </div>
 </div>
@@ -116,15 +106,15 @@
 
 
     <script>
-      // Open the Modal
-      function openModal() {
-        document.getElementsByClassName("card_image").style.display = "block";
-      }
-      
-      // Close the Modal
-      function closeModalLightBox() {
-        document.getElementsByClassName("card_image").style.display = "none";
-      }
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModalLightBox() {
+  document.getElementById("myModal").style.display = "none";
+}
       
       var slideIndex = 1;
       showSlides(slideIndex);
@@ -141,8 +131,8 @@
       
       function showSlides(n) {
         var i;
-        var slides = document.getElementsByClassName("card_image");
-        var dots = document.getElementsByClassName("photograph_Creations_card");
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
         var captionText = document.getElementById("caption");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
@@ -158,7 +148,10 @@
       }
       </script>
 
-    <script type="module" src="./scripts/pages/photographer.js"></script>
+    <script type="module" src="./scripts/pages/photographer.js">
+
+
+    </script>
     <script src="./scripts/utils/contactForm.js"></script>
   </body>
 </html>

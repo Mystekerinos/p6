@@ -124,8 +124,9 @@ export function mediaFactory(data) {
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
 
-    const isPicture = (document.createElement("img").alt = "text");
+    const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
+    isPicture.setAttribute("alt", "text");
 
     // append  an Image, a date, a likes, a title,  an image to the header element
 
