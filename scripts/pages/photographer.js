@@ -236,8 +236,8 @@ function dropDownEventListener(medias) {
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
-  medias.forEach((mediaData) => {
-    const photographerCreation = mediaFactory(mediaData);
+  medias.forEach((mediaData, index) => {
+    const photographerCreation = mediaFactory(mediaData, index);
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     mediaList.appendChild(userPhotographerCreationCardDOM);

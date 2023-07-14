@@ -1,5 +1,9 @@
-export function mediaFactory(data) {
-  console.log(data, "data");
+let nbVideo = 0
+export function mediaFactory(data, index) {
+  if (index == 0) {
+    nbVideo = 0
+  }
+
   const {
     title,
     id,
@@ -34,13 +38,20 @@ export function mediaFactory(data) {
     const isImage = document.createElement("img");
     isImage.setAttribute("alt", "text");
     const isVideo = document.createElement("video");
+    if (video) {
+      nbVideo++
+    }
+
     if (image) {
       const Image = `assets/images/${photographerId}/${image}`;
       isImage.classList.add("card_image");
+      isImage.classList.add("hover-shadow");
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "text");
-
-      // isImage.addEventListener("click", () => openModal());
+      const imageIndex = index - nbVideo
+      isImage.addEventListener("click", () => {
+        openModal(imageIndex)
+      });
       card.appendChild(isImage);
     }
 

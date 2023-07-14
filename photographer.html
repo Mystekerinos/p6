@@ -21,7 +21,7 @@
       </div>
 
   
-      <div class="row">
+      <!-- <div class="row">
         <div class="column">
           <img src="assets/images/`${id}`/`${title}`" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="">
         </div>
@@ -34,18 +34,21 @@
         <div class="column">
           <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="">
         </div>  
-      </div>
+      </div> -->
       <!-- The Modal/Lightbox -->
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModalLightBox()">&times;</span>
   <div class="modal-content">
+    <div id="slides-container">
 
-    <div class="mySlides">
-      <div class="numbertext">1 / 4</div>
-      <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Nature">
     </div>
 
-    <div class="mySlides">
+    <div id="mySlides">
+      <div id="slide-number" class="numbertext">1 / 4</div>
+      <img id="slide-image" src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Nature">
+    </div>
+
+    <!-- <div class="mySlides">
       <div class="numbertext">2 / 4</div>
       <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Snow">
     </div>
@@ -58,7 +61,7 @@
     <div class="mySlides">
       <div class="numbertext">4 / 4</div>
       <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" style="width:100%" alt="Lights">
-    </div>
+    </div> -->
 
     <!-- Next/previous controls -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -70,8 +73,8 @@
     </div>
 
     <!-- Thumbnail image controls -->
-    <div class="column">
-      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
+    <div class="row" id="dot-container">
+      <!-- <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature"> -->
     </div>
   </div>
 </div>
@@ -106,9 +109,32 @@
 
 
     <script>
+      //
+      var slideIndex = 0;
+      
 // Open the Modal
-function openModal() {
+let images = []
+function openModal(imageIndex) {
   document.getElementById("myModal").style.display = "block";
+
+  const imageCards = document.getElementsByClassName("card_image")
+      console.log("images", imageCards)
+  images = []
+  for (let i = 0; i < imageCards.length; i++) {
+    console.log("image", imageCards[i].src)
+    images.push(imageCards[i].src)
+  }
+  slideIndex = imageIndex
+  const dotContainer = document.getElementById("dot-container")
+  for (let i = 0; i < images.length; i++) {
+    const dot = document.createElement("img");
+    dot.className = "demo"
+    dot.src = images[i]
+    dot.addEventListener("click", () => showSlides(i));
+    dotContainer.appendChild(dot)
+  }
+    
+  showSlides(imageIndex)
 }
 
 // Close the Modal
@@ -116,35 +142,37 @@ function closeModalLightBox() {
   document.getElementById("myModal").style.display = "none";
 }
       
-      var slideIndex = 1;
-      showSlides(slideIndex);
       
       // Next/previous controls
       function plusSlides(n) {
-        showSlides(slideIndex += n);
+        let nextIndex = slideIndex +n
+        if (nextIndex > images.length -1) {
+          nextIndex = 0
+        } else if (nextIndex < 0) {
+          nextIndex = images.length - 1
+        }
+        showSlides(slideIndex = nextIndex);
       }
       
       // Thumbnail image controls
       function currentSlide(n) {
-        showSlides(slideIndex = n);
+        showSlides(n);
       }
       
       function showSlides(n) {
+        slideIndex = n
         var i;
-        var slides = document.getElementsByClassName("mySlides");
+        var slideImage = document.getElementById("slide-image");
         var dots = document.getElementsByClassName("demo");
         var captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
+        slideImage.src = images[n]
+        const slideNumber = document.getElementById("slide-number")
+        slideNumber.textContent = `${n + 1} / ${images.length}`
         for (i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
+        dots[n].className += " active";
+        captionText.innerHTML = dots[slideIndex].alt;
       }
       </script>
 

@@ -218,6 +218,12 @@ form input {
   
   img.demo {
     opacity: 0.6;
+    width: 60px;
+    height: 60px;
+  }
+
+  img.active {
+    opacity: 1 !important;
   }
   
   .active,
