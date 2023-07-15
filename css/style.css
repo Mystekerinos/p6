@@ -147,6 +147,21 @@ header h1{
     line-height: 3rem;
 }
 
+.dropdown-options{
+  width: 10.625rem;
+  height: 4rem;
+  background-color: #901c1c;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+
+header .logo {
+  margin-right:923px;
+}
+
 
 .photographers-about-likes-and-price{
     z-index: 1;
@@ -219,29 +234,7 @@ header h1{
     width: 25%;
   }
   
-  /* The Modal (background) */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 90%;
-    height: 60%;
-    overflow: auto;
-    background-color: black;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-  }
+
   
   /* The Close Button */
   .close {

@@ -10,74 +10,43 @@
   <body>
     <header>
       <a class="header-link" href="./index.html" aria-label="Lien vers la page d'accueil"></a>
-      <img tabinfos="0" src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
+      <img tabindex="0" src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
     </a>
     </header>
     <main id="main">
-      <div tabinfos="1" class="photograph-header">
-        <div tabinfos="2" class="photograph-profile"></div>
-        <button class="contact_button" aria-label="Bouton de fermeture du modal de contact" onclick="displayModal()">Contactez-moi</button>
+      <div tabindex="1" class="photograph-header">
+        <div tabindex="2" class="photograph-profile"></div>
+        <button class="contact_button" aria-label="Bouton d'ouverture de la modal de contact" onclick="displayModal()">Contactez-moi</button>
         
       </div>
 
-  
-      <!-- <div class="row">
-        <div class="column">
-          <img src="assets/images/`${id}`/`${title}`" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="">
-        </div>
-        <div class="column">
-          <img src="/assets/images/82/Event_18thAnniversary.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="">
-        </div>
-        <div class="column">
-          <img src="/assets/images/930/Sport_Next_Hold.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="">
-        </div>
-        <div class="column">
-          <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="">
-        </div>  
-      </div> -->
-      <!-- The Modal/Lightbox -->
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModalLightBox()">&times;</span>
-  <div class="modal-content">
-    <div id="slides-container">
-
-    </div>
-
-    <div id="mySlides">
-      <div id="slide-number" class="numbertext">1 / 4</div>
-      <img id="slide-image" src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Nature">
-    </div>
-
-    <!-- <div class="mySlides">
-      <div class="numbertext">2 / 4</div>
-      <img src="/assets/images/82/Event_18thAnniversary.jpg" style="width:100%" alt="Snow">
-    </div>
-  
-    <div class="mySlides">
-      <div class="numbertext">3 / 4</div>
-      <img src="/assets/images/930/Sport_Next_Hold.jpg" style="width:100%" alt="Mountains">
-    </div>
-    
-    <div class="mySlides">
-      <div class="numbertext">4 / 4</div>
-      <img src="/assets/images/925/Fashion_Melody_Red_on_Stripes.jpg" style="width:100%" alt="Lights">
-    </div> -->
-
-    <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- Caption text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Thumbnail image controls -->
-    <div class="row" id="dot-container">
-      <!-- <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature"> -->
-    </div>
-  </div>
+     
 </div>
+ <div id="contact_modal">
+			<div class="modal">
+				<header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="text" />
+        </header>
+				<form>
+				  <label class="modal-label" for="firstName">Prénom</label><br>
+      <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
+        required><br>
+
+      <label class="modal-label" for="lastName">Nom</label><br>
+      <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
+        required><br>
+
+      <label class="modal-label" for="email">E-mail</label><br>
+      <input class="modal-input" type="email" id="email" name="email" required><br>
+
+      <label class="modal-label" for="message">Votre message</label><br>
+      <textarea class="modal-input modal-msg" rows="15" cols="71" type="text" id="message" name="message" 
+        pattern="(?!^ +$)^.+$" required> </textarea><br>
+          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact">Envoyer</button>
+				</form>
+			</div>
+		</div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -98,83 +67,39 @@
       <input class="modal-input" type="email" id="email" name="email" required><br>
 
       <label class="modal-label" for="message">Votre message</label><br>
-      <input class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
-        pattern="(?!^ +$)^.+$" required><br>
+      <textarea class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
+        pattern="(?!^ +$)^.+$" required> </textarea><br>
           <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact">Envoyer</button>
 				</form>
 			</div>
 		</div>
 
 
+    <div class="lightbox-container">
+
+      <div class="lightbox-grid1">
+        <button class="lightbox-previous" aria-label="Bouton précédent du modal de lightbox" id="lightboxPreviousBtn">
+          <em class="fa-solid fa-chevron-left"></em>
+        </button>
+      </div>
+
+      <figure class="lightbox-grid2 lightbox-media" id="lightboxMedia"></figure>
+
+      <div class="lightbox-grid3">
+        <button class="lightbox-close" aria-label="Bouton de fermeture du modal de lightbox" id="lightboxCloseBtn">
+          <img class="lightbox-close-img" src="assets/icons/close-red.svg" alt="Red close button icon">
+        </button>
+        <button class="lightbox-next" aria-label="Bouton suivant du modal de lightbox" id="lightboxNextBtn">
+          <em class="fa-solid fa-chevron-right"></em>
+        </button>
+      </div>
 
 
-    <script>
-      //
-      var slideIndex = 0;
-      
-// Open the Modal
-let images = []
-function openModal(imageIndex) {
-  document.getElementById("myModal").style.display = "block";
 
-  const imageCards = document.getElementsByClassName("card_image")
-      console.log("images", imageCards)
-  images = []
-  for (let i = 0; i < imageCards.length; i++) {
-    console.log("image", imageCards[i].src)
-    images.push(imageCards[i].src)
-  }
-  slideIndex = imageIndex
-  const dotContainer = document.getElementById("dot-container")
-  for (let i = 0; i < images.length; i++) {
-    const dot = document.createElement("img");
-    dot.className = "demo"
-    dot.src = images[i]
-    dot.addEventListener("click", () => showSlides(i));
-    dotContainer.appendChild(dot)
-  }
-    
-  showSlides(imageIndex)
-}
+    </div>
 
-// Close the Modal
-function closeModalLightBox() {
-  document.getElementById("myModal").style.display = "none";
-}
-      
-      
-      // Next/previous controls
-      function plusSlides(n) {
-        let nextIndex = slideIndex +n
-        if (nextIndex > images.length -1) {
-          nextIndex = 0
-        } else if (nextIndex < 0) {
-          nextIndex = images.length - 1
-        }
-        showSlides(slideIndex = nextIndex);
-      }
-      
-      // Thumbnail image controls
-      function currentSlide(n) {
-        showSlides(n);
-      }
-      
-      function showSlides(n) {
-        slideIndex = n
-        var i;
-        var slideImage = document.getElementById("slide-image");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        slideImage.src = images[n]
-        const slideNumber = document.getElementById("slide-number")
-        slideNumber.textContent = `${n + 1} / ${images.length}`
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        dots[n].className += " active";
-        captionText.innerHTML = dots[slideIndex].alt;
-      }
-      </script>
+
+  
 
     <script type="module" src="./scripts/pages/photographer.js">
 
