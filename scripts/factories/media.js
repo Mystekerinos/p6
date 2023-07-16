@@ -229,8 +229,11 @@ let currentLightboxMediaId = 0;
     if (image) 
     {
       lightboxMedia.innerHTML = `
-      <source src="assets/images/${photographerId}/${image}" alt="${title}">
+      <img class="lightbox-img" title="${title}" 
+      src="assets/images/${photographerId}/${image}" alt="${title}">
+    
         <figcaption class="lightbox-caption">${title}</figcaption>
+        
     `;
     }
   console.log("lightboxMedia",lightboxMedia)
