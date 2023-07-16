@@ -1,3 +1,6 @@
+
+
+
 function photographerFactory(data) {
   const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -54,6 +57,9 @@ function photographerFactory(data) {
     return article;
   }
 
+
+
+  
   return {
     getUserCardDOM,
   };

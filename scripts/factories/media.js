@@ -1,8 +1,5 @@
-let nbVideo = 0
-export function mediaFactory(data, index) {
-  if (index == 0) {
-    nbVideo = 0
-  }
+
+export function mediaFactory(data) {
 
   const {
     title,
@@ -20,6 +17,9 @@ export function mediaFactory(data, index) {
     portrait,
   } = data;
 
+  console.log("data",data)
+  const Image = `assets/images/${photographerId}/${image}`;
+  const Video = `assets/images/${photographerId}/${video}`;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
 
@@ -34,23 +34,23 @@ export function mediaFactory(data, index) {
 
     const description = document.createElement("div");
     description.classList.add("card_description");
+
+  
     // Create a image element for the artist image
     const isImage = document.createElement("img");
     isImage.setAttribute("alt", "text");
     const isVideo = document.createElement("video");
-    if (video) {
-      nbVideo++
-    }
+   
 
     if (image) {
-      const Image = `assets/images/${photographerId}/${image}`;
+      
       isImage.classList.add("card_image");
       isImage.classList.add("hover-shadow");
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "text");
-      const imageIndex = index - nbVideo
+   
       isImage.addEventListener("click", () => {
-        openModal(imageIndex)
+        renderLightBoxMedia(Image)
       });
       card.appendChild(isImage);
     }
@@ -59,9 +59,12 @@ export function mediaFactory(data, index) {
 
     if (video) {
       console.log("video", video);
-      const Video = `assets/images/${photographerId}/${video}`;
+     
       isVideo.classList.add("card_video");
       isVideo.setAttribute("src", Video);
+      isVideo.addEventListener("click", () => {
+        renderLightBoxMedia(Video)
+      });
       card.appendChild(isVideo);
     }
 
@@ -98,15 +101,17 @@ export function mediaFactory(data, index) {
     creationLikes.appendChild(isHeart);
 
     isHeart.addEventListener("click", () => renderLikes(isLikes));
-
+    
     description.appendChild(isTitle);
 
     description.appendChild(creationLikes);
 
     console.log("isHeart", isLikes);
 
-    // append  an Image, a date, a likes, a title,  an image to the article element
+  
 
+    // append  an Image, a date, a likes, a title,  an image to the article element
+   
     card.appendChild(description);
 
     return card;
@@ -141,9 +146,14 @@ export function mediaFactory(data, index) {
 
     // append  an Image, a date, a likes, a title,  an image to the header element
 
+   
+    
+
     article.appendChild(isName);
     article.appendChild(location);
     article.appendChild(isTagline);
+
+   
 
     return article;
   }
@@ -197,11 +207,94 @@ export function mediaFactory(data, index) {
     allLikes.textContent = NbAllLike;
   }
 
+
+
+  
+
+  // Initialize a variable that will contain the current lightbox media id
+let currentLightboxMediaId = 0;
+
+   function renderLightBoxMedia(mediaId) {
+   
+    console.log("mediaId",mediaId)
+  
+    // Destructuring the media object to extract its properties
+    
+  
+    // Get the lightboxMedia element
+    const lightboxMedia = document.getElementById("lightboxMedia");
+  
+    // If the media is an image add the appropriate media card html to the lightboxMedia element
+    console.log("Image",image,photographerId)
+    if (image) 
+    {
+      lightboxMedia.innerHTML = `
+      <source src="assets/images/${photographerId}/${image}" alt="${title}">
+        <figcaption class="lightbox-caption">${title}</figcaption>
+    `;
+    }
+  console.log("lightboxMedia",lightboxMedia)
+    // If the media is a video add the appropriate media card html to the lightboxMedia element
+    console.log("video",video)
+    if (video) {
+      lightboxMedia.innerHTML = `
+        <video class="lightbox-video" title="${title}" controls>
+          <source src="assets/images/${photographerId}/${video}" type="video/mp4">
+        </video>
+        <figcaption class="lightbox-caption">${title}</figcaption>
+    `;
+    }
+  }
+  
+  function nextLightBoxMedia() {
+    // Find the index of the current media item in the photographerMedia array
+    const currentIndex = photographerMedia.findIndex(
+      (media) => media.id == currentLightboxMediaId
+    );
+  
+    // If the current media item is not the last item in the array, display the next item
+    if (currentIndex < photographerMedia.length - 1) {
+      const nextMediaId = photographerMedia[currentIndex + 1].id;
+      renderLightBoxMedia(nextMediaId);
+      // Else display the first item of the array
+    } else {
+      const nextMediaId = photographerMedia[0].id;
+      renderLightBoxMedia(nextMediaId);
+    }
+  }
+  
+  function previousLightBoxMedia() {
+    // Find the index of the current media item in the photographerMedia array
+    const currentIndex = photographerMedia.findIndex(
+      (media) => media.id == currentLightboxMediaId
+    );
+  
+    // If the current media item is not the first item in the array, display the previous item
+    if (currentIndex > 0) {
+      const previousMediaId = photographerMedia[currentIndex - 1].id;
+      renderLightBoxMedia(previousMediaId);
+      // Else display the last item of the array
+    } else {
+      const previousMediaId = photographerMedia[photographerMedia.length - 1].id;
+      renderLightBoxMedia(previousMediaId);
+    }
+  }
+
+
+
+
+
+
+
+
   return {
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographerImage,
     getPhotographerPrice,
     renderLikes,
+    renderLightBoxMedia,
+    nextLightBoxMedia,
+    previousLightBoxMedia,
   };
 }
