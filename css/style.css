@@ -243,13 +243,15 @@ header .logo {
     background-color: rgba(0,0,0,.9);
     z-index:10;
     display:none;
+    margin-left:0;
+    margin-top:0;
   }
 
   .lightbox-img, .lightbox-video{
     width:380px;
     height:356px;
-    right:-446px;
-    top:292px;
+    right:-740px;
+    top:301px;
     position:relative;
   }
   
