@@ -214,6 +214,8 @@ export function mediaFactory(data) {
   // Initialize a variable that will contain the current lightbox media id
 let currentLightboxMediaId = 0;
 
+
+
    function renderLightBoxMedia(mediaId) {
    
     console.log("mediaId",mediaId)
@@ -223,18 +225,13 @@ let currentLightboxMediaId = 0;
   
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
+    lightboxMedia.style.display = "block";
   
     // If the media is an image add the appropriate media card html to the lightboxMedia element
     console.log("Image",image,photographerId)
     if (image) 
     {
-      lightboxMedia.innerHTML = `
-      <img class="lightbox-img" title="${title}" 
-      src="assets/images/${photographerId}/${image}" alt="${title}">
-    
-        <figcaption class="lightbox-caption">${title}</figcaption>
-        
-    `;
+      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${title}" src="assets/images/${photographerId}/${image}" alt="${title}"><figcaption class="lightbox-caption">${title}</figcaption>`;
     }
   console.log("lightboxMedia",lightboxMedia)
     // If the media is a video add the appropriate media card html to the lightboxMedia element
@@ -282,6 +279,16 @@ let currentLightboxMediaId = 0;
       renderLightBoxMedia(previousMediaId);
     }
   }
+    // Add an event listener to the close button in the lightbox modal to close the modal on click
+    const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
+    lightboxCloseBtn.addEventListener("click", () => {
+      closeModalLightBox();
+    });
+
+    function closeModalLightBox(){
+      const closeModalLightBox = document.getElementById("lightboxMedia");
+      closeModalLightBox.style.display = "none";
+    }
 
 
 
@@ -299,5 +306,6 @@ let currentLightboxMediaId = 0;
     renderLightBoxMedia,
     nextLightBoxMedia,
     previousLightBoxMedia,
+    closeModalLightBox,
   };
 }
