@@ -17,7 +17,19 @@ export function mediaFactory(data) {
     portrait,
   } = data;
 
+
+
+  const ArrayCreationArtist=[];
+  ArrayCreationArtist.push(data)
+  console.log("ArrayCreationArtist",ArrayCreationArtist);
+
+// Fetch photographer media array
+// const photographerMedia =  getPhotographerMedia();
   console.log("data",data)
+
+  let currentLightboxMediaId = 0;
+ 
+
   const Image = `assets/images/${photographerId}/${image}`;
   const Video = `assets/images/${photographerId}/${video}`;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -50,7 +62,7 @@ export function mediaFactory(data) {
       isImage.setAttribute("alt", "text");
    
       isImage.addEventListener("click", () => {
-        renderLightBoxMedia(Image)
+        renderLightBoxMedia(id)
       });
       card.appendChild(isImage);
     }
@@ -63,7 +75,7 @@ export function mediaFactory(data) {
       isVideo.classList.add("card_video");
       isVideo.setAttribute("src", Video);
       isVideo.addEventListener("click", () => {
-        renderLightBoxMedia(Video)
+        renderLightBoxMedia(id)
       });
       card.appendChild(isVideo);
     }
@@ -212,23 +224,38 @@ export function mediaFactory(data) {
   
 
   // Initialize a variable that will contain the current lightbox media id
-let currentLightboxMediaId = 0;
+
 
 
 
    function renderLightBoxMedia(mediaId) {
-   
     console.log("mediaId",mediaId)
-  
-    // Destructuring the media object to extract its properties
+    const mediaObject =  ArrayCreationArtist.find(
+      (media) => media.id == mediaId
+
+      );
+// Update the currentMediaId variable with the current lightbox media id
+    currentLightboxMediaId = mediaId;
+    console.log("mediaId",mediaId)
+    console.log("mediaObject",mediaObject)
     
   
+    
+  
+
+
+
+ // Destructuring the media object to extract its properties
+  // const { title, photographerId, image, video } = mediaObject;
+
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
     lightboxMedia.style.display = "block";
+
+    
   
     // If the media is an image add the appropriate media card html to the lightboxMedia element
-    console.log("Image",image,photographerId)
+    console.log("Image",image,id)
     if (image) 
     {
       lightboxMedia.innerHTML = `<img class="lightbox-img" title="${title}" src="assets/images/${photographerId}/${image}" alt="${title}"><figcaption class="lightbox-caption">${title}</figcaption>`;
@@ -246,36 +273,56 @@ let currentLightboxMediaId = 0;
     }
   }
   
+  const lightboxNextBtn = document.getElementById("lightboxNextBtn");
+  lightboxNextBtn.addEventListener("click", () => {
+    nextLightBoxMedia();
+   
+  });
+ 
+
   function nextLightBoxMedia() {
+
+    
     // Find the index of the current media item in the photographerMedia array
-    const currentIndex = photographerMedia.findIndex(
+    const currentIndex = ArrayCreationArtist.findIndex(
       (media) => media.id == currentLightboxMediaId
+     
     );
   
     // If the current media item is not the last item in the array, display the next item
-    if (currentIndex < photographerMedia.length - 1) {
-      const nextMediaId = photographerMedia[currentIndex + 1].id;
+    if (currentIndex < ArrayCreationArtist.length - 1) {
+      const nextMediaId = ArrayCreationArtist[currentIndex + 1].id;
       renderLightBoxMedia(nextMediaId);
       // Else display the first item of the array
     } else {
-      const nextMediaId = photographerMedia[0].id;
+      const nextMediaId = ArrayCreationArtist[0].id;
       renderLightBoxMedia(nextMediaId);
     }
   }
   
+
+  const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
+  lightboxPrevBtn.addEventListener("click", () => {
+    previousLightBoxMedia(currentLightboxMediaId);
+  });
+
+ 
+
+
   function previousLightBoxMedia() {
     // Find the index of the current media item in the photographerMedia array
-    const currentIndex = photographerMedia.findIndex(
+    const currentIndex = ArrayCreationArtist.findIndex(
       (media) => media.id == currentLightboxMediaId
+     
     );
   
     // If the current media item is not the first item in the array, display the previous item
     if (currentIndex > 0) {
-      const previousMediaId = photographerMedia[currentIndex - 1].id;
+      const previousMediaId = ArrayCreationArtist[currentIndex - 1].id;
       renderLightBoxMedia(previousMediaId);
       // Else display the last item of the array
     } else {
-      const previousMediaId = photographerMedia[photographerMedia.length - 1].id;
+      const previousMediaId = ArrayCreationArtist[ArrayCreationArtist.length - 1].id;
       renderLightBoxMedia(previousMediaId);
     }
   }
@@ -291,7 +338,7 @@ let currentLightboxMediaId = 0;
     }
 
 
-
+ 
 
 
 

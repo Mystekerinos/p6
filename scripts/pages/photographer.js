@@ -241,6 +241,7 @@ function displayDataList(medias) {
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     mediaList.appendChild(userPhotographerCreationCardDOM);
+    
   });
 }
 
