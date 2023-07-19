@@ -210,34 +210,14 @@ function dropDownEventListener(medias) {
   });
 }
 
-// // Open the Modal
-// function openModal() {
-//   document.getElementById("myModal").style.display = "block";
-// }
 
-// // Close the Modal
-// function closeModal() {
-//   document.getElementById("myModal").style.display = "none";
-// }
-
-// var slideIndex = 1;
-// showSlides(slideIndex);
-
-// // Next/previous controls
-// function plusSlides(n) {
-//   showSlides((slideIndex += n));
-// }
-
-// // Thumbnail image controls
-// function currentSlide(n) {
-//   showSlides((slideIndex = n));
-// }
 
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
-  medias.forEach((mediaData, index) => {
-    const photographerCreation = mediaFactory(mediaData, index);
+  medias.forEach((mediaData) => {
+    const photographerCreation = mediaFactory(mediaData);  
+    console.log("mediaData",mediaData);
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     mediaList.appendChild(userPhotographerCreationCardDOM);

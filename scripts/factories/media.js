@@ -23,8 +23,7 @@ export function mediaFactory(data) {
   ArrayCreationArtist.push(data)
   console.log("ArrayCreationArtist",ArrayCreationArtist);
 
-// Fetch photographer media array
-// const photographerMedia =  getPhotographerMedia();
+
   console.log("data",data)
 
   let currentLightboxMediaId = 0;
@@ -60,7 +59,7 @@ export function mediaFactory(data) {
       isImage.classList.add("hover-shadow");
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "text");
-   
+   console.log("id",id)
       isImage.addEventListener("click", () => {
         renderLightBoxMedia(id)
       });
@@ -238,6 +237,7 @@ export function mediaFactory(data) {
     currentLightboxMediaId = mediaId;
     console.log("mediaId",mediaId)
     console.log("mediaObject",mediaObject)
+    console.log("currentLightboxMediaId",currentLightboxMediaId)
     
   
     
@@ -246,7 +246,7 @@ export function mediaFactory(data) {
 
 
  // Destructuring the media object to extract its properties
-  // const { title, photographerId, image, video } = mediaObject;
+  const { title, photographerId, image, video } = mediaObject;
 
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
@@ -271,34 +271,42 @@ export function mediaFactory(data) {
         <figcaption class="lightbox-caption">${title}</figcaption>
     `;
     }
+    currentLightboxMediaId =id;
+    console.log("currentLightboxMediaId",currentLightboxMediaId)
+    return  currentLightboxMediaId;
   }
-  
+
   const lightboxNextBtn = document.getElementById("lightboxNextBtn");
   lightboxNextBtn.addEventListener("click", () => {
     nextLightBoxMedia();
-   
+  
   });
  
-
-  function nextLightBoxMedia() {
-
+  
+  function nextLightBoxMedia(currentLightboxMediaId) {
+    let renderLightBoxMediaValue = renderLightBoxMedia();
+    console.log("renderLightBoxMediaValue",renderLightBoxMediaValue)
     
     // Find the index of the current media item in the photographerMedia array
     const currentIndex = ArrayCreationArtist.findIndex(
       (media) => media.id == currentLightboxMediaId
-     
     );
+    console.log("currentLightboxMediaId",currentLightboxMediaId)
   
     // If the current media item is not the last item in the array, display the next item
     if (currentIndex < ArrayCreationArtist.length - 1) {
       const nextMediaId = ArrayCreationArtist[currentIndex + 1].id;
+      console.log("nextMediaId",nextMediaId)
       renderLightBoxMedia(nextMediaId);
       // Else display the first item of the array
     } else {
       const nextMediaId = ArrayCreationArtist[0].id;
+      console.log("nextMediaId",nextMediaId)
       renderLightBoxMedia(nextMediaId);
+     
     }
   }
+  
   
 
   const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
