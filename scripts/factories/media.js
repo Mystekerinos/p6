@@ -1,5 +1,5 @@
 
-export function mediaFactory(data) {
+export function mediaFactory(data,tabDatas) {
 
   const {
     title,
@@ -260,7 +260,7 @@ export function mediaFactory(data) {
     console.log("Image",image,id)
     if (image) 
     {
-      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${title}" src="assets/images/${photographerId}/${image}" alt="${title}"><figcaption class="lightbox-caption">${title}</figcaption>`;
+      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${title}" id="${id}" src="assets/images/${photographerId}/${image}" alt="${title}"><figcaption class="lightbox-caption">${title}</figcaption>`;
     }
   console.log("lightboxMedia",lightboxMedia)
     // If the media is a video add the appropriate media card html to the lightboxMedia element
@@ -279,10 +279,14 @@ export function mediaFactory(data) {
   }
 
   const lightboxNextBtn = document.getElementById("lightboxNextBtn");
-  lightboxNextBtn.addEventListener("click", () => {
-    nextLightBoxMedia();
+  lightboxNextBtn.addEventListener("click", (e) => {
+    const imgLightBox = document.querySelector(".lightbox-img");
+   
+
+    nextLightBoxMedia(imgLightBox.id);
   
-  });
+  })
+  
  
   
   function nextLightBoxMedia(currentLightboxMediaId) {
@@ -290,7 +294,7 @@ export function mediaFactory(data) {
     console.log("renderLightBoxMediaValue",renderLightBoxMediaValue)
     
     // Find the index of the current media item in the photographerMedia array
-    const currentIndex = ArrayCreationArtist.findIndex(
+    const currentIndex = tabDatas.findIndex(
       (media) => media.id == currentLightboxMediaId
     );
     console.log("currentLightboxMediaId",currentLightboxMediaId)

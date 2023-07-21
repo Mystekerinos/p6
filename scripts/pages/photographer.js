@@ -1,6 +1,9 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
+let media;
+let photographers ;
+const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 
@@ -24,14 +27,15 @@ function displayData(media, photographer) {
   const dropDownSort = document.createElement("div");
   dropDownSort.classList.add("dropDownSort");
 
-  photographersCreation.appendChild(dropDownSort);
+  
 
   const photographersCreationDropDownWord = document.createElement("span");
   photographersCreationDropDownWord.classList.add(
     "photograph_Creations_dropDown_word"
   );
   photographersCreationDropDownWord.textContent = option;
-  dropDownSort.appendChild(photographersCreationDropDownWord);
+  photographersCreation.appendChild(photographersCreationDropDownWord);
+  photographersCreation.appendChild(dropDownSort);
   dropDownSort.appendChild(getDropDownMenu());
   dropDownEventListener(media);
 
@@ -62,7 +66,7 @@ function displayData(media, photographer) {
   photographersAllLikes.classList.add("photographers-allLikes");
   photographersHeader.appendChild(photographersAllLikes);
 
-  const photographerIdentity = mediaFactory(photographer);
+  const photographerIdentity = mediaFactory(photographer,media);
   const userPhotographersCardDOM =
     photographerIdentity.getPhotographerIdentityCardDOM();
   console.log("photographerIdentity", userPhotographersCardDOM);
@@ -120,28 +124,66 @@ function foldDropMenu(){
 
 function getDropDownMenu() {
   // Create an article element
-  const dropDownMenuSection = document.createElement("select");
+  const dropDownMenuSection = document.createElement("div");
   dropDownMenuSection.classList.add("dropdown-menu");
   // Create an image element for the portrait
-  const dropDownOption = document.createElement("option");
+
+  const dropDownArrow = document.createElement("img");
+  dropDownArrow.classList.add("dropdown-icon");
+  dropDownArrow.setAttribute("src", arrow);
+  // dropDownArrow.setAttribute("alt", "text");
+ 
+ 
+
+  const dropDownUl = document.createElement("ul");
+  const dropDownIl1 = document.createElement("li");
+  
+  const dropDownOptionInitialWord = document.createElement("span");
+
+  dropDownOptionInitialWord.classList.add("dropdown-options2");
+  dropDownOptionInitialWord.value = "Popularité";
+  dropDownOptionInitialWord.textContent = "Popularité";
+  const dropDownOption = document.createElement("button");
   dropDownOption.classList.add("dropdown-options");
-  dropDownOption.value = "Date";
-  dropDownOption.textContent = "Date";
-  const dropDownOption2 = document.createElement("option");
+  dropDownOption.value = "Popularité";
+  dropDownOption.textContent = "Popularité";
+  dropDownIl1.appendChild(dropDownOption);
+  const dropDownOption2 = document.createElement("button");
   dropDownOption2.classList.add("dropdown-options");
-  dropDownOption2.value = "Popularité";
-  dropDownOption2.textContent = "Popularité";
-  const dropDownOption3 = document.createElement("option");
+  dropDownOption2.value = "Date";
+  dropDownOption2.textContent = "Date";
+  const dropDownIl2 = document.createElement("li");
+  dropDownIl2.appendChild(dropDownOption2);
+  const dropDownOption3 = document.createElement("button");
   dropDownOption3.classList.add("dropdown-options");
   dropDownOption3.value = "Titre";
   dropDownOption3.textContent = "Titre";
+  const dropDownIl3 = document.createElement("li");
+  dropDownIl3.appendChild(dropDownOption3);
+  dropDownUl.appendChild(dropDownIl1);
+  dropDownUl.appendChild(dropDownIl2);
+  dropDownUl.appendChild(dropDownIl3);
+
+ 
 
   // console.log("option"," date");
   console.log("dropDownOption", dropDownOption);
 
-  dropDownMenuSection.appendChild(dropDownOption);
-  dropDownMenuSection.appendChild(dropDownOption2);
-  dropDownMenuSection.appendChild(dropDownOption3);
+  // dropDownMenuSection.appendChild(dropDownOption);
+  // dropDownMenuSection.appendChild(dropDownOption2);
+  // dropDownMenuSection.appendChild(dropDownOption3);
+ 
+  
+  const dropDownTouchOriginal = document.createElement("div");
+  dropDownTouchOriginal.classList.add("dropdown-touch");
+  
+ 
+  
+  dropDownTouchOriginal.appendChild(dropDownOptionInitialWord);
+  dropDownTouchOriginal.appendChild(dropDownArrow);
+  dropDownMenuSection.appendChild(dropDownTouchOriginal);
+  dropDownMenuSection.appendChild(dropDownUl);
+
   console.log("dropDownMenuSection", dropDownMenuSection);
 
   return dropDownMenuSection;
@@ -164,7 +206,10 @@ function getPhotographerLikes(medias) {
 
 export async function mediaInit() {
   // Récupère les datas des photographes
-  let { media, photographers } = await getPhotographers();
+  let mediaObject  = await getPhotographers();
+   media= mediaObject.media;
+  
+    photographers= mediaObject.photographers;
   console.log(media, photographers);
 
   const params = new URL(document.location).searchParams;
@@ -183,6 +228,7 @@ export async function mediaInit() {
 }
 
 function dropDownEventListener(medias) {
+  console.log("medias",medias)
   const dropdownMenu = document.querySelector(".dropdown-menu");
   dropdownMenu.addEventListener("change", (e) => {
     // Retrieve the selected option value
@@ -222,7 +268,7 @@ function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
   medias.forEach((mediaData) => {
-    const photographerCreation = mediaFactory(mediaData);  
+    const photographerCreation = mediaFactory(mediaData,medias);  
     console.log("mediaData",mediaData);
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
