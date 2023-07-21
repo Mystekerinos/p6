@@ -145,6 +145,10 @@ header h1{
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 3rem;
+    
+}
+#sort-dropdown{
+    display:none;
 }
 
 .dropdown-options{

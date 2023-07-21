@@ -105,6 +105,19 @@ function displayData(media, photographer) {
   displayDataList(media);
 }
 
+
+const dropDownfoldBtn = document.getElementById("ms-4 dropdown-arrow");
+dropDownfoldBtn.addEventListener("click", () => {
+  foldDropMenu();
+ 
+});
+
+
+function foldDropMenu(){
+  const dropDownMenuFold = document.getElementById("sort-dropdown");
+  dropDownMenuFold .style.display = "block";
+}
+
 function getDropDownMenu() {
   // Create an article element
   const dropDownMenuSection = document.createElement("select");
@@ -147,14 +160,7 @@ function getPhotographerLikes(medias) {
   }
 }
 
-// function renderLikes(isLikes) {
-//   console.log("isLikes", isLikes);
-//   let moreLikes = 0;
-//   moreLikes = ++isLikes;
-//   allLikes = ++isLikes;
-//   console.log("renderLikes", moreLikes);
-//   return moreLikes;
-// }
+
 
 export async function mediaInit() {
   // Récupère les datas des photographes

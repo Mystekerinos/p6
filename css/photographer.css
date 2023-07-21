@@ -223,3 +223,98 @@ form input {
     height:300px;
     width:300px;
   }
+
+.dropdown,  .d-inline-block{
+  margin-left:234px;
+}
+
+
+   .btn , .btn-danger span{
+    position:relative;
+    z-index:2;
+    margin-right:33px;
+   
+   }
+
+  .dropbtn {
+    width: 10.625rem;
+    height: 4rem;
+    background-color: #901c1c;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 3rem;
+    margin-bottom:66px
+  
+  }
+  
+  .dropbtn.show {
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  
+  .btn.btn-danger.dropdown-toggle.dropbtn.show .dropdown-arrow {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  
+  .dropdown-menu {
+    margin-top: -64px !important;
+    background-color: #901c1c;
+  }
+  
+  .dropdown-menu .show {
+    border-top-right-radius: 0.25rem !important;
+    border-top-left-radius: 0.25rem !important;
+  }
+  
+  .dropdown-arrow {
+  color:black;
+  background-color: color;
+  }
+  
+  .dropdown-toggle::after {
+    content: none;
+  }
+
+
+  .hide {
+    display: none !important;
+  }
+  .sort-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  
+  .sort-button {
+    width: 10.625rem;
+    width: 100%;
+    height: 4rem;
+    border-radius: 0;
+    background-color: #901c1c;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+  }
+  
+  .sort-by-button-group li:last-child button {
+    border-bottom-right-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+  }
+  
+  .sort-name {
+    display: block;
+    border-top: 0.1rem solid white;
+    line-height: 4rem;
+  }
+
+  #sort-by-popularity, #sort-by-name, #sort-by-date {
+   width:10.625rem;
+      margin-left:-40px;
+  }
+
+  #sort-dropdown{
+    width:8rem;
+  }

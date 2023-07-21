@@ -13,6 +13,74 @@
       <img tabindex="0" src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
     </a>
     </header>
+
+    <section class="mb-5 container">
+      <div class="d-none d-md-block mb-md-5">
+    <div role="menu" class="dropdown d-inline-block">
+      <button
+        class="btn btn-danger ps-3 dropdown-toggle border-0 d-flex position-relative dropbtn"
+        role="menuitem"
+        type="button"
+        aria-labelledby="dropdown-title"
+        tabindex="1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-controls="sort-dropdown"
+      >
+        <span id="dropdown-title">Popularité</span>
+       
+        <img src="./assets/icons/dropdown.svg" alt="" id="ms-4 dropdown-arrow" aria-hidden="true" />
+       
+      </button>
+      <ul id="sort-dropdown" class="p-0 w-100 border-0 dropdown-menu button-group sort-by-button-group" aria-labelledby="sort-title">
+        <li>
+          <button
+            id="sort-by-popularity"
+            role="menuitem"
+            type="button"
+            aria-labelledby="sort-popularity"
+            class="btn btn-danger mx-auto py-0 px-3 border-0 sort-button is-checked"
+            tabindex="1"
+            data-sort-value="popularity"
+           
+          >
+            <span id="sort-popularity" class="sort-name">Popularité</span>
+            <img src="./assets/icons/dropdown.svg" alt="" id="ms-4 dropdown-arrow" aria-hidden="true" />
+          </button>
+        </li>
+        <li>
+          <button
+            id="sort-by-date"
+            role="menuitem"
+            type="button"
+            aria-labelledby="sort-date"
+            class="btn btn-danger mx-auto py-0 px-3 border-0 sort-button button"
+            tabindex="1"
+            data-sort-value="date"
+           
+          >
+            <span id="sort-date" class="sort-name">Date</span>
+          </button>
+        </li>
+        <li>
+          <button
+            id="sort-by-name"
+            role="menuitem"
+            aria-labelledby="sort-name"
+            class="btn btn-danger mx-auto py-0 px-3 border-0 sort-button button">
+            <span id="sort-name" class="sort-name">Titre</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="photographer-all-medias-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5 justify-content-md-between grid"></div>
+</section>
+
+
+
+
     <main id="main">
       <div tabindex="1" class="photograph-header">
         <div tabindex="2" class="photograph-profile"></div>
@@ -48,32 +116,7 @@
 			</div>
 		</div>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="text" />
-        </header>
-				<form>
-				  <label class="modal-label" for="firstName">Prénom</label><br>
-      <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
-        required><br>
-
-      <label class="modal-label" for="lastName">Nom</label><br>
-      <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
-        required><br>
-
-      <label class="modal-label" for="email">E-mail</label><br>
-      <input class="modal-input" type="email" id="email" name="email" required><br>
-
-      <label class="modal-label" for="message">Votre message</label><br>
-      <textarea class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
-        pattern="(?!^ +$)^.+$" required> </textarea><br>
-          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact">Envoyer</button>
-				</form>
-			</div>
-		</div>
-
+  
 
     <div id="lightbox">
   <button class="lightbox__close"  id="lightboxCloseBtn">Fermer</button>
@@ -84,6 +127,9 @@
   </div>
   
     </div>
+
+
+    
  
  
 

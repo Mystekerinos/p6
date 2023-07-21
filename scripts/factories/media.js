@@ -246,7 +246,7 @@ export function mediaFactory(data) {
 
 
  // Destructuring the media object to extract its properties
-  const { title, photographerId, image, video } = mediaObject;
+  // const { title, photographerId, image, video } = mediaObject;
 
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
