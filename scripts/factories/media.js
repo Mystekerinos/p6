@@ -37,6 +37,7 @@ export function mediaFactory(data) {
   const isHeart = document.createElement("img");
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
+  isHeart.setAttribute("alt", "text");
 
   function getPhotographerCreationCardDOM() {
     // Create an article element
@@ -110,6 +111,7 @@ export function mediaFactory(data) {
     creationLikes.classList.add("card_description_creationLikes");
     creationLikes.appendChild(isLikes);
     creationLikes.appendChild(isHeart);
+    
 
     isHeart.addEventListener("click", () => renderLikes(isLikes));
     
