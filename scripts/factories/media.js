@@ -63,6 +63,7 @@ export function mediaFactory(data,tabDatas) {
    console.log("id",id)
       isImage.addEventListener("click", () => {
         renderLightBoxMedia(id)
+        addLightBoxActions()
       });
       card.appendChild(isImage);
     }
@@ -76,6 +77,7 @@ export function mediaFactory(data,tabDatas) {
       isVideo.setAttribute("src", Video);
       isVideo.addEventListener("click", () => {
         renderLightBoxMedia(id)
+        addLightBoxActions()
       });
       card.appendChild(isVideo);
     }
@@ -126,8 +128,26 @@ export function mediaFactory(data,tabDatas) {
     // append  an Image, a date, a likes, a title,  an image to the article element
    
     card.appendChild(description);
+    
 
     return card;
+  }
+
+  function addLightBoxActions() {
+    const lightboxNextBtn = document.getElementById("lightboxNextBtn");
+        lightboxNextBtn.addEventListener("click", (e) => {
+          nextLightBoxMedia();
+        })
+
+        const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
+        lightboxPrevBtn.addEventListener("click", () => {
+          previousLightBoxMedia();
+        });
+        // Add an event listener to the close button in the lightbox modal to close the modal on click
+        const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
+        lightboxCloseBtn.addEventListener("click", () => {
+          closeModalLightBox();
+        });
   }
 
   //ToDo
@@ -231,7 +251,7 @@ export function mediaFactory(data,tabDatas) {
 
    function renderLightBoxMedia(mediaId) {
     console.log("mediaId",mediaId)
-    const mediaObject =  ArrayCreationArtist.find(
+    const mediaObject =  tabDatas.find(
       (media) => media.id == mediaId
 
       );
@@ -258,40 +278,31 @@ export function mediaFactory(data,tabDatas) {
   
     // If the media is an image add the appropriate media card html to the lightboxMedia element
     console.log("Image",image,id)
-    if (image) 
+    if (mediaObject?.image) 
     {
-      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${title}" id="${id}" src="assets/images/${photographerId}/${image}" alt="${title}"><figcaption class="lightbox-caption">${title}</figcaption>`;
+      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}" alt="${mediaObject.title}"><figcaption class="lightbox-caption">${mediaObject.title}</figcaption>`;
     }
   console.log("lightboxMedia",lightboxMedia)
     // If the media is a video add the appropriate media card html to the lightboxMedia element
     console.log("video",video)
-    if (video) {
+    if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
-        <video class="lightbox-video" title="${title}" controls>
-          <source src="assets/images/${photographerId}/${video}" type="video/mp4">
+        <video class="lightbox-video" title="${mediaObject.title}" id="${mediaObject.id}" controls>
+          <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4">
         </video>
-        <figcaption class="lightbox-caption">${title}</figcaption>
+        <figcaption class="lightbox-caption">${mediaObject.title}</figcaption>
     `;
     }
-    currentLightboxMediaId =id;
+    currentLightboxMediaId = mediaObject.id;
     console.log("currentLightboxMediaId",currentLightboxMediaId)
     return  currentLightboxMediaId;
   }
 
-  const lightboxNextBtn = document.getElementById("lightboxNextBtn");
-  lightboxNextBtn.addEventListener("click", (e) => {
-    const imgLightBox = document.querySelector(".lightbox-img");
-   
-
-    nextLightBoxMedia(imgLightBox.id);
-  
-  })
   
  
   
-  function nextLightBoxMedia(currentLightboxMediaId) {
-    let renderLightBoxMediaValue = renderLightBoxMedia();
-    console.log("renderLightBoxMediaValue",renderLightBoxMediaValue)
+  function nextLightBoxMedia() {
+    const currentLightboxMediaId = parseInt(document.querySelector(".lightbox-img")?.id ?? document.querySelector(".lightbox-video")?.id);
     
     // Find the index of the current media item in the photographerMedia array
     const currentIndex = tabDatas.findIndex(
@@ -300,13 +311,13 @@ export function mediaFactory(data,tabDatas) {
     console.log("currentLightboxMediaId",currentLightboxMediaId)
   
     // If the current media item is not the last item in the array, display the next item
-    if (currentIndex < ArrayCreationArtist.length - 1) {
-      const nextMediaId = ArrayCreationArtist[currentIndex + 1].id;
+    if (currentIndex < tabDatas.length - 1) {
+      const nextMediaId = tabDatas[currentIndex + 1].id;
       console.log("nextMediaId",nextMediaId)
       renderLightBoxMedia(nextMediaId);
       // Else display the first item of the array
     } else {
-      const nextMediaId = ArrayCreationArtist[0].id;
+      const nextMediaId = tabDatas[0].id;
       console.log("nextMediaId",nextMediaId)
       renderLightBoxMedia(nextMediaId);
      
@@ -315,36 +326,30 @@ export function mediaFactory(data,tabDatas) {
   
   
 
-  const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
-  lightboxPrevBtn.addEventListener("click", () => {
-    previousLightBoxMedia(currentLightboxMediaId);
-  });
+
 
  
 
 
   function previousLightBoxMedia() {
+    const currentLightboxMediaId = parseInt(document.querySelector(".lightbox-img")?.id ?? document.querySelector(".lightbox-video")?.id);
     // Find the index of the current media item in the photographerMedia array
-    const currentIndex = ArrayCreationArtist.findIndex(
+    const currentIndex = tabDatas.findIndex(
       (media) => media.id == currentLightboxMediaId
      
     );
   
     // If the current media item is not the first item in the array, display the previous item
     if (currentIndex > 0) {
-      const previousMediaId = ArrayCreationArtist[currentIndex - 1].id;
+      const previousMediaId = tabDatas[currentIndex - 1].id;
       renderLightBoxMedia(previousMediaId);
       // Else display the last item of the array
     } else {
-      const previousMediaId = ArrayCreationArtist[ArrayCreationArtist.length - 1].id;
+      const previousMediaId = tabDatas[tabDatas.length - 1].id;
       renderLightBoxMedia(previousMediaId);
     }
   }
-    // Add an event listener to the close button in the lightbox modal to close the modal on click
-    const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
-    lightboxCloseBtn.addEventListener("click", () => {
-      closeModalLightBox();
-    });
+    
 
     function closeModalLightBox(){
       const closeModalLightBox = document.getElementById("lightboxMedia");

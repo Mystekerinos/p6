@@ -39,11 +39,11 @@ function displayData(media, photographer) {
   dropDownSort.appendChild(getDropDownMenu());
   dropDownEventListener(media);
 
-  //  Description element photographer
-  const dropDown = document.createElement("div");
-  dropDown.classList.add("dropDown");
+  // //  Description element photographer
+  // const dropDown = document.createElement("div");
+  // dropDown.classList.add("dropDown");
 
-  dropDownSort.appendChild(dropDown);
+  // dropDownSort.appendChild(dropDown);
 
   //  Description element photographer
   const photographersHeaderDescriptionSection =
@@ -110,17 +110,7 @@ function displayData(media, photographer) {
 }
 
 
-const dropDownfoldBtn = document.getElementById("ms-4 dropdown-arrow");
-dropDownfoldBtn.addEventListener("click", () => {
-  foldDropMenu();
- 
-});
 
-
-function foldDropMenu(){
-  const dropDownMenuFold = document.getElementById("sort-dropdown");
-  dropDownMenuFold .style.display = "block";
-}
 
 function getDropDownMenu() {
   // Create an article element
@@ -133,37 +123,60 @@ function getDropDownMenu() {
   dropDownArrow.setAttribute("src", arrow);
   // dropDownArrow.setAttribute("alt", "text");
  
- 
+  const dropDownOption4 = document.createElement("button");
+  dropDownOption4.classList.add("dropdown-options2");
+  const dropDownArrow2 = document.createElement("img");
+  dropDownArrow2.classList.add("dropdown-icon2");
+  dropDownArrow2.setAttribute("src", arrow);
 
-  const dropDownUl = document.createElement("ul");
-  const dropDownIl1 = document.createElement("li");
   
   const dropDownOptionInitialWord = document.createElement("span");
-
-  dropDownOptionInitialWord.classList.add("dropdown-options2");
+  dropDownOptionInitialWord.setAttribute("id", "dropMenuId");
+  dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
+  dropDownOption4.appendChild(dropDownOptionInitialWord);
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
+
+  const dropDownUl = document.createElement("ul");
+  dropDownUl.classList.add("sort-drop");
+  dropDownUl.setAttribute("id","sortDrop")
+ 
+  const dropDownIl1 = document.createElement("li");
+ 
+  
   const dropDownOption = document.createElement("button");
-  dropDownOption.classList.add("dropdown-options");
-  dropDownOption.value = "Popularité";
-  dropDownOption.textContent = "Popularité";
+   dropDownOption.classList.add("dropdown-options3");
+  const dropDownOptionSpan = document.createElement("span");
+  dropDownOptionSpan.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan.value = "Popularité";
+  dropDownOptionSpan.textContent = "Popularité";
+  dropDownOption.appendChild(dropDownOptionSpan);
   dropDownIl1.appendChild(dropDownOption);
   const dropDownOption2 = document.createElement("button");
-  dropDownOption2.classList.add("dropdown-options");
-  dropDownOption2.value = "Date";
-  dropDownOption2.textContent = "Date";
+  dropDownOption2.classList.add("dropdown-options4");
+  const dropDownOptionSpan2 = document.createElement("span");
+  dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan2.value = "Date";
+  dropDownOptionSpan2.textContent = "Date";
+  dropDownOption2.appendChild(dropDownOptionSpan2);
   const dropDownIl2 = document.createElement("li");
   dropDownIl2.appendChild(dropDownOption2);
   const dropDownOption3 = document.createElement("button");
-  dropDownOption3.classList.add("dropdown-options");
-  dropDownOption3.value = "Titre";
-  dropDownOption3.textContent = "Titre";
+  dropDownOption3.classList.add("dropdown-options5");
+  const dropDownOptionSpan3 = document.createElement("span");
+  dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan3.value = "Titre";
+  dropDownOptionSpan3.textContent = "Titre";
+  dropDownOption3.appendChild(dropDownOptionSpan3);
+
   const dropDownIl3 = document.createElement("li");
   dropDownIl3.appendChild(dropDownOption3);
   dropDownUl.appendChild(dropDownIl1);
   dropDownUl.appendChild(dropDownIl2);
   dropDownUl.appendChild(dropDownIl3);
 
+
+  
  
 
   // console.log("option"," date");
@@ -172,15 +185,18 @@ function getDropDownMenu() {
   // dropDownMenuSection.appendChild(dropDownOption);
   // dropDownMenuSection.appendChild(dropDownOption2);
   // dropDownMenuSection.appendChild(dropDownOption3);
- 
-  
-  const dropDownTouchOriginal = document.createElement("div");
+
+  const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
+
   
  
   
   dropDownTouchOriginal.appendChild(dropDownOptionInitialWord);
   dropDownTouchOriginal.appendChild(dropDownArrow);
+  dropDownOption.appendChild(dropDownArrow2);
+
+  dropDownMenuSection.appendChild(dropDownTouchOriginal);
   dropDownMenuSection.appendChild(dropDownTouchOriginal);
   dropDownMenuSection.appendChild(dropDownUl);
 
@@ -189,6 +205,18 @@ function getDropDownMenu() {
   return dropDownMenuSection;
 }
 
+// const dropDownfoldBtn = document.getElementById("dropMenuId");
+// console.log("dropDownfoldBtn",dropDownfoldBtn)
+// dropDownfoldBtn.addEventListener("click", () => {
+//   foldDropMenu();
+// }
+// );
+
+
+// function foldDropMenu(){
+//   const dropDownMenuFold = document.getElementById("sortDrop");
+//   dropDownMenuFold.style.display = "block";
+// }
 function getPhotographerLikes(medias) {
   let allLikes = 0;
   if (medias !== undefined) {
