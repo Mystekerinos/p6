@@ -147,14 +147,21 @@ header h1{
     line-height: 3rem;
     position:relative;
     z-index:2;
-    top:-40px;
-    right:40px;
+    top:19px;
+    right:-5px;
     
 }
 #sort-dropdown{
     display:none;
 }
 
+.sort-drop{
+    position:relative;
+    z-index:2;
+    top:-82px;
+    right:39px;
+    display:none;
+}
 .dropdown-options{
     width: 10.625rem;
     height: 4rem;
