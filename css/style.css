@@ -390,7 +390,7 @@ header .logo {
   }
 
   #lightbox button {
-    opacity: .5;
+    opacity: 0;
     cursor:pointer;
     transition: opacity .3s;
     text-indent: -3000px;
