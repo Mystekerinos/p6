@@ -125,18 +125,24 @@ function getDropDownMenu() {
  
   const dropDownOption4 = document.createElement("button");
   dropDownOption4.classList.add("dropdown-options2");
+  
+ 
+  
+
+
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
   dropDownArrow2.setAttribute("src", arrow);
 
   
   const dropDownOptionInitialWord = document.createElement("span");
-  dropDownOptionInitialWord.setAttribute("id", "dropMenuId");
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
-  dropDownOption4.appendChild(dropDownOptionInitialWord);
+  dropDownOptionInitialWord.setAttribute("id", "dropMenuId");
+ 
+ 
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
-
+  dropDownOption4.appendChild(dropDownOptionInitialWord);
   const dropDownUl = document.createElement("ul");
   dropDownUl.classList.add("sort-drop");
   dropDownUl.setAttribute("id","sortDrop")
@@ -188,6 +194,7 @@ function getDropDownMenu() {
 
   const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
+  dropDownTouchOriginal.setAttribute("id", "dropMenuId");
 
   
  
@@ -196,9 +203,12 @@ function getDropDownMenu() {
   dropDownTouchOriginal.appendChild(dropDownArrow);
   dropDownOption.appendChild(dropDownArrow2);
 
-  dropDownMenuSection.appendChild(dropDownTouchOriginal);
-  dropDownMenuSection.appendChild(dropDownTouchOriginal);
+
+
   dropDownMenuSection.appendChild(dropDownUl);
+ 
+  
+  
 
   console.log("dropDownMenuSection", dropDownMenuSection);
 
@@ -258,9 +268,11 @@ export async function mediaInit() {
 function dropDownEventListener(medias) {
   console.log("medias",medias)
   const dropdownMenu = document.querySelector(".dropdown-menu");
-  dropdownMenu.addEventListener("change", (e) => {
+  console.log("dropdownMenu",dropdownMenu);
+  dropdownMenu.addEventListener("click", (e) => {
     // Retrieve the selected option value
-    const selectedOption = e.currentTarget.value;
+    console.log(" dropdownMenu",  dropdownMenu);
+    const selectedOption = e.target.innerText;
     console.log("selectedOption", selectedOption);
     console.log(e);
     if (selectedOption == "Popularité") {
