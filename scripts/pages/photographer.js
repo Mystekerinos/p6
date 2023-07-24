@@ -133,7 +133,7 @@ function getDropDownMenu() {
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
   dropDownArrow2.setAttribute("src", arrow);
-
+ 
   
   const dropDownOptionInitialWord = document.createElement("span");
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
@@ -203,8 +203,8 @@ function getDropDownMenu() {
   dropDownTouchOriginal.appendChild(dropDownArrow);
   dropDownOption.appendChild(dropDownArrow2);
 
-
-
+  dropDownMenuSection.appendChild(dropDownTouchOriginal);
+  
   dropDownMenuSection.appendChild(dropDownUl);
  
   
