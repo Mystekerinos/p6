@@ -196,7 +196,18 @@ function getDropDownMenu() {
   dropDownTouchOriginal.classList.add("dropdown-touch");
   dropDownTouchOriginal.setAttribute("id", "dropMenuId");
 
-  
+ 
+
+  dropDownTouchOriginal.addEventListener("click", () => {
+  foldDropMenu();
+}
+);
+
+
+function foldDropMenu(){
+  const dropDownMenuFold = document.getElementById("sortDrop");
+  dropDownMenuFold.style.display = "block";
+}
  
   
   dropDownTouchOriginal.appendChild(dropDownOptionInitialWord);
@@ -227,6 +238,8 @@ function getDropDownMenu() {
 //   const dropDownMenuFold = document.getElementById("sortDrop");
 //   dropDownMenuFold.style.display = "block";
 // }
+
+
 function getPhotographerLikes(medias) {
   let allLikes = 0;
   if (medias !== undefined) {
