@@ -28,12 +28,14 @@ export function mediaFactory(data,tabDatas) {
 
   let currentLightboxMediaId = 0;
  
-
+// Get photographer id
+ const idHead = new URLSearchParams(window.location.search).get("id");
   const Image = `assets/images/${photographerId}/${image}`;
   const Video = `assets/images/${photographerId}/${video}`;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
-
+  
+ 
   const isHeart = document.createElement("img");
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
@@ -167,7 +169,8 @@ export function mediaFactory(data,tabDatas) {
     // Create a name element for the artist name
     const isName = document.createElement("h1");
     isName.textContent = name;
-
+    document.title = `${name} - Fisheye`;
+    console.log("document.title",document.title)
     // Create a tagline element for the artist tagline
     const isTagline = document.createElement("div");
     isTagline.classList.add("photograph-header_description_tagline");
