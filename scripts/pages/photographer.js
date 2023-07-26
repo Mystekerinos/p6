@@ -185,12 +185,10 @@ function getDropDownMenu() {
   
  
 
-  // console.log("option"," date");
+ 
   console.log("dropDownOption", dropDownOption);
 
-  // dropDownMenuSection.appendChild(dropDownOption);
-  // dropDownMenuSection.appendChild(dropDownOption2);
-  // dropDownMenuSection.appendChild(dropDownOption3);
+
 
   const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
@@ -205,10 +203,18 @@ function getDropDownMenu() {
 
 
   dropDownUl.addEventListener("click", () => {
+    modifyDropdownTitle("#dropMenuId");
     unFoldDropMenu();
 
 }
 );
+
+
+// Function to modify dropdown title menu
+const modifyDropdownTitle = (newTitle) => {
+	const dropdownTitle = document.querySelectorAll("#dropMenuId");
+	dropdownTitle[0].textContent = newTitle;
+};
 
 
 function foldDropMenu(){
@@ -238,18 +244,7 @@ function unFoldDropMenu(){
   return dropDownMenuSection;
 }
 
-// const dropDownfoldBtn = document.getElementById("dropMenuId");
-// console.log("dropDownfoldBtn",dropDownfoldBtn)
-// dropDownfoldBtn.addEventListener("click", () => {
-//   foldDropMenu();
-// }
-// );
 
-
-// function foldDropMenu(){
-//   const dropDownMenuFold = document.getElementById("sortDrop");
-//   dropDownMenuFold.style.display = "block";
-// }
 
 
 function getPhotographerLikes(medias) {
