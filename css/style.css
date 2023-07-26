@@ -161,6 +161,7 @@ header h1{
     top:-82px;
     right:39px;
     display:none;
+    list-style-type:none;
 }
 .dropdown-options{
     width: 10.625rem;
