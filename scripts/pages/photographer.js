@@ -223,7 +223,10 @@ const modifyDropdownTitle = (newTitle) => {
   console.log("newTitle.target.childNodes[0].value",newTitle.target.childNodes[0].value);
 	dropdownTitle = newTitle.target.childNodes[0].value;
   console.log("dropdownTitle",dropdownTitle)
-  dropDownTouchOriginal.appendChild(dropdownTitle);
+  var newNamedropDownTouchOriginal = document.createElement("div");
+  newNamedropDownTouchOriginal.classList.add("newNamedropDownTouchOriginal");
+  newNamedropDownTouchOriginal.innerHTML=dropdownTitle;
+  dropDownOptionInitialWord.appendChild(newNamedropDownTouchOriginal);
 };
 
 
