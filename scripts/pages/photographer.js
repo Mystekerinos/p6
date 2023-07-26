@@ -6,7 +6,8 @@ let photographers ;
 const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
-
+const dropDownMenuSection = document.createElement("div");
+let dropdownTitle = document.createElement("span");
 const photographersProfile = document.querySelector(".photograph-profile");
 const heartTotal = "assets/images/likesTotal.svg";
 function displayData(media, photographer) {
@@ -114,7 +115,7 @@ function displayData(media, photographer) {
 
 function getDropDownMenu() {
   // Create an article element
-  const dropDownMenuSection = document.createElement("div");
+ 
   dropDownMenuSection.classList.add("dropdown-menu");
   // Create an image element for the portrait
 
@@ -137,7 +138,7 @@ function getDropDownMenu() {
   
   const dropDownOptionInitialWord = document.createElement("span");
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
-  dropDownOptionInitialWord.setAttribute("id", "dropMenuId");
+  
  
  
   dropDownOptionInitialWord.value = "Popularité";
@@ -154,6 +155,7 @@ function getDropDownMenu() {
    dropDownOption.classList.add("dropdown-options3");
   const dropDownOptionSpan = document.createElement("span");
   dropDownOptionSpan.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
   dropDownOption.appendChild(dropDownOptionSpan);
@@ -162,6 +164,7 @@ function getDropDownMenu() {
   dropDownOption2.classList.add("dropdown-options4");
   const dropDownOptionSpan2 = document.createElement("span");
   dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan2.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan2.value = "Date";
   dropDownOptionSpan2.textContent = "Date";
   dropDownOption2.appendChild(dropDownOptionSpan2);
@@ -171,6 +174,7 @@ function getDropDownMenu() {
   dropDownOption3.classList.add("dropdown-options5");
   const dropDownOptionSpan3 = document.createElement("span");
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
+  dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);
@@ -200,10 +204,11 @@ function getDropDownMenu() {
   foldDropMenu();
   }
   );
+console.log("dropDownUl",dropDownUl)
 
+  dropDownUl.addEventListener("click", (dropDownUl) => {
 
-  dropDownUl.addEventListener("click", () => {
-    modifyDropdownTitle("#dropMenuId");
+    modifyDropdownTitle(dropDownUl);
     unFoldDropMenu();
 
 }
@@ -212,8 +217,13 @@ function getDropDownMenu() {
 
 // Function to modify dropdown title menu
 const modifyDropdownTitle = (newTitle) => {
-	const dropdownTitle = document.querySelectorAll("#dropMenuId");
-	dropdownTitle[0].textContent = newTitle;
+  
+  console.log("newTitle", newTitle)
+ dropdownTitle = document.getElementById("#dropMenuId");
+  console.log("newTitle.target.childNodes[0].value",newTitle.target.childNodes[0].value);
+	dropdownTitle = newTitle.target.childNodes[0].value;
+  console.log("dropdownTitle",dropdownTitle)
+  dropDownTouchOriginal.appendChild(dropdownTitle);
 };
 
 
