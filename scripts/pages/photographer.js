@@ -200,6 +200,13 @@ function getDropDownMenu() {
 
   dropDownTouchOriginal.addEventListener("click", () => {
   foldDropMenu();
+  }
+  );
+
+
+  dropDownUl.addEventListener("click", () => {
+    unFoldDropMenu();
+
 }
 );
 
@@ -207,6 +214,11 @@ function getDropDownMenu() {
 function foldDropMenu(){
   const dropDownMenuFold = document.getElementById("sortDrop");
   dropDownMenuFold.style.display = "block";
+}
+
+function unFoldDropMenu(){
+  const dropDownMenuFold = document.getElementById("sortDrop");
+  dropDownMenuFold.style.display = "none";
 }
  
   
