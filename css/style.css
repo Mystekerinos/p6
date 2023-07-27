@@ -392,7 +392,9 @@ header .logo {
     z-index:12;  
   }
 
-
+#message{
+    width:673px;
+}
 
   .lightbox__previous{ 
     right:auto;
