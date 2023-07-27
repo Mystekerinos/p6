@@ -60,7 +60,7 @@ function displayData(media, photographer) {
   photographersHeader.appendChild(photographersImage);
 
   const photographersPrice = document.createElement("div");
-  photographersPrice.classList.add("photographers-Price");
+  photographersPrice.classList.add("photographers_Price");
   photographersHeader.appendChild(photographersPrice);
 
   const photographersAllLikes = document.createElement("div");

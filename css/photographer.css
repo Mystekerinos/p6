@@ -13,22 +13,25 @@
 }
 
 .photograph-profile {
-    display:flex;
-    flex-direction: column;
-    margin-left:60px;
+    margin-bottom:67px;
+    margin-left:71px;
 }
 .profile article h1 {
    color: #D3573C;
-   font-size: 34px;
-
+   font-size: 64px;
+   margin-top:0px;
+   margin-bottom:0px;
 }
 
 .photograph-header_description_location{
 color: #901C1C;
 font-size: 24px;
+margin-top:21px;
+padding-bottom:14px;
 }
 .photograph-header_description_tagline{
     font-size: 18px;
+    padding-top:12px;
     }
     .photograph-header_description_picture_user{
         width:200px;
@@ -37,6 +40,8 @@ font-size: 24px;
         border-radius : 103px;
         margin-left:285px;
     }
+
+  
 
 
 .contact_button {
