@@ -4,23 +4,24 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
+    width:1240px;
+    height: 313px;
     margin: 0 100px;
     display:flex;
     flex-direction:row;
-    justify-content: space-around;
     align-items: center;
 }
 
 .photograph-profile {
     margin-bottom:67px;
-    margin-left:71px;
+    margin-left:34px;
 }
 .profile article h1 {
    color: #D3573C;
    font-size: 64px;
    margin-top:0px;
    margin-bottom:0px;
+  
 }
 
 .photograph-header_description_location{
