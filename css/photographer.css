@@ -56,6 +56,7 @@ padding-bottom:14px;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-left:223px;
 }
 
 .modal {
@@ -68,6 +69,8 @@ padding-bottom:14px;
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position:relative;
+    z-index:5;
 }
 
 .modal header {
@@ -324,3 +327,4 @@ form input {
   #sort-dropdown{
     width:8rem;
   }
+

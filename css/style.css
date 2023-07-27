@@ -302,6 +302,7 @@ header .logo {
 .photographers-Image article img {
     width : 150px;
     height : 150px;
+    margin-left:234px;
     border: none;
     border-radius : 75px;
 }
@@ -377,10 +378,10 @@ header .logo {
   }
 
   .lightbox-img, .lightbox-video{
-    width:380px;
-    height:356px;
-    right:-670px;
-    top:301px;
+    width:1050px;
+    height:900px;
+    right:-370px;
+    top:101px;
     position:relative;
   }
   
@@ -394,17 +395,18 @@ header .logo {
     top:0;
     right:0;
     margin-top:31px;
-    z-index:12;  
+    z-index:3;  
   }
 
 #message{
-    width:673px;
+    width:100%;
 }
 
   .lightbox__previous{ 
     right:auto;
     left:0;
     transform: rotate(180deg);
+    z-index:3;
   }
 
   .lightbox__close{
@@ -415,7 +417,7 @@ header .logo {
     position:fixed;
     top:10px;
     right:6px;
-    z-index:12;
+    z-index:3;
   }
 
   #lightbox button {
@@ -423,7 +425,7 @@ header .logo {
     cursor:pointer;
     transition: opacity .3s;
     text-indent: -3000px;
-    z-index:12;
+    z-index:3;
   }
 
   #lightbox button:hover {
@@ -479,7 +481,7 @@ header .logo {
   }
 
   #controller{
-    margin-left:200px;
+   opacity:0;
   }
 
   
