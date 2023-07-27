@@ -38,14 +38,29 @@ import { getPhotographers } from "../utils/fetchJsonData.js";
 //   };
 // }
 
-async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
 
+
+async function displayData(photographers) {
+ 
+ 
+  const contactFormSection = document.getElementById("modal_title_namePhotographer");
+  const photographersSection = document.querySelector(".photographer_section");
+ 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
+    console.log("photographerModel",photographerModel)
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
+   
+   
+    const photographerNameForm = photographerFactory(photographer);
+      const contactFormFullName = photographerNameForm.getNameForm();
+      console.log("contactFormFullName",contactFormFullName)
+   
+    contactFormSection.appendChild(contactFormFullName);
+    console.log("contactFormSection.",contactFormSection)
   });
+  
 }
 
 async function init() {

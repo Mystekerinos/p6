@@ -19,6 +19,11 @@ function photographerFactory(data) {
       "aria-label",
       `Lien vers le portfolio de ${name}`
     );
+    
+
+       
+    
+   
 
     // Create an image element for the portrait
     const img = document.createElement("img");
@@ -49,18 +54,24 @@ function photographerFactory(data) {
     photographerCardLink.appendChild(isName);
 
     // append  a location, a link, a price, a tagline, a name, an image to the article element
-
+   
     article.appendChild(photographerCardLink);
     article.appendChild(location);
     article.appendChild(isTagline);
     article.appendChild(isPrice);
     return article;
   }
-
+  function getNameForm() {
+    const nameForm = document.createElement("span");
+    nameForm.textContent = name;
+    console.log("nameForm",nameForm)
+    return nameForm;
+  }
 
 
   
   return {
+    getNameForm,
     getUserCardDOM,
   };
 }

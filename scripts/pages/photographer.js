@@ -40,11 +40,7 @@ function displayData(media, photographer) {
   dropDownSort.appendChild(getDropDownMenu());
   dropDownEventListener(media);
 
-  // //  Description element photographer
-  // const dropDown = document.createElement("div");
-  // dropDown.classList.add("dropDown");
 
-  // dropDownSort.appendChild(dropDown);
 
   //  Description element photographer
   const photographersHeaderDescriptionSection =
@@ -80,8 +76,7 @@ function displayData(media, photographer) {
   const userPhotographersAllLikes = getPhotographerLikes(media);
   console.log("userPhotographersPicture", userPhotographersAllLikes);
 
-  // const moreUserPhotographersAllLikes = photographerIdentity.renderLikes();
-  // console.log("userPhotographersPicture", moreUserPhotographersAllLikes);
+  
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
