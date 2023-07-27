@@ -312,7 +312,7 @@ header .logo {
     z-index:1;
     top:834px;
     position:fixed;
-    right: 0.25rem;
+    right: 11.5rem;
     left: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -323,12 +323,12 @@ header .logo {
     display: flex;
     flex-direction: row;
     padding:16px;
-    margin-right:50px;
+   
 }
 
 .price{
-    margin-right:10px;
-    margin-left:10px;
+    margin-right:33px;
+    margin-left:29px;
     font-size:24px;
     color:#000000;
 }
@@ -476,6 +476,10 @@ header .logo {
     margin-right:5px;
     rotate:450deg;
     margin-bottom:-7px;
+  }
+
+  #controller{
+    margin-left:200px;
   }
 
   
