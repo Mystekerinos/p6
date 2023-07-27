@@ -28,10 +28,9 @@
 
      
 </div>
- <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
+ <dialog class="modal" id="contactModal">
+				<header class="modal-header">
+          <h2 class="modal-title">Contactez-moi <br> </h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="text" />
         </header>
 				<form>
@@ -51,8 +50,7 @@
         pattern="(?!^ +$)^.+$" required> </textarea><br>
           <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact">Envoyer</button>
 				</form>
-			</div>
-		</div>
+		</dialog>
     </main>
   
 
