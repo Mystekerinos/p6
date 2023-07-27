@@ -31,7 +31,7 @@ function photographerFactory(data) {
 
     // Create a location element for the artist city and artist country
     const location = document.createElement("div");
-    location.classList.add("city", "country");
+    location.classList.add("city_and_country");
     location.textContent = `${city}, ${country}`;
 
     // Create a tagline element for the artist tagline
@@ -41,7 +41,7 @@ function photographerFactory(data) {
 
     // Create a price element for the artist price
     const isPrice = document.createElement("div");
-    isPrice.classList.add("price");
+    isPrice.classList.add("price_homePage");
     isPrice.textContent = `${price}€/jour`;
 
     // append  an image, a name,  to the photographerCardLink element
