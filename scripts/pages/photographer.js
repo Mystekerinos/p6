@@ -199,7 +199,7 @@ function getDropDownMenu() {
  
 
  
-  console.log("dropDownOption", dropDownOption);
+  console.log("dropDownUl", dropDownUl);
 
 
 
@@ -208,35 +208,48 @@ function getDropDownMenu() {
   dropDownTouchOriginal.setAttribute("id", "dropMenuId");
   dropDownTouchOriginal.setAttribute("alt","text")
 
- 
+
 
   dropDownTouchOriginal.addEventListener("click", () => {
   foldDropMenu();
+  
   }
   );
 console.log("dropDownUl",dropDownUl)
 
-  dropDownUl.addEventListener("click", (dropDownUl) => {
-
-    modifyDropdownTitle(dropDownUl);
-    unFoldDropMenu();
+  dropDownUl.addEventListener("click", (event) => {
+    console.log("event",event)
+    
+    unFoldDropMenu(event);
 
 }
 );
 
 
 // Function to modify dropdown title menu
-const modifyDropdownTitle = (newTitle) => {
+// const modifyDropdownTitle = (newTitle) => {
   
-  console.log("newTitle", newTitle)
- dropdownTitle = document.getElementById("#dropMenuId");
-  console.log("newTitle.target.childNodes[0].value",newTitle.target.childNodes[0].value);
-	dropdownTitle = newTitle.target.childNodes[0].value;
-  console.log("dropdownTitle",dropdownTitle)
-  var newNamedropDownTouchOriginal = document.createElement("div");
-  newNamedropDownTouchOriginal.classList.add("newNamedropDownTouchOriginal");
-  newNamedropDownTouchOriginal.innerHTML=dropdownTitle;
-  dropDownOptionInitialWord.appendChild(newNamedropDownTouchOriginal);
+//   console.log("newTitle", newTitle)
+//  dropdownTitle = document.getElementById("#dropMenuId");
+//   console.log("newTitle.target.childNodes[0].value",newTitle.target.childNodes[0].value);
+// 	dropdownTitle = newTitle.target.childNodes[0].value;
+//   console.log("dropdownTitle",dropdownTitle)
+//   var newNamedropDownTouchOriginal = document.createElement("div");
+//   newNamedropDownTouchOriginal.classList.add("newNamedropDownTouchOriginal");
+//   newNamedropDownTouchOriginal.innerHTML=dropdownTitle;
+//   dropDownOptionInitialWord.appendChild(newNamedropDownTouchOriginal);
+// };
+
+// Function to remove hide class on elements
+const removeHide = (classname) => {
+	const elements = document.querySelectorAll(classname);
+	elements.forEach((el) => el.classList.remove("hide"));
+};
+
+// Function to modify dropdown title menu
+const modifyDropdownTitle = (newTitle) => {
+	const dropdownTitle = document.querySelectorAll("sort-drop");
+	dropdownTitle[0].textContent = newTitle;
 };
 
 
@@ -245,9 +258,17 @@ function foldDropMenu(){
   dropDownMenuFold.style.display = "block";
 }
 
-function unFoldDropMenu(){
+function unFoldDropMenu(event){
+  console.log("event",event)
   const dropDownMenuFold = document.getElementById("sortDrop");
   dropDownMenuFold.style.display = "none";
+  const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");
+   console.log(event.currentTarget);
+   changeInitialWord.textContent = event.target.childNodes[0].value;
+   
+   dropDownTouchOriginal.appendChild(changeInitialWord);
+   dropDownTouchOriginal.appendChild(dropDownArrow);
+
 }
  
   
