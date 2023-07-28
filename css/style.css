@@ -425,9 +425,9 @@ header .logo {
   }
 
   #lightbox button {
-    opacity: 0.6;
+    opacity: 0;
     cursor:pointer;
-    transition: opacity .3s;
+    transition: opacity .5s;
     text-indent: -3000px;
     z-index:12;
   }
