@@ -117,7 +117,7 @@ function getDropDownMenu() {
   const dropDownArrow = document.createElement("img");
   dropDownArrow.classList.add("dropdown-icon");
   dropDownArrow.setAttribute("src", arrow);
-  // dropDownArrow.setAttribute("alt", "text");
+  dropDownArrow.setAttribute("alt", "text");
  
   const dropDownOption4 = document.createElement("button");
   dropDownOption4.classList.add("dropdown-options2");
@@ -129,6 +129,7 @@ function getDropDownMenu() {
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
   dropDownArrow2.setAttribute("src", arrow);
+  dropDownArrow2.setAttribute("alt", "text");
  
   
   const dropDownOptionInitialWord = document.createElement("span");
@@ -142,6 +143,7 @@ function getDropDownMenu() {
   const dropDownUl = document.createElement("ul");
   dropDownUl.classList.add("sort-drop");
   dropDownUl.setAttribute("id","sortDrop")
+  dropDownUl.setAttribute("alt","text")
  
   const dropDownIl1 = document.createElement("li");
  
@@ -151,6 +153,7 @@ function getDropDownMenu() {
   const dropDownOptionSpan = document.createElement("span");
   dropDownOptionSpan.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan.setAttribute("id", "dropMenuSpanId");
+  dropDownOptionSpan.setAttribute("alt","text")
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
   dropDownOption.appendChild(dropDownOptionSpan);
@@ -160,6 +163,7 @@ function getDropDownMenu() {
   const dropDownOptionSpan2 = document.createElement("span");
   dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan2.setAttribute("id", "dropMenuSpanId");
+  dropDownOptionSpan2.setAttribute("alt","text")
   dropDownOptionSpan2.value = "Date";
   dropDownOptionSpan2.textContent = "Date";
   dropDownOption2.appendChild(dropDownOptionSpan2);
@@ -170,6 +174,7 @@ function getDropDownMenu() {
   const dropDownOptionSpan3 = document.createElement("span");
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
+  dropDownOptionSpan3.setAttribute("alt","text")
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);
@@ -192,6 +197,7 @@ function getDropDownMenu() {
   const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
   dropDownTouchOriginal.setAttribute("id", "dropMenuId");
+  dropDownTouchOriginal.setAttribute("alt","text")
 
  
 
