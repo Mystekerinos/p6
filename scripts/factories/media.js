@@ -244,7 +244,12 @@ export function mediaFactory(data,tabDatas) {
   }
 
 
-
+  function getNameForm() {
+    const nameForm = document.createElement("span");
+    nameForm.textContent = name;
+    console.log("nameForm",nameForm)
+    return nameForm;
+  }
   
 
   // Initialize a variable that will contain the current lightbox media id
@@ -367,6 +372,7 @@ export function mediaFactory(data,tabDatas) {
 
 
   return {
+    getNameForm,
     getPhotographerCreationCardDOM,
     getPhotographerIdentityCardDOM,
     getPhotographerImage,

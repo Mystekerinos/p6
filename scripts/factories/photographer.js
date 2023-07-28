@@ -61,17 +61,11 @@ function photographerFactory(data) {
     article.appendChild(isPrice);
     return article;
   }
-  function getNameForm() {
-    const nameForm = document.createElement("span");
-    nameForm.textContent = name;
-    console.log("nameForm",nameForm)
-    return nameForm;
-  }
+
 
 
   
   return {
-    getNameForm,
     getUserCardDOM,
   };
 }

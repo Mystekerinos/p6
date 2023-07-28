@@ -90,7 +90,7 @@ padding-bottom:14px;
 }
 .modal-title {
   vertical-align: top;
-  font-size: 54px;
+  font-size: 34px;
   font-weight: 400;
   margin-top:0px;
   margin-bottom:0px;
@@ -397,4 +397,6 @@ form input {
   #sort-dropdown{
     width:8rem;
   }
+
+
 

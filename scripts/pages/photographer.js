@@ -6,6 +6,7 @@ let photographers ;
 const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
+const contactFormSection = document.querySelector(".modal_title_namePhotographer");
 const dropDownMenuSection = document.createElement("div");
 let dropdownTitle = document.createElement("span");
 const photographersProfile = document.querySelector(".photograph-profile");
@@ -101,6 +102,14 @@ function displayData(media, photographer) {
   const moreLikes = document.createElement("div");
   moreLikes.classList.add("moreLikes");
   moreLikes.innerHTML = moreLikes;
+
+
+
+  const contactFormFullName = photographerIdentity.getNameForm();
+      console.log("contactFormFullName",contactFormFullName)
+   
+      contactFormSection.appendChild(contactFormFullName);
+    console.log("contactFormSection.",contactFormSection)
 
   displayDataList(media);
 }

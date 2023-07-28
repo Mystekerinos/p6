@@ -43,7 +43,7 @@ import { getPhotographers } from "../utils/fetchJsonData.js";
 async function displayData(photographers) {
  
  
-  const contactFormSection = document.getElementById("modal_title_namePhotographer");
+  
   const photographersSection = document.querySelector(".photographer_section");
  
   photographers.forEach((photographer) => {
@@ -53,12 +53,8 @@ async function displayData(photographers) {
     photographersSection.appendChild(userCardDOM);
    
    
-    // const photographerNameForm = photographerFactory(photographer);
-    //   const contactFormFullName = photographerNameForm.getNameForm();
-    //   console.log("contactFormFullName",contactFormFullName)
-   
-    // contactFormSection.appendChild(contactFormFullName);
-    // console.log("contactFormSection.",contactFormSection)
+    
+     
   });
   
 }
