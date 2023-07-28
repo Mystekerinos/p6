@@ -379,12 +379,15 @@ header .logo {
   }
 
   .lightbox-img, .lightbox-video{
-    width:1050px;
-    height:900px;
-    right:-370px;
-    top:101px;
+    width:50%;
+    height:50%;
+    right:-450px;
+    top:201px;
     position:relative;
   }
+
+
+ 
   
 
   .lightbox__next, .lightbox__previous{
@@ -417,7 +420,7 @@ header .logo {
     background: url(/assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     position:fixed;
     top:10px;
-    right:6px;
+    right:105px;
     z-index:5;
   }
 
@@ -483,6 +486,16 @@ header .logo {
 
   #controller{
    opacity:0;
+  }
+
+
+  .lightbox-caption{
+    position:relative;
+    font-size:26px;
+    z-index:11;
+    color:white;
+    right:-447px;
+    top:280px;
   }
 
   

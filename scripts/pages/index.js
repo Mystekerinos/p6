@@ -53,12 +53,12 @@ async function displayData(photographers) {
     photographersSection.appendChild(userCardDOM);
    
    
-    const photographerNameForm = photographerFactory(photographer);
-      const contactFormFullName = photographerNameForm.getNameForm();
-      console.log("contactFormFullName",contactFormFullName)
+    // const photographerNameForm = photographerFactory(photographer);
+    //   const contactFormFullName = photographerNameForm.getNameForm();
+    //   console.log("contactFormFullName",contactFormFullName)
    
-    contactFormSection.appendChild(contactFormFullName);
-    console.log("contactFormSection.",contactFormSection)
+    // contactFormSection.appendChild(contactFormFullName);
+    // console.log("contactFormSection.",contactFormSection)
   });
   
 }
