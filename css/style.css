@@ -486,6 +486,7 @@ header .logo {
 
   #controller{
    opacity:0;
+   z-index:3;
   }
 
 
