@@ -213,23 +213,21 @@ l{
 
 
 .dropdown-optionsSpan{
-
     margin-left:5px;
-    margin-top:13px;
 }
 
 
 .dropdown-optionsSpan2{
-
     margin-left:5px;
-    margin-top:13px;
 }
 
 
 .dropdown-options3{
     width: 10.625rem;
     height: 4rem;
-   
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
     border-radius: 0;
     color: white;
     background-color: #901c1c;
@@ -241,9 +239,11 @@ l{
 }
 
 .dropdown-touch{
+    display:flex;
+    justify-content:space-between;
     width: 10.625rem;
     height: 4rem;
-   
+   align-items:center;
     border-radius: 0;
     color: white;
     background-color: #901c1c;
@@ -471,18 +471,11 @@ header .logo {
   
 
   .dropdown-icon {
-    margin-left:72px;
-    margin-right:5px;
     rotate:271deg;
-    margin-bottom:-5px;
   }
 
    .dropdown-icon2 {
-    margin-top:12px;
-    margin-left:25px;
-    margin-right:5px;
-    rotate:450deg;
-    margin-bottom:-7px;
+    rotate:450deg; 
   }
 
   #controller{
