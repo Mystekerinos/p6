@@ -1,6 +1,6 @@
 
 export function mediaFactory(data,tabDatas) {
-
+console.log("tabDatas",tabDatas);
   const {
     title,
     id,
@@ -19,8 +19,11 @@ export function mediaFactory(data,tabDatas) {
 
 
 
+
+
   const ArrayCreationArtist=[];
   ArrayCreationArtist.push(data)
+
   console.log("ArrayCreationArtist",ArrayCreationArtist);
 
 
@@ -29,7 +32,7 @@ export function mediaFactory(data,tabDatas) {
   let currentLightboxMediaId = 0;
  
 // Get photographer id
- const idHead = new URLSearchParams(window.location.search).get("id");
+
   const Image = `assets/images/${photographerId}/${image}`;
   const Video = `assets/images/${photographerId}/${video}`;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -40,12 +43,34 @@ export function mediaFactory(data,tabDatas) {
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
   isHeart.setAttribute("alt", "text");
+ 
 
+
+
+  let tabIndex=0;
+  getPhotographerCreationCardDOM(tabIndex);
+ 
+  increaseTabIndex(tabIndex);
+  
+
+ 
   function getPhotographerCreationCardDOM() {
     // Create an article element
+    
+    
+   
     const card = document.createElement("card");
+    
     card.id = id;
+    card.setAttribute("tabindex", tabIndex ); 
+  
+    
+    
 
+     console.log('tabindex',tabIndex)
+
+
+    
     const description = document.createElement("div");
     description.classList.add("card_description");
 
@@ -62,11 +87,14 @@ export function mediaFactory(data,tabDatas) {
       isImage.classList.add("hover-shadow");
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "text");
+     
    console.log("id",id)
       isImage.addEventListener("click", () => {
         renderLightBoxMedia(id)
         addLightBoxActions()
+     
       });
+
       card.appendChild(isImage);
     }
 
@@ -77,13 +105,15 @@ export function mediaFactory(data,tabDatas) {
      
       isVideo.classList.add("card_video");
       isVideo.setAttribute("src", Video);
+      
       isVideo.addEventListener("click", () => {
         renderLightBoxMedia(id)
         addLightBoxActions()
       });
+
       card.appendChild(isVideo);
     }
-
+   
     // Create a date element for the artist date
 
     const isDate = document.createElement("div");
@@ -126,14 +156,23 @@ export function mediaFactory(data,tabDatas) {
     console.log("isHeart", isLikes);
 
   
-
-    // append  an Image, a date, a likes, a title,  an image to the article element
-   
-    card.appendChild(description);
     
+    // append  an Image, a date, a likes, a title,  an image to the article element
+
+    console.log("tabIndex2",tabIndex)
+    
+    
+    card.appendChild(description);
 
     return card;
+
   }
+ 
+  
+
+ 
+ 
+  
 
   function addLightBoxActions() {
     const lightboxNextBtn = document.getElementById("lightboxNextBtn");
@@ -152,15 +191,16 @@ export function mediaFactory(data,tabDatas) {
         });
   }
 
-  //ToDo
-  //recuperer le chiffre total et le chiffre de la card  l'element le plus pres l'id et la classe
-  //je dois les incrementer en meme temps.
+  
+  
+
+
 
   function getPhotographerIdentityCardDOM() {
     // Create an article element
     const article = document.createElement("article");
     article.id = id;
-
+    
     // Create a location element for the artist city and artist country
     const location = document.createElement("div");
     location.classList.add("photograph-header_description_location");
@@ -368,7 +408,18 @@ export function mediaFactory(data,tabDatas) {
  
 
 
-
+    function increaseTabIndex(){
+      console.log("tabDatas",tabDatas)
+      console.log("tabIndex",tabIndex)
+    while(tabIndex<tabDatas.length){
+     tabIndex++
+      getPhotographerCreationCardDOM(tabIndex);
+     
+    }
+  
+      
+     
+   }
 
 
   return {
