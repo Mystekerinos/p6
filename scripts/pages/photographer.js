@@ -1,6 +1,6 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
-
+let tabindex=0;
 let media;
 let photographers ;
 const arrow = "assets/icons/arrow.svg";
@@ -8,7 +8,7 @@ const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 const contactFormSection = document.querySelector(".modal_title_namePhotographer");
 const dropDownMenuSection = document.createElement("div");
-let dropdownTitle = document.createElement("span");
+
 const photographersProfile = document.querySelector(".photograph-profile");
 const heartTotal = "assets/images/likesTotal.svg";
 function displayData(media, photographer) {
@@ -49,6 +49,7 @@ function displayData(media, photographer) {
   photographersHeaderDescriptionSection.classList.add(
     "photograph_Creations_card"
   );
+  
   photographersCreation.appendChild(photographersHeaderDescriptionSection);
 
   //  Description element photographer
@@ -223,34 +224,12 @@ console.log("dropDownUl",dropDownUl)
     unFoldDropMenu(event);
 
 }
-);
+  );
 
 
-// Function to modify dropdown title menu
-// const modifyDropdownTitle = (newTitle) => {
-  
-//   console.log("newTitle", newTitle)
-//  dropdownTitle = document.getElementById("#dropMenuId");
-//   console.log("newTitle.target.childNodes[0].value",newTitle.target.childNodes[0].value);
-// 	dropdownTitle = newTitle.target.childNodes[0].value;
-//   console.log("dropdownTitle",dropdownTitle)
-//   var newNamedropDownTouchOriginal = document.createElement("div");
-//   newNamedropDownTouchOriginal.classList.add("newNamedropDownTouchOriginal");
-//   newNamedropDownTouchOriginal.innerHTML=dropdownTitle;
-//   dropDownOptionInitialWord.appendChild(newNamedropDownTouchOriginal);
-// };
 
-// Function to remove hide class on elements
-const removeHide = (classname) => {
-	const elements = document.querySelectorAll(classname);
-	elements.forEach((el) => el.classList.remove("hide"));
-};
 
-// Function to modify dropdown title menu
-const modifyDropdownTitle = (newTitle) => {
-	const dropdownTitle = document.querySelectorAll("sort-drop");
-	dropdownTitle[0].textContent = newTitle;
-};
+
 
 
 function foldDropMenu(){
@@ -264,11 +243,12 @@ function unFoldDropMenu(event){
   dropDownMenuFold.style.display = "none";
   const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");
    console.log(event.currentTarget);
+
    changeInitialWord.textContent = event.target.childNodes[0].value;
    
    dropDownTouchOriginal.appendChild(changeInitialWord);
    dropDownTouchOriginal.appendChild(dropDownArrow);
-
+  
 }
  
   
@@ -372,8 +352,12 @@ function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
   medias.forEach((mediaData) => {
-    const photographerCreation = mediaFactory(mediaData,medias);  
+    // let tabIndex=0;
+    // medias.setAttribute("tabindex", tabIndex );
+    // mediaData.setAttribute("tabindex",tabindex)
     console.log("mediaData",mediaData);
+    const photographerCreation = mediaFactory(mediaData,medias); 
+   
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     mediaList.appendChild(userPhotographerCreationCardDOM);

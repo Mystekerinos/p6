@@ -47,10 +47,7 @@ console.log("tabDatas",tabDatas);
 
 
 
-  let tabIndex=0;
-  getPhotographerCreationCardDOM(tabIndex);
- 
-  increaseTabIndex(tabIndex);
+
   
 
  
@@ -60,14 +57,14 @@ console.log("tabDatas",tabDatas);
     
    
     const card = document.createElement("card");
-    
+    card.classList.add("card");
     card.id = id;
-    card.setAttribute("tabindex", tabIndex ); 
+ 
   
     
     
 
-     console.log('tabindex',tabIndex)
+
 
 
     
@@ -78,6 +75,7 @@ console.log("tabDatas",tabDatas);
     // Create a image element for the artist image
     const isImage = document.createElement("img");
     isImage.setAttribute("alt", "text");
+    
     const isVideo = document.createElement("video");
    
 
@@ -110,7 +108,7 @@ console.log("tabDatas",tabDatas);
         renderLightBoxMedia(id)
         addLightBoxActions()
       });
-
+     
       card.appendChild(isVideo);
     }
    
@@ -159,7 +157,7 @@ console.log("tabDatas",tabDatas);
     
     // append  an Image, a date, a likes, a title,  an image to the article element
 
-    console.log("tabIndex2",tabIndex)
+    // console.log("tabIndex2",tabIndex)
     
     
     card.appendChild(description);
@@ -407,19 +405,6 @@ console.log("tabDatas",tabDatas);
 
  
 
-
-    function increaseTabIndex(){
-      console.log("tabDatas",tabDatas)
-      console.log("tabIndex",tabIndex)
-    while(tabIndex<tabDatas.length){
-     tabIndex++
-      getPhotographerCreationCardDOM(tabIndex);
-     
-    }
-  
-      
-     
-   }
 
 
   return {
