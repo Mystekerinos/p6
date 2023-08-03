@@ -1,10 +1,10 @@
 @import url("photographer.css");
+
+
 body {
     font-family: "DM Sans", sans-serif;
     width:1441px;
-    height:1024px;
-    margin-left:200px;
-    margin-right:200px;   
+    height:1024px; 
 }
 header {
     display: flex;
@@ -95,6 +95,10 @@ header h1{
     flex-wrap: wrap;
     column-gap:91px;
     row-gap: -9px;;
+}
+
+#card{
+position:absolute; 
 }
 .card_description_title{
     font-size:18px;
@@ -213,6 +217,7 @@ l{
 
 
 .dropdown-optionsSpan{
+    pointer-events:none;
     margin-left:5px;
 }
 
@@ -312,9 +317,12 @@ header .logo {
 
 .photographers_Price{
     z-index:1;
-    top:834px;
+   
     position:fixed;
-    right: 11.5rem;
+    
+    
+    right: 7rem;
+    top:13%;
     left: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -478,11 +486,11 @@ header .logo {
     rotate:450deg; 
   }
 
-  #controller{
-   opacity:0;
-   z-index:3;
-  }
+  
 
+
+
+ 
 
   .lightbox-caption{
     position:relative;
@@ -492,6 +500,16 @@ header .logo {
     right:-447px;
     top:280px;
   }
+  @media screen and (min-width:1224px){
 
+
+    .photographers_Price{
+        right: 23rem;
+        
+        top:93%;
+       
   
-  
+    } 
+
+}
+ 
