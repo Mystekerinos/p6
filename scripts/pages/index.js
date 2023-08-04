@@ -42,12 +42,13 @@ import { getPhotographers } from "../utils/fetchJsonData.js";
 
 async function displayData(photographers) {
  
- 
+
   
   const photographersSection = document.querySelector(".photographer_section");
  
-  photographers.forEach((photographer) => {
-    const photographerModel = photographerFactory(photographer);
+  photographers.forEach((photographer,index) => {
+  
+    const photographerModel = photographerFactory(photographer,index+6);
     console.log("photographerModel",photographerModel)
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
@@ -61,8 +62,16 @@ async function displayData(photographers) {
 
 async function init() {
   // Récupère les datas des photographes
+  
   const { photographers } = await getPhotographers();
+
+  
+
+ 
+  
   console.log("index.js", photographers);
+
+
   displayData(photographers);
 }
 

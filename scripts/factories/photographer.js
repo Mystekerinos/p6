@@ -1,7 +1,7 @@
 
 
 
-function photographerFactory(data) {
+function photographerFactory(data,tabindex) {
   const { name, portrait, city, country, tagline, price, id } = data;
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -9,7 +9,7 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     // Create an article element
     const article = document.createElement("article");
-
+    article.setAttribute("tabindex",tabindex);
     // Create an link element for the card artist
 
     const photographerCardLink = document.createElement("a");

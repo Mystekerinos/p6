@@ -1,8 +1,9 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
-let tabindex=0;
+
 let media;
 let photographers ;
+
 const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
@@ -40,6 +41,7 @@ function displayData(media, photographer) {
   photographersCreation.appendChild(dropDownSort);
   dropDownSort.appendChild(getDropDownMenu());
   dropDownEventListener(media);
+  
 
 
 
@@ -309,6 +311,11 @@ export async function mediaInit() {
   displayData(media, photographer);
 }
 
+
+
+
+
+
 function dropDownEventListener(medias) {
   console.log("medias",medias)
   const dropdownMenu = document.querySelector(".dropdown-menu");
@@ -351,12 +358,19 @@ function dropDownEventListener(medias) {
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
-  medias.forEach((mediaData) => {
-    // let tabIndex=0;
-    // medias.setAttribute("tabindex", tabIndex );
-    // mediaData.setAttribute("tabindex",tabindex)
+  
+  
+  
+
+  
+
+     
+     
+  medias.forEach((mediaData,index) => {
+  
+  
     console.log("mediaData",mediaData);
-    const photographerCreation = mediaFactory(mediaData,medias); 
+    const photographerCreation = mediaFactory(mediaData,medias,index+6); 
    
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();

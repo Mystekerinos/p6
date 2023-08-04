@@ -1,6 +1,7 @@
 
-export function mediaFactory(data,tabDatas) {
+export function mediaFactory(data,tabDatas,tabindex) {
 console.log("tabDatas",tabDatas);
+console.log("tabindex2",tabindex);
   const {
     title,
     id,
@@ -60,7 +61,7 @@ console.log("tabDatas",tabDatas);
     card.classList.add("card");
     card.id = id;
  
-  
+    card.setAttribute("tabindex",tabindex);
     
     
 
