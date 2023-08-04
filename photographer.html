@@ -31,26 +31,26 @@
 <div class="contactModal_background" id="contactModal_background">
  <dialog class="modal" id="contactModal">
 				<header class="modal-header">
-          <h2 class="modal-title" >Contactez-moi <br> 
-            <div class="modal_title_namePhotographer" id="modal_title_namePhotographer"></div></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="text" />
+          <h2 class="modal-title" tabindex="18" >Contactez-moi <br> 
+            <div class="modal_title_namePhotographer"  id="modal_title_namePhotographer"></div></h2>
+          <img src="assets/icons/close.svg" tabindex="19" onclick="closeModal()" alt="text" />
         </header>
 				<form aria-label="formulaire">
-				  <label class="modal-label" for="firstName"   >Prénom</label><br>
-      <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
+				  <label class="modal-label" for="firstName" tabindex="20"  >Prénom</label><br>
+      <input class="modal-input" tabindex="21" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
         required><br>
 
-      <label class="modal-label" for="lastName">Nom</label><br>
-      <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
+      <label class="modal-label" for="lastName" tabindex="22">Nom</label><br>
+      <input class="modal-input" tabindex="23" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
         required><br>
 
-      <label class="modal-label" for="email">E-mail</label><br>
-      <input class="modal-input" type="email" id="email" name="email" required><br>
+      <label class="modal-label" for="email" tabindex="24">E-mail</label><br>
+      <input class="modal-input" tabindex="25" type="email" id="email" name="email" required><br>
 
-      <label class="modal-label" for="message">Votre message</label><br>
-      <textarea class="modal-input modal-msg" rows="15" cols="71" type="text" id="message" name="message" 
+      <label class="modal-label" for="message" tabindex="26">Votre message</label><br>
+      <textarea class="modal-input modal-msg" tabindex="27" rows="15" cols="71" type="text" id="message" name="message" 
         pattern="(?!^ +$)^.+$" required> </textarea><br>
-          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact">Envoyer</button>
+          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="28">Envoyer</button>
 				</form>
 		</dialog>
   </div>
