@@ -1,7 +1,7 @@
 
 export function mediaFactory(data,tabDatas,tabindex) {
 console.log("tabDatas",tabDatas);
-console.log("tabindex2",tabindex);
+
   const {
     title,
     id,
@@ -158,7 +158,6 @@ console.log("tabindex2",tabindex);
     
     // append  an Image, a date, a likes, a title,  an image to the article element
 
-    // console.log("tabIndex2",tabIndex)
     
     
     card.appendChild(description);
@@ -199,26 +198,28 @@ console.log("tabindex2",tabindex);
     // Create an article element
     const article = document.createElement("article");
     article.id = id;
-    
+  
     // Create a location element for the artist city and artist country
     const location = document.createElement("div");
     location.classList.add("photograph-header_description_location");
+    location.setAttribute("tabindex",tabindex=2);
     location.textContent = `${city}, ${country}`;
-
+   
     // Create a name element for the artist name
     const isName = document.createElement("h1");
     isName.textContent = name;
+    isName.setAttribute("tabindex",tabindex=1);
     document.title = `${name} - Fisheye`;
     console.log("document.title",document.title)
     // Create a tagline element for the artist tagline
     const isTagline = document.createElement("div");
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
-
+    isTagline.setAttribute("tabindex",tabindex=3);
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
     isPicture.setAttribute("alt", "text");
-
+    isPicture.setAttribute("tabindex",tabindex=5);
     // append  an Image, a date, a likes, a title,  an image to the header element
 
    
@@ -237,7 +238,7 @@ console.log("tabindex2",tabindex);
     // Create an article element
     const artistFace = document.createElement("article");
     artistFace.id = id;
-
+    artistFace.setAttribute("tabindex",tabindex);
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
     isPicture.setAttribute("alt", "text");

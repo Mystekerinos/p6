@@ -1,6 +1,7 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
+let tabindex;
 let media;
 let photographers ;
 
@@ -72,7 +73,7 @@ function displayData(media, photographer) {
     photographerIdentity.getPhotographerIdentityCardDOM();
   console.log("photographerIdentity", userPhotographersCardDOM);
   photographersHeaderDescription.appendChild(userPhotographersCardDOM);
-
+  
   const userPhotographersPicture = photographerIdentity.getPhotographerImage();
   console.log("userPhotographersPicture", userPhotographersPicture);
   photographersImage.appendChild(userPhotographersPicture);
@@ -110,7 +111,7 @@ function displayData(media, photographer) {
 
   const contactFormFullName = photographerIdentity.getNameForm();
       console.log("contactFormFullName",contactFormFullName)
-   
+
       contactFormSection.appendChild(contactFormFullName);
     console.log("contactFormSection.",contactFormSection)
 
@@ -320,6 +321,7 @@ function dropDownEventListener(medias) {
   console.log("medias",medias)
   const dropdownMenu = document.querySelector(".dropdown-menu");
   console.log("dropdownMenu",dropdownMenu);
+  dropdownMenu.setAttribute("tabindex",tabindex=6);
   dropdownMenu.addEventListener("click", (e) => {
     // Retrieve the selected option value
     console.log(" dropdownMenu",  dropdownMenu);
@@ -362,7 +364,7 @@ function displayDataList(medias) {
   
   
 
-  
+
 
      
      
@@ -370,7 +372,7 @@ function displayDataList(medias) {
   
   
     console.log("mediaData",mediaData);
-    const photographerCreation = mediaFactory(mediaData,medias,index+6); 
+    const photographerCreation = mediaFactory(mediaData,medias,index+7); 
    
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
