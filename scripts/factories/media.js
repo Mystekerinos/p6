@@ -1,6 +1,6 @@
 
 export function mediaFactory(data,tabDatas,tabindex) {
-console.log("tabDatas",tabDatas);
+
 
   const {
     title,
@@ -25,21 +25,18 @@ console.log("tabDatas",tabDatas);
   const ArrayCreationArtist=[];
   ArrayCreationArtist.push(data)
 
-  console.log("ArrayCreationArtist",ArrayCreationArtist);
 
-
-  console.log("data",data)
 
   let currentLightboxMediaId = 0;
  
-// Get photographer id
+// Variable initialization
 
   const Image = `assets/images/${photographerId}/${image}`;
   const Video = `assets/images/${photographerId}/${video}`;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
   const heart = "assets/images/likes.svg";
   
- 
+ // creation of the image of the heart
   const isHeart = document.createElement("img");
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
@@ -50,11 +47,10 @@ console.log("tabDatas",tabDatas);
 
 
   
-
+// Create an card element
  
   function getPhotographerCreationCardDOM() {
-    // Create an article element
-    
+
     
    
     const card = document.createElement("card");
@@ -87,7 +83,7 @@ console.log("tabDatas",tabDatas);
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "text");
      
-   console.log("id",id)
+  
       isImage.addEventListener("click", () => {
         renderLightBoxMedia(id)
         addLightBoxActions()
@@ -100,7 +96,7 @@ console.log("tabDatas",tabDatas);
     // Create a image element for the artist image
 
     if (video) {
-      console.log("video", video);
+      
      
       isVideo.classList.add("card_video");
       isVideo.setAttribute("src", Video);
@@ -152,14 +148,6 @@ console.log("tabDatas",tabDatas);
 
     description.appendChild(creationLikes);
 
-    console.log("isHeart", isLikes);
-
-  
-    
-    // append  an Image, a date, a likes, a title,  an image to the article element
-
-    
-    
     card.appendChild(description);
 
     return card;
@@ -170,7 +158,7 @@ console.log("tabDatas",tabDatas);
 
  
  
-  
+  // Lightbox navigation
 
   function addLightBoxActions() {
     const lightboxNextBtn = document.getElementById("lightboxNextBtn");
@@ -192,7 +180,7 @@ console.log("tabDatas",tabDatas);
   
   
 
-
+// creation of the photographer's profile
 
   function getPhotographerIdentityCardDOM() {
     // Create an article element
@@ -210,7 +198,7 @@ console.log("tabDatas",tabDatas);
     isName.textContent = name;
     isName.setAttribute("tabindex",tabindex=1);
     document.title = `${name} - Fisheye`;
-    console.log("document.title",document.title)
+ 
     // Create a tagline element for the artist tagline
     const isTagline = document.createElement("div");
     isTagline.classList.add("photograph-header_description_tagline");
@@ -220,11 +208,9 @@ console.log("tabDatas",tabDatas);
     isPicture.setAttribute("src", picture);
     isPicture.setAttribute("alt", "text");
     isPicture.setAttribute("tabindex",tabindex=5);
-    // append  an Image, a date, a likes, a title,  an image to the header element
 
-   
-    
 
+    // append  a name, a tagline, a location,  to the article element
     article.appendChild(isName);
     article.appendChild(location);
     article.appendChild(isTagline);
@@ -233,6 +219,7 @@ console.log("tabDatas",tabDatas);
 
     return article;
   }
+//  Photographer's profile picture
 
   function getPhotographerImage() {
     // Create an article element
@@ -249,7 +236,10 @@ console.log("tabDatas",tabDatas);
     return artistFace;
   }
 
+
+  //photographer's price
   function getPhotographerPrice() {
+
     // Create an article element
     const PhotographerPrice = document.createElement("article");
     PhotographerPrice.id = id;
@@ -259,14 +249,15 @@ console.log("tabDatas",tabDatas);
     const isPrice = document.createElement("div");
     isPrice.classList.add("price");
     isPrice.textContent = `${price}€/jour`;
-    // Create a price element for the artist price
+  
 
-    // append  an Image, a date, a likes, a title,  an image to the header element
 
     PhotographerPrice.appendChild(isPrice);
 
     return PhotographerPrice;
   }
+
+  //calculate the number of likes
 
   function renderLikes(isLikes) {
     let allLikes = document.querySelector(".allLikes");
@@ -283,40 +274,26 @@ console.log("tabDatas",tabDatas);
     allLikes.textContent = NbAllLike;
   }
 
-
+// adapt the form to the name of the photographer
   function getNameForm() {
     const nameForm = document.createElement("span");
     nameForm.textContent = name;
-    console.log("nameForm",nameForm)
+  
     return nameForm;
   }
   
 
   // Initialize a variable that will contain the current lightbox media id
 
-
-
-
    function renderLightBoxMedia(mediaId) {
-    console.log("mediaId",mediaId)
+  
     const mediaObject =  tabDatas.find(
       (media) => media.id == mediaId
-
       );
+
 // Update the currentMediaId variable with the current lightbox media id
     currentLightboxMediaId = mediaId;
-    console.log("mediaId",mediaId)
-    console.log("mediaObject",mediaObject)
-    console.log("currentLightboxMediaId",currentLightboxMediaId)
-    
-  
-    
-  
-
-
-
- // Destructuring the media object to extract its properties
-  // const { title, photographerId, image, video } = mediaObject;
+   
 
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
@@ -325,14 +302,14 @@ console.log("tabDatas",tabDatas);
     
   
     // If the media is an image add the appropriate media card html to the lightboxMedia element
-    console.log("Image",image,id)
+   
     if (mediaObject?.image) 
     {
       lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}" alt="${mediaObject.title}"><figcaption class="lightbox-caption">${mediaObject.title}</figcaption>`;
     }
-  console.log("lightboxMedia",lightboxMedia)
+
     // If the media is a video add the appropriate media card html to the lightboxMedia element
-    console.log("video",video)
+   
     if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
         <video class="lightbox-video" title="${mediaObject.title}" id="${mediaObject.id}" controls>
@@ -342,12 +319,11 @@ console.log("tabDatas",tabDatas);
     `;
     }
     currentLightboxMediaId = mediaObject.id;
-    console.log("currentLightboxMediaId",currentLightboxMediaId)
     return  currentLightboxMediaId;
   }
 
   
- 
+ // function to move to the next element
   
   function nextLightBoxMedia() {
     const currentLightboxMediaId = parseInt(document.querySelector(".lightbox-img")?.id ?? document.querySelector(".lightbox-video")?.id);
@@ -356,17 +332,17 @@ console.log("tabDatas",tabDatas);
     const currentIndex = tabDatas.findIndex(
       (media) => media.id == currentLightboxMediaId
     );
-    console.log("currentLightboxMediaId",currentLightboxMediaId)
+ 
   
     // If the current media item is not the last item in the array, display the next item
     if (currentIndex < tabDatas.length - 1) {
       const nextMediaId = tabDatas[currentIndex + 1].id;
-      console.log("nextMediaId",nextMediaId)
+     
       renderLightBoxMedia(nextMediaId);
       // Else display the first item of the array
     } else {
       const nextMediaId = tabDatas[0].id;
-      console.log("nextMediaId",nextMediaId)
+
       renderLightBoxMedia(nextMediaId);
      
     }
@@ -376,8 +352,7 @@ console.log("tabDatas",tabDatas);
 
 
 
- 
-
+ // function to move to the previous element
 
   function previousLightBoxMedia() {
     const currentLightboxMediaId = parseInt(document.querySelector(".lightbox-img")?.id ?? document.querySelector(".lightbox-video")?.id);
@@ -398,7 +373,7 @@ console.log("tabDatas",tabDatas);
     }
   }
     
-
+  // closing the lightbox
     function closeModalLightBox(){
       const closeModalLightBox = document.getElementById("lightboxMedia");
       closeModalLightBox.style.display = "none";
