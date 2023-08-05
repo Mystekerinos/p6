@@ -289,7 +289,7 @@ export async function mediaInit() {
    media= mediaObject.media;
   
     photographers= mediaObject.photographers;
-  console.log(media, photographers);
+
 
   const params = new URL(document.location).searchParams;
   const photographerId = parseInt(params.get("id"));
@@ -311,16 +311,12 @@ export async function mediaInit() {
 //sort the elements
 
 function dropDownEventListener(medias) {
-  console.log("medias",medias)
   const dropdownMenu = document.querySelector(".dropdown-menu");
-  console.log("dropdownMenu",dropdownMenu);
   dropdownMenu.setAttribute("tabindex",tabindex=6);
   dropdownMenu.addEventListener("click", (e) => {
+
     // Retrieve the selected option value
-    console.log(" dropdownMenu",  dropdownMenu);
     const selectedOption = e.target.innerText;
-    console.log("selectedOption", selectedOption);
-    console.log(e);
     if (selectedOption == "Popularité") {
       medias.sort((a, b) => {
         return b.likes - a.likes;
