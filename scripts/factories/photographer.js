@@ -6,6 +6,7 @@ function photographerFactory(data,tabindex) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
+  //creation of a photographer profile in the homepage
   function getUserCardDOM() {
     // Create an article element
     const article = document.createElement("article");

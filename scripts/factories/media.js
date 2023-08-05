@@ -180,7 +180,7 @@ export function mediaFactory(data,tabDatas,tabindex) {
   
   
 
-// creation of the photographer's profile
+// creation of the photographer's information space
 
   function getPhotographerIdentityCardDOM() {
     // Create an article element
