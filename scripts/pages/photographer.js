@@ -1,7 +1,7 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
-
+let tabindex;
 let media;
 let photographers ;
 
