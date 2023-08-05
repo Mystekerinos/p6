@@ -81,7 +81,7 @@ function displayData(media, photographer) {
   const userPhotographersAllLikes = getPhotographerLikes(media);
 
 
-  
+  //display of all likes and management of the addition of likes
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
