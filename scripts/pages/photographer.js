@@ -1,18 +1,20 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
-let tabindex;
+
 let media;
 let photographers ;
 
+// Get Element
 const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
 const contactFormSection = document.querySelector(".modal_title_namePhotographer");
 const dropDownMenuSection = document.createElement("div");
-
 const photographersProfile = document.querySelector(".photograph-profile");
 const heartTotal = "assets/images/likesTotal.svg";
+
+//Sentence display sort by
 function displayData(media, photographer) {
   const option = "Trier par";
   const photographersCreation = document.createElement("div");
@@ -71,15 +73,13 @@ function displayData(media, photographer) {
   const photographerIdentity = mediaFactory(photographer,media);
   const userPhotographersCardDOM =
     photographerIdentity.getPhotographerIdentityCardDOM();
-  console.log("photographerIdentity", userPhotographersCardDOM);
   photographersHeaderDescription.appendChild(userPhotographersCardDOM);
   
   const userPhotographersPicture = photographerIdentity.getPhotographerImage();
-  console.log("userPhotographersPicture", userPhotographersPicture);
   photographersImage.appendChild(userPhotographersPicture);
 
   const userPhotographersAllLikes = getPhotographerLikes(media);
-  console.log("userPhotographersPicture", userPhotographersAllLikes);
+
 
   
 
@@ -100,7 +100,6 @@ function displayData(media, photographer) {
   photographersPrice.appendChild(photographersPriceHeart);
 
   const userPhotographersPrice = photographerIdentity.getPhotographerPrice();
-  console.log("userPhotographersPicture", userPhotographersPrice);
   photographersPrice.appendChild(userPhotographersPrice);
 
   const moreLikes = document.createElement("div");
@@ -110,23 +109,22 @@ function displayData(media, photographer) {
 
 
   const contactFormFullName = photographerIdentity.getNameForm();
-      console.log("contactFormFullName",contactFormFullName)
 
       contactFormSection.appendChild(contactFormFullName);
-    console.log("contactFormSection.",contactFormSection)
+
 
   displayDataList(media);
 }
 
 
 
-
+// sort Button
 function getDropDownMenu() {
-  // Create an article element
+ 
  
   dropDownMenuSection.classList.add("dropdown-menu");
-  // Create an image element for the portrait
 
+  // Create an  element for the sort button
   const dropDownArrow = document.createElement("img");
   dropDownArrow.classList.add("dropdown-icon");
   dropDownArrow.setAttribute("src", arrow);
@@ -134,10 +132,6 @@ function getDropDownMenu() {
  
   const dropDownOption4 = document.createElement("button");
   dropDownOption4.classList.add("dropdown-options2");
-  
- 
-  
-
 
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
@@ -148,11 +142,13 @@ function getDropDownMenu() {
   const dropDownOptionInitialWord = document.createElement("span");
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
   
- 
- 
+
+ // creating the initial sort button
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
   dropDownOption4.appendChild(dropDownOptionInitialWord);
+
+
   const dropDownUl = document.createElement("ul");
   dropDownUl.classList.add("sort-drop");
   dropDownUl.setAttribute("id","sortDrop")
@@ -160,7 +156,7 @@ function getDropDownMenu() {
  
   const dropDownIl1 = document.createElement("li");
  
-  
+  // popularity button
   const dropDownOption = document.createElement("button");
    dropDownOption.classList.add("dropdown-options3");
   const dropDownOptionSpan = document.createElement("span");
@@ -169,6 +165,8 @@ function getDropDownMenu() {
   dropDownOptionSpan.setAttribute("alt","text")
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
+
+   // date button
   dropDownOption.appendChild(dropDownOptionSpan);
   dropDownIl1.appendChild(dropDownOption);
   const dropDownOption2 = document.createElement("button");
@@ -182,6 +180,8 @@ function getDropDownMenu() {
   dropDownOption2.appendChild(dropDownOptionSpan2);
   const dropDownIl2 = document.createElement("li");
   dropDownIl2.appendChild(dropDownOption2);
+
+   // title button
   const dropDownOption3 = document.createElement("button");
   dropDownOption3.classList.add("dropdown-options5");
   const dropDownOptionSpan3 = document.createElement("span");
@@ -203,9 +203,9 @@ function getDropDownMenu() {
  
 
  
-  console.log("dropDownUl", dropDownUl);
+ 
 
-
+//creation of the sort button
 
   const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
@@ -219,10 +219,8 @@ function getDropDownMenu() {
   
   }
   );
-console.log("dropDownUl",dropDownUl)
 
   dropDownUl.addEventListener("click", (event) => {
-    console.log("event",event)
     
     unFoldDropMenu(event);
 
@@ -234,18 +232,18 @@ console.log("dropDownUl",dropDownUl)
 
 
 
-
+//fold the menu
 function foldDropMenu(){
   const dropDownMenuFold = document.getElementById("sortDrop");
   dropDownMenuFold.style.display = "block";
 }
 
+// unfold the menu
 function unFoldDropMenu(event){
-  console.log("event",event)
+ 
   const dropDownMenuFold = document.getElementById("sortDrop");
   dropDownMenuFold.style.display = "none";
-  const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");
-   console.log(event.currentTarget);
+  const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");  
 
    changeInitialWord.textContent = event.target.childNodes[0].value;
    
@@ -263,25 +261,21 @@ function unFoldDropMenu(event){
   
   dropDownMenuSection.appendChild(dropDownUl);
  
-  
-  
-
-  console.log("dropDownMenuSection", dropDownMenuSection);
 
   return dropDownMenuSection;
 }
 
 
 
-
+//calculate the total of all likes
 function getPhotographerLikes(medias) {
   let allLikes = 0;
   if (medias !== undefined) {
-    console.log(medias.length);
+  
     for (let i = 0; i < medias.length; i++) {
       allLikes += parseInt(medias[i].likes);
 
-      console.log("YYYYYY", allLikes);
+   
     }
     return allLikes;
   }
@@ -290,7 +284,7 @@ function getPhotographerLikes(medias) {
 
 
 export async function mediaInit() {
-  // Récupère les datas des photographes
+  // collects data from photographers
   let mediaObject  = await getPhotographers();
    media= mediaObject.media;
   
@@ -314,8 +308,7 @@ export async function mediaInit() {
 
 
 
-
-
+//sort the elements
 
 function dropDownEventListener(medias) {
   console.log("medias",medias)
@@ -359,19 +352,9 @@ function dropDownEventListener(medias) {
 
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
-  mediaList.innerHTML = "";
-  
-  
-  
-
-
-
-     
+  mediaList.innerHTML = "";  
      
   medias.forEach((mediaData,index) => {
-  
-  
-    console.log("mediaData",mediaData);
     const photographerCreation = mediaFactory(mediaData,medias,index+7); 
    
     const userPhotographerCreationCardDOM =
