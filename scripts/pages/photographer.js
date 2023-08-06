@@ -119,7 +119,7 @@ function displayData(media, photographer) {
   const contactFormFullName = photographerIdentity.getNameForm();
 
       contactFormSection.appendChild(contactFormFullName);
-
+      console.log("contactFormSection.",contactFormSection)
 
   displayDataList(media);
 }
