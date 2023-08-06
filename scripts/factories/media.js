@@ -40,7 +40,7 @@ export function mediaFactory(data,tabDatas,tabindex) {
   const isHeart = document.createElement("img");
   isHeart.classList.add("heart");
   isHeart.setAttribute("src", heart);
-  isHeart.setAttribute("alt", "text");
+  isHeart.setAttribute("alt", "coeur");
  
 
 
@@ -225,11 +225,11 @@ export function mediaFactory(data,tabDatas,tabindex) {
     // Create an article element
     const artistFace = document.createElement("article");
     artistFace.id = id;
-    artistFace.setAttribute("tabindex",tabindex);
+    
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
-    isPicture.setAttribute("alt", "text");
-
+    isPicture.setAttribute("alt", `${name}`);
+    isPicture.setAttribute("tabindex",tabindex);
     // append  an Image, a date, a likes, a title,  an image to the header element
     artistFace.appendChild(isPicture);
 
@@ -248,7 +248,9 @@ export function mediaFactory(data,tabDatas,tabindex) {
 
     const isPrice = document.createElement("div");
     isPrice.classList.add("price");
+    isPrice.setAttribute("tabindex",tabindex=21);
     isPrice.textContent = `${price}€/jour`;
+    isPrice.setAttribute("alt",`${price}€/jour`);
   
 
 

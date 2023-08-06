@@ -39,6 +39,10 @@ function displayData(media, photographer) {
   photographersCreationDropDownWord.classList.add(
     "photograph_Creations_dropDown_word"
   );
+  photographersCreationDropDownWord.setAttribute(
+    "alt","Trier par"
+  );
+  photographersCreationDropDownWord.setAttribute("tabindex",tabindex=6);
   photographersCreationDropDownWord.textContent = option;
   photographersCreation.appendChild(photographersCreationDropDownWord);
   photographersCreation.appendChild(dropDownSort);
@@ -85,12 +89,16 @@ function displayData(media, photographer) {
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
+  allLikes.setAttribute("tabindex", tabindex=19);
   allLikes.innerHTML = userPhotographersAllLikes;
-
+  allLikes.setAttribute("alt", userPhotographersAllLikes);
+  
+  // creation of the image of the heart
   const isHeartPrice = document.createElement("img");
   isHeartPrice.classList.add("heartTotal");
+  isHeartPrice.setAttribute("tabindex", tabindex=20);
   isHeartPrice.setAttribute("src", heartTotal);
-  isHeartPrice.setAttribute("alt", "text");
+  isHeartPrice.setAttribute("alt", "coeur");
 
   const photographersPriceHeart = document.createElement("div");
   photographersPriceHeart.classList.add("photographersPriceHeart");
@@ -312,7 +320,7 @@ export async function mediaInit() {
 
 function dropDownEventListener(medias) {
   const dropdownMenu = document.querySelector(".dropdown-menu");
-  dropdownMenu.setAttribute("tabindex",tabindex=6);
+  dropdownMenu.setAttribute("tabindex",tabindex=7);
   dropdownMenu.addEventListener("click", (e) => {
 
     // Retrieve the selected option value
