@@ -155,7 +155,7 @@ function getDropDownMenu() {
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
   dropDownArrow2.setAttribute("alt", "popularité");
-  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=8)
+  dropDownArrow2.setAttribute("tabindex",tabindex=8)
   dropDownOption4.appendChild(dropDownOptionInitialWord);
 
 
@@ -173,7 +173,7 @@ function getDropDownMenu() {
   dropDownOptionSpan.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan.setAttribute("alt","popularité");
-  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=9);
+  dropDownOptionSpan.setAttribute("tabindex",tabindex=9);
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
 
@@ -186,7 +186,7 @@ function getDropDownMenu() {
   dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan2.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan2.setAttribute("alt","date");
-  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=10);
+  dropDownOptionSpan2.setAttribute("tabindex",tabindex=10);
   dropDownOptionSpan2.value = "Date";
   dropDownOptionSpan2.textContent = "Date";
   dropDownOption2.appendChild(dropDownOptionSpan2);
@@ -200,7 +200,7 @@ function getDropDownMenu() {
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan3.setAttribute("alt","titre");
-  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=11);
+  dropDownOptionSpan3.setAttribute("tabindex",tabindex=11);
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);

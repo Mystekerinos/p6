@@ -299,6 +299,7 @@ export function mediaFactory(data,tabDatas,tabindex) {
 
     // Get the lightboxMedia element
     const lightboxMedia = document.getElementById("lightboxMedia");
+   
     lightboxMedia.style.display = "block";
 
     
@@ -307,17 +308,17 @@ export function mediaFactory(data,tabDatas,tabindex) {
    
     if (mediaObject?.image) 
     {
-      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}" alt="${mediaObject.title}"><figcaption class="lightbox-caption">${mediaObject.title}</figcaption>`;
+      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}" tabindex=40 alt="image ${mediaObject.title}"><figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>`;
     }
 
     // If the media is a video add the appropriate media card html to the lightboxMedia element
    
     if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
-        <video class="lightbox-video" title="${mediaObject.title}" id="${mediaObject.id}" controls>
-          <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4">
+        <video class="lightbox-video" title="${mediaObject.title}" alt="vidéo ${mediaObject.title}" id="${mediaObject.id}" tabindex=40  controls>
+          <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4");>
         </video>
-        <figcaption class="lightbox-caption">${mediaObject.title}</figcaption>
+        <figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>
     `;
     }
     currentLightboxMediaId = mediaObject.id;
