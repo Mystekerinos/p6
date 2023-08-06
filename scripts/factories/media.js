@@ -248,7 +248,7 @@ export function mediaFactory(data,tabDatas,tabindex) {
 
     const isPrice = document.createElement("div");
     isPrice.classList.add("price");
-    isPrice.setAttribute("tabindex",tabindex=21);
+    isPrice.setAttribute("tabindex",tabindex=25);
     isPrice.textContent = `${price}€/jour`;
     isPrice.setAttribute("alt",`${price}€/jour`);
   

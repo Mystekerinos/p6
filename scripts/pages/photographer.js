@@ -89,14 +89,14 @@ function displayData(media, photographer) {
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
-  allLikes.setAttribute("tabindex", tabindex=19);
+  allLikes.setAttribute("tabindex", tabindex=23);
   allLikes.innerHTML = userPhotographersAllLikes;
   allLikes.setAttribute("alt", userPhotographersAllLikes);
   
   // creation of the image of the heart
   const isHeartPrice = document.createElement("img");
   isHeartPrice.classList.add("heartTotal");
-  isHeartPrice.setAttribute("tabindex", tabindex=20);
+  isHeartPrice.setAttribute("tabindex", tabindex=24);
   isHeartPrice.setAttribute("src", heartTotal);
   isHeartPrice.setAttribute("alt", "coeur");
 
@@ -154,6 +154,8 @@ function getDropDownMenu() {
  // creating the initial sort button
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
+  dropDownArrow2.setAttribute("alt", "popularité");
+  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=8)
   dropDownOption4.appendChild(dropDownOptionInitialWord);
 
 
@@ -170,7 +172,8 @@ function getDropDownMenu() {
   const dropDownOptionSpan = document.createElement("span");
   dropDownOptionSpan.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan.setAttribute("alt","text")
+  dropDownOptionSpan.setAttribute("alt","popularité");
+  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=9);
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
 
@@ -182,7 +185,8 @@ function getDropDownMenu() {
   const dropDownOptionSpan2 = document.createElement("span");
   dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan2.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan2.setAttribute("alt","text")
+  dropDownOptionSpan2.setAttribute("alt","date");
+  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=10);
   dropDownOptionSpan2.value = "Date";
   dropDownOptionSpan2.textContent = "Date";
   dropDownOption2.appendChild(dropDownOptionSpan2);
@@ -195,7 +199,8 @@ function getDropDownMenu() {
   const dropDownOptionSpan3 = document.createElement("span");
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan3.setAttribute("alt","text")
+  dropDownOptionSpan3.setAttribute("alt","titre");
+  dropDownOptionInitialWord.setAttribute("tabindex",tabindex=11);
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);
@@ -359,7 +364,7 @@ function displayDataList(medias) {
   mediaList.innerHTML = "";  
      
   medias.forEach((mediaData,index) => {
-    const photographerCreation = mediaFactory(mediaData,medias,index+7); 
+    const photographerCreation = mediaFactory(mediaData,medias,index+12); 
    
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();

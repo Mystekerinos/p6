@@ -31,26 +31,26 @@
 <div class="contactModal_background" id="contactModal_background">
  <dialog class="modal" id="contactModal">
 				<header class="modal-header">
-          <h2 class="modal-title" tabindex="22" >Contactez-moi <br> 
+          <h2 class="modal-title" tabindex="26" >Contactez-moi <br> 
             <div class="modal_title_namePhotographer"  id="modal_title_namePhotographer"></div></h2>
-          <img src="assets/icons/close.svg" tabindex="23" onclick="closeModal()" alt="fermeture" />
+          <img src="assets/icons/close.svg" tabindex="27" onclick="closeModal()" alt="fermeture" />
         </header>
 				<form aria-label="formulaire">
-				  <label class="modal-label" for="firstName" tabindex="24"  >Prénom</label><br>
-      <input class="modal-input" tabindex="25" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
+				  <label class="modal-label" for="firstName" tabindex="28"  >Prénom</label><br>
+      <input class="modal-input" tabindex="29" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
         required><br>
 
-      <label class="modal-label" for="lastName" tabindex="26">Nom</label><br>
-      <input class="modal-input" tabindex="27" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
+      <label class="modal-label" for="lastName" tabindex="30">Nom</label><br>
+      <input class="modal-input" tabindex="31" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
         required><br>
 
-      <label class="modal-label" for="email" tabindex="28">E-mail</label><br>
-      <input class="modal-input" tabindex="29" type="email" id="email" name="email" required><br>
+      <label class="modal-label" for="email" tabindex="32">E-mail</label><br>
+      <input class="modal-input" tabindex="33" type="email" id="email" name="email" required><br>
 
-      <label class="modal-label" for="message" tabindex="30">Votre message</label><br>
-      <textarea class="modal-input modal-msg" tabindex="31" rows="15" cols="71" type="text" id="message" name="message" 
+      <label class="modal-label" for="message" tabindex="34">Votre message</label><br>
+      <textarea class="modal-input modal-msg" tabindex="35" rows="15" cols="71" type="text" id="message" name="message" 
         pattern="(?!^ +$)^.+$" required> </textarea><br>
-          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="32">Envoyer</button>
+          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="36">Envoyer</button>
 				</form>
 		</dialog>
   </div>
@@ -58,9 +58,9 @@
   
 
     <div id="lightbox">
-  <button class="lightbox__close"  id="lightboxCloseBtn">Fermer</button>
-  <button class="lightbox__next"  id="lightboxNextBtn">Suivant</button>
-  <button class="lightbox__previous"  id="lightboxPrevBtn">Précédent</button>
+  <button class="lightbox__close"  id="lightboxCloseBtn" tabindex="37">Fermer</button>
+  <button class="lightbox__next"  id="lightboxNextBtn" tabindex="38">Suivant</button>
+  <button class="lightbox__previous"  id="lightboxPrevBtn" tabindex="39">Précédent</button>
   <div class="lightbox__container">
     <figure  id="lightboxMedia"></figure>
   </div>
