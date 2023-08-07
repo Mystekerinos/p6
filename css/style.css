@@ -548,12 +548,12 @@ body {
 .header-logo{
     width:200px;
     height:50px;
-    margin-left:62px;
+    margin-left:77%;
 }
 
 
 header h1{
-    margin-right:10%;
+    margin-right:7%;
 }
 header {
     display: flex;
@@ -701,6 +701,9 @@ header {
     font-size:14px;
     margin-bottom:1px;
   }
+
+
+
   .city_and_country{
     font-size:10px;
   }
@@ -760,4 +763,17 @@ body{
         margin-right:3%;
       }
 
+      .photographers_Price{
+        padding:7px;
+      }
+
+
+                   .photographers-Image article img {
+                       margin-left: 23px;
+                   }
+        
+                   .photographers-Image article img {
+                       width: 131px;
+                       height: 133px;
+                   }
   }

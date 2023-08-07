@@ -453,5 +453,15 @@ form input {
     width:8rem;
   }
 
+        @media screen and (max-width:861px) {
 
+    .contact_button {
+        width: 147px;
+        height: 53px;
+        font-size: 14px;
+        width:101px;
+
+      }
+
+    }
 
