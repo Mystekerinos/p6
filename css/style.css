@@ -608,8 +608,8 @@ header {
         row-gap: 2px;;
     }
  .photographers_Price{
-    top:66%;
-    right:18rem;
+   top:8rem;
+    right:3rem;
     position:relative;
  }
  header .logo{
@@ -627,7 +627,7 @@ header {
     font-size:21px;
  }
  .photographers-Image article img{
-    margin-left:188px;
+    margin-left:0px;
  }
 
  .profile article h1{
@@ -645,11 +645,10 @@ header {
  }
  .price{
     margin-right:0px;
+    margin-left:4px;
  }
 
-    .photograph-header{
-        width:0px;
-    }
+    
     .photographer_section article h2 {
         font-size:13px;
         margin-bottom:1px;

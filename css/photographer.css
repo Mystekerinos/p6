@@ -36,7 +36,6 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    width:100%;
     margin: 0 100px;
     display:flex;
     justify-content: space-around;
@@ -125,6 +124,9 @@ padding-bottom:14px;
  #lightbox{
   display:none;
  }
+
+
+
 
 @media only screen and (max-width: 767px) {
   .modal {
