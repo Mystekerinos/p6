@@ -22,7 +22,7 @@
     <main id="main">
       <div  class="photograph-header">
         <div  class="photograph-profile"></div>
-        <button class="contact_button" tabindex="4" aria-label="Bouton d'ouverture de la modal de contact, contactez-moi" alt="contactez-moi" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button"  tabindex="4" aria-label="Bouton d'ouverture de la modal de contact, contactez-moi" alt="contactez-moi" onclick="displayModal()">Contactez-moi</button>
         
       </div>
 
@@ -35,26 +35,26 @@
             <div class="modal_title_namePhotographer"  id="modal_title_namePhotographer"></div></h2>
           <img src="assets/icons/close.svg" tabindex="27" onclick="closeModal()" alt="fermeture" />
         </header>
-				<form aria-label="formulaire">
+				<form id="form" aria-label="formulaire">
 				  <label class="modal-label" for="firstName" tabindex="28"  >Prénom</label><br>
-      <input class="modal-input" tabindex="29" type="text" id="firstName" name="firstName" minlength="2"  pattern="^([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ ,.'-]*){2}" required aria-required="true" />
+      <input class="modal-input" tabindex="29" type="text" id="firstName" name="firstName" minlength="2" required aria-required="true" />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="lastName" tabindex="30">Nom</label><br>
-      <input class="modal-input" tabindex="31" type="text" id="lastName" name="lastName" minlength="2" pattern="^([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ ,.'-]*){2}" required aria-required="true" />
+      <input class="modal-input" tabindex="31" type="text" id="lastName" name="lastName" minlength="2"  required aria-required="true" />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="email" tabindex="32">E-mail</label><br>
-      <input class="modal-input" tabindex="33" type="email" id="email" name="email" pattern="(?=^.{5,255}$)^([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})" required aria-required="true"/>
+      <input class="modal-input" tabindex="33" type="email" id="email" name="email"  required aria-required="true"/>
     <div class="invalid-feedback">Vous devez entrer votre adresse email.</div>
       <label class="modal-label" for="message" tabindex="34">Votre message</label><br>
       <textarea class="modal-input modal-msg" tabindex="35" rows="15" cols="71" type="text" id="message" name="message" minlength="20" required aria-required="true"></textarea>
       <div class="invalid-feedback">Le message doit contenir au minimum 20 caractères.</div>
-          <button class="contact_button" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="36">Envoyer</button>
+          <button class="contact_button" id="submitValidation" type="submit" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="36">Envoyer</button>
 				</form>
         <div id="confirmation" class="m-auto">
-          <h1>Merci ! Votre message a été envoyé.</h1>
-        </div>
+									<h1>Merci ! Votre message a été envoyé.</h1>
+								</div>
 		</dialog>
   </div>
     </main>
