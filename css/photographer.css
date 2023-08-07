@@ -23,6 +23,9 @@
   display:none;
 }
 
+.closeConfirmationMessage{
+  margin-left:29rem;
+}
 .text-label-conf{
    margin-left:13rem;
    margin-top:13rem;

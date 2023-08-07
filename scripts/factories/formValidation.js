@@ -2,8 +2,9 @@
 const form = document.getElementById("form");
 const errorMsg = document.querySelectorAll(".invalid-feedback");
 // const confirmation = document.getElementById("confirmation");
-const btnSubmit = document.getElementById("submitValidation");
 const btnClose = document.getElementById("contactModal");
+const btnCloseConf = document.getElementById("bgroundConf");
+const bgGrd = document.getElementById("bgroundConf");
 const btnCloseGrd = document.getElementById("contactModal_background");
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
@@ -15,12 +16,17 @@ const Identityregex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
 const mailFormatRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-console.log("btnSubmit", btnSubmit);
 // submit modal event
 form.addEventListener("submit", checkValidation);
 
 // check input form
 //check identityName
+btnCloseGrd.style.display = "none";
+// launch modal conf
+function launchModalConf() {
+  bgGrd.style.display = "block";
+  btnClose.style.display = "none";
+}
 
 function checkIdentityName(identityName, index) {
   if (
@@ -73,13 +79,7 @@ function checkValidation(event) {
   const isCheckEmail = checkEmail();
 
   const ischeckMessage = checkMessage();
-  console.log(
-    "checkvalidation",
-    isCheckFirstName,
-    iscCheckLastName,
-    isCheckEmail,
-    ischeckMessage
-  );
+
   if (
     isCheckFirstName === true &&
     iscCheckLastName === true &&
@@ -98,8 +98,7 @@ function checkValidation(event) {
         ", Message : " +
         message.value
     );
-    btnClose.style.display = "none";
-    btnCloseGrd.style.display = "none";
+    return launchModalConf();
   }
 
   return (form.style.display = "block");
