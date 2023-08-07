@@ -54,13 +54,28 @@
 				</form>
 		</dialog>
   </div>
+
+    <div class="modalConf" id="bgroundConf">
+    
+      <div class="content">
+        <span class="closeConf"></span>
+        <div class="modalConf-body">
+          <form id="formConf" name="reserve" action="index.html" method="get" onsubmit="return validate();">
+
+            <h1 class="text-label-conf">Merci ! </h1>
+            <h1 class="text-label-conf2">Votre message a été envoyé.</h1>
+    
+            <input class="btn-submit-conf modal-btnConf" type="submit" class="button" value="fermer" />
+          </form>
+        </div>
+      </div>
     </main>
   
 
     <div id="lightbox">
-  <button class="lightbox__close"  id="lightboxCloseBtn" tabindex="37">Fermer</button>
-  <button class="lightbox__next"  id="lightboxNextBtn" tabindex="38">Suivant</button>
-  <button class="lightbox__previous"  id="lightboxPrevBtn" tabindex="39">Précédent</button>
+  <button class="lightbox__close"  id="lightboxCloseBtn" tabindex="37"></button>
+  <button class="lightbox__next"  id="lightboxNextBtn" tabindex="38"></button>
+  <button class="lightbox__previous"  id="lightboxPrevBtn" tabindex="39"></button>
   <div class="lightbox__container">
     <figure  id="lightboxMedia"></figure>
   </div>

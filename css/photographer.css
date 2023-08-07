@@ -78,7 +78,6 @@ padding-bottom:14px;
     border-radius: 5px;
     margin-top:23px;
     cursor: pointer;
-    margin-left:193px;
 }
 
   .modal {
@@ -95,6 +94,26 @@ padding-bottom:14px;
     z-index:34;
     height:50rem;
 }
+
+ .modalConf {
+   position: fixed;
+   display: none;
+   left: 53%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   flex-direction: column;
+   border-radius: 0.5rem;
+   background-color: #db8876;
+   width: 33rem;
+   padding: 1em;
+   z-index: 34;
+   height: 50rem;
+ }
+
+
+ #lightbox{
+  display:none;
+ }
 
 @media only screen and (max-width: 767px) {
   .modal {

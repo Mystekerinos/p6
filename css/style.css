@@ -18,6 +18,12 @@ header h1{
     margin-left:20%;
    
 }
+
+
+.modalConf-body{
+  margin-top:2rem;
+}
+
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -304,7 +310,6 @@ header .logo {
 .photographers-Image article img {
     width : 150px;
     height : 150px;
-    margin-left:234px;
     border: none;
     border-radius : 75px;
 }
@@ -430,7 +435,8 @@ header .logo {
   }
 
   #lightbox button {
-    opacity: 0;
+    opacity: 1;
+    color:pink;
     cursor:pointer;
     transition: opacity .5s;
     text-indent: -3000px;
