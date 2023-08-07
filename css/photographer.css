@@ -23,6 +23,14 @@
   display:none;
 }
 
+.text-label-conf{
+   margin-left:13rem;
+   margin-top:13rem;
+}
+.text-label-conf2 {
+  margin-left: 4rem;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     width:100%;
@@ -203,6 +211,8 @@ padding-bottom:14px;
     margin-top: 0;
   }
 }
+
+
 
 form {
     display: flex;
