@@ -1,9 +1,10 @@
 // DOM Elements
 const form = document.getElementById("form");
 const errorMsg = document.querySelectorAll(".invalid-feedback");
-const confirmation = document.getElementById("confirmation");
+// const confirmation = document.getElementById("confirmation");
 const btnSubmit = document.getElementById("submitValidation");
-
+const btnClose = document.getElementById("contactModal");
+const btnCloseGrd = document.getElementById("contactModal_background");
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
@@ -86,7 +87,7 @@ function checkValidation(event) {
     ischeckMessage === true
   ) {
     // We display the modal of the successful message.
-    confirmation.style.display = "block";
+
     console.log(
       "Prenom : " +
         firstName.value +
@@ -97,7 +98,9 @@ function checkValidation(event) {
         ", Message : " +
         message.value
     );
+    btnClose.style.display = "none";
+    btnCloseGrd.style.display = "none";
   }
-  return false;
-  // return  form.style.display="block";
+
+  return (form.style.display = "block");
 }

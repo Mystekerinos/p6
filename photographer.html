@@ -37,24 +37,21 @@
         </header>
 				<form id="form" aria-label="formulaire">
 				  <label class="modal-label" for="firstName" tabindex="28"  >Prénom</label><br>
-      <input class="modal-input" tabindex="29" type="text" id="firstName" name="firstName" minlength="2" required aria-required="true" />
+      <input class="modal-input" tabindex="29" type="text" id="firstName" name="firstName" minlength="2"   />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="lastName" tabindex="30">Nom</label><br>
-      <input class="modal-input" tabindex="31" type="text" id="lastName" name="lastName" minlength="2"  required aria-required="true" />
+      <input class="modal-input" tabindex="31" type="text" id="lastName" name="lastName" minlength="2"  />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="email" tabindex="32">E-mail</label><br>
-      <input class="modal-input" tabindex="33" type="email" id="email" name="email"  required aria-required="true"/>
+      <input class="modal-input" tabindex="33" type="email" id="email" name="email" />
     <div class="invalid-feedback">Vous devez entrer votre adresse email.</div>
       <label class="modal-label" for="message" tabindex="34">Votre message</label><br>
-      <textarea class="modal-input modal-msg" tabindex="35" rows="15" cols="71" type="text" id="message" name="message" minlength="20" required aria-required="true"></textarea>
+      <textarea class="modal-input modal-msg" tabindex="35" rows="15" cols="71" type="text" id="message" name="message" minlength="20" ></textarea>
       <div class="invalid-feedback">Le message doit contenir au minimum 20 caractères.</div>
           <button class="contact_button" id="submitValidation" type="submit" aria-label="Bouton de soumission du formulaire du modal de contact" tabindex="36">Envoyer</button>
 				</form>
-        <div id="confirmation" class="m-auto">
-									<h1>Merci ! Votre message a été envoyé.</h1>
-								</div>
 		</dialog>
   </div>
     </main>
