@@ -3,9 +3,11 @@
 
 body {
     font-family: "DM Sans", sans-serif;
-
-   height:1024px;
+   margin:0;
+   height:100%;
 }
+
+
 
 
 header h1{
@@ -18,6 +20,65 @@ header h1{
     margin-left:20%;
    
 }
+
+ .photograph_Creations_dropDown_word {
+     margin-left: 123px;
+ }
+
+ header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .photographer_section {
+     column-gap: 37px;
+     margin-left: 31px;
+ }
+
+ .photographer_section article h2 {
+     font-size: 17px;
+     margin-bottom: 0px;
+ }
+
+ .tagline {
+     font-size: 7px;
+ }
+
+ .price_homePage {
+     font-size: 9px;
+ }
+
+ .photographer_section article img {
+     width: 118px;
+     height: 111px;
+ }
+
+ .header-logo {
+     width: 141px;
+ }
+
+ header h1 {
+     font-size: 17px;
+     margin-right: 3%;
+ }
+
+ .photographers_Price {
+     padding: 7px;
+ }
+
+ .dropdown-menu {
+     margin-left: 127px;
+ }
+
+ .photographers-Image article img {
+     margin-left: 23px;
+ }
+
+ .photographers-Image article img {
+     width: 131px;
+     height: 133px;
+ }
 
 
 .modalConf-body{
@@ -88,7 +149,7 @@ header h1{
     display:flex;
     gap:15px;
     width:100%;
-    margin: 0 100px;
+  
     flex-direction: column;
 }
 .photograph_Creations_card{
@@ -102,12 +163,16 @@ header h1{
 #card{
 position:absolute; 
 }
+
+.card{
+   width:350px;
+}
 .card_description_title{
     font-size:18px;
     color: #901C1C;
 }
 .card_image{
-    width:350px;
+    width:100%;
     height:300px;
     margin-bottom:10px;
     object-fit: cover;
@@ -246,6 +311,7 @@ l{
 }
 
 .dropdown-touch{
+    margin-left:1px;
     display:flex;
     justify-content:space-between;
     width: 10.625rem;
@@ -323,7 +389,6 @@ header .logo {
     
     
     right: 7rem;
-    top:13%;
     left: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -504,10 +569,15 @@ header .logo {
   @media screen and (min-width:1250px){
 
 
+    .card_video{
+        width:100%;
+    }
+  .card{
+    width:29%;
+  }
     .photographers_Price{
         right: 0.5rem;
-        
-        top:93%;
+      bottom:0%;
        
   
     } 
@@ -562,12 +632,15 @@ header {
     align-items: center;
     height: 90px;
 }
-
+#controller .draggable{
+ 
+  left:20%;
+}
 .photograph_Creations_card{
-   
+   margin-left:8%;
     display:flex;
     flex-wrap: wrap;
-    column-gap:91px;
+    column-gap:3%;
     row-gap: 3px;;
 }
 .photographer_section {
@@ -606,6 +679,8 @@ header {
         flex-wrap: wrap;
         column-gap:43px;
         row-gap: 2px;;
+        justify-content:center;
+        align-items: center;
     }
  .photographers_Price{
    top:8rem;
@@ -627,7 +702,7 @@ header {
     font-size:21px;
  }
  .photographers-Image article img{
-    margin-left:0px;
+    margin-left: 91%;
  }
 
  .profile article h1{
@@ -728,52 +803,3 @@ body{
 }
   }
   
-
-  @media screen and (max-width:377px){
-    header{
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .photographer_section{
-        column-gap:37px;
-        margin-left: 31px;
-      }
-
-      .photographer_section article h2{
-        font-size:17px;
-        margin-bottom: 0px;
-      }
-      .tagline{
-        font-size:7px;
-      }
-      .price_homePage{
-        font-size:9px;
-      }
-      .photographer_section article img{
-        width: 118px;
-        height:111px;
-      }
-      .header-logo{
-        width:141px;
-      }
-      header h1{
-        font-size: 17px;
-        margin-right:3%;
-      }
-
-      .photographers_Price{
-        padding:7px;
-      }
-
-
-                   .photographers-Image article img {
-                       margin-left: 23px;
-                   }
-        
-                   .photographers-Image article img {
-                       width: 131px;
-                       height: 133px;
-                   }
-  }
