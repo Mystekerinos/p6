@@ -171,7 +171,6 @@ export function mediaFactory(data, tabDatas, tabindex) {
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
     isPicture.setAttribute("alt", "text");
-    isPicture.setAttribute("tabindex", (tabindex = 0));
 
     // append  a name, a tagline, a location,  to the article element
     article.appendChild(isName);
@@ -189,7 +188,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
-    isPicture.setAttribute("alt", `${name}`);
+    isPicture.setAttribute("alt", `image de ${name}`);
     isPicture.setAttribute("tabindex", tabindex);
     // append  an Image, a date, a likes, a title,  an image to the header element
     artistFace.appendChild(isPicture);

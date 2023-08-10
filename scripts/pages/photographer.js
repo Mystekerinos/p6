@@ -3,13 +3,15 @@ import { mediaFactory } from "../factories/media.js";
 
 let tabindex;
 let media;
-let photographers ;
+let photographers;
 
 // Get Element
 const arrow = "assets/icons/arrow.svg";
 const photographersHeader = document.querySelector(".photograph-header");
 const photographersProfil = document.querySelector("#main");
-const contactFormSection = document.querySelector(".modal_title_namePhotographer");
+const contactFormSection = document.querySelector(
+  ".modal_title_namePhotographer"
+);
 const dropDownMenuSection = document.createElement("div");
 const photographersProfile = document.querySelector(".photograph-profile");
 const heartTotal = "assets/images/likesTotal.svg";
@@ -17,6 +19,7 @@ const heartTotal = "assets/images/likesTotal.svg";
 //Sentence display sort by
 function displayData(media, photographer) {
   const option = "Trier par";
+
   const photographersCreation = document.createElement("div");
   photographersCreation.classList.add("photograph_Creations");
   const photographersDropDownCreation = document.createElement("div");
@@ -33,24 +36,19 @@ function displayData(media, photographer) {
   const dropDownSort = document.createElement("div");
   dropDownSort.classList.add("dropDownSort");
 
-  
-
   const photographersCreationDropDownWord = document.createElement("span");
   photographersCreationDropDownWord.classList.add(
     "photograph_Creations_dropDown_word"
   );
-  photographersCreationDropDownWord.setAttribute(
-    "alt","Trier par"
-  );
-  photographersCreationDropDownWord.setAttribute("tabindex",tabindex=6);
+  photographersCreationDropDownWord.setAttribute("tabindex", (tabindex = 0));
+  photographersCreationDropDownWord.setAttribute("alt", "trier par");
+  photographersCreationDropDownWord.setAttribute("alt", "Trier par");
+
   photographersCreationDropDownWord.textContent = option;
   photographersCreation.appendChild(photographersCreationDropDownWord);
   photographersCreation.appendChild(dropDownSort);
   dropDownSort.appendChild(getDropDownMenu());
   dropDownEventListener(media);
-  
-
-
 
   //  Description element photographer
   const photographersHeaderDescriptionSection =
@@ -58,7 +56,7 @@ function displayData(media, photographer) {
   photographersHeaderDescriptionSection.classList.add(
     "photograph_Creations_card"
   );
-  
+
   photographersCreation.appendChild(photographersHeaderDescriptionSection);
 
   //  Description element photographer
@@ -74,29 +72,28 @@ function displayData(media, photographer) {
   photographersAllLikes.classList.add("photographers-allLikes");
   photographersHeader.appendChild(photographersAllLikes);
 
-  const photographerIdentity = mediaFactory(photographer,media);
+  const photographerIdentity = mediaFactory(photographer, media);
   const userPhotographersCardDOM =
     photographerIdentity.getPhotographerIdentityCardDOM();
   photographersHeaderDescription.appendChild(userPhotographersCardDOM);
-  
+
   const userPhotographersPicture = photographerIdentity.getPhotographerImage();
   photographersImage.appendChild(userPhotographersPicture);
 
   const userPhotographersAllLikes = getPhotographerLikes(media);
 
-
   //display of all likes and management of the addition of likes
 
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
-  allLikes.setAttribute("tabindex", tabindex=23);
   allLikes.innerHTML = userPhotographersAllLikes;
+  allLikes.setAttribute("tabindex", (tabindex = 0));
   allLikes.setAttribute("alt", userPhotographersAllLikes);
-  
+
   // creation of the image of the heart
   const isHeartPrice = document.createElement("img");
   isHeartPrice.classList.add("heartTotal");
-  isHeartPrice.setAttribute("tabindex", tabindex=24);
+  isHeartPrice.setAttribute("tabindex", (tabindex = 24));
   isHeartPrice.setAttribute("src", heartTotal);
   isHeartPrice.setAttribute("alt", "coeur");
 
@@ -114,70 +111,70 @@ function displayData(media, photographer) {
   moreLikes.classList.add("moreLikes");
   moreLikes.innerHTML = moreLikes;
 
-
-
   const contactFormFullName = photographerIdentity.getNameForm();
 
-      contactFormSection.appendChild(contactFormFullName);
-      console.log("contactFormSection.",contactFormSection)
+  contactFormSection.appendChild(contactFormFullName);
+  console.log("contactFormSection.", contactFormSection);
 
   displayDataList(media);
 }
 
-
-
 // sort Button
 function getDropDownMenu() {
- 
- 
   dropDownMenuSection.classList.add("dropdown-menu");
 
   // Create an  element for the sort button
-  const dropDownArrow = document.createElement("img");
-  dropDownArrow.classList.add("dropdown-icon");
-  dropDownArrow.setAttribute("src", arrow);
-  dropDownArrow.setAttribute("alt", "text");
- 
+
   const dropDownOption4 = document.createElement("button");
   dropDownOption4.classList.add("dropdown-options2");
+  dropDownOption4.setAttribute("alt", "text");
 
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
   dropDownArrow2.setAttribute("src", arrow);
-  dropDownArrow2.setAttribute("alt", "text");
- 
-  
+  dropDownArrow2.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow2.setAttribute("alt", "plier la barre de menu de trie");
+
+  const dropDownArrow = document.createElement("img");
+  dropDownArrow.classList.add("dropdown-icon");
+  dropDownArrow.setAttribute("src", arrow);
+  dropDownArrow.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow.setAttribute("alt", "déployer la barre de menu de trie");
+
   const dropDownOptionInitialWord = document.createElement("span");
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
-  
 
- // creating the initial sort button
+  // creating the initial sort button
   dropDownOptionInitialWord.value = "Popularité";
   dropDownOptionInitialWord.textContent = "Popularité";
-  dropDownArrow2.setAttribute("alt", "popularité");
-  dropDownArrow2.setAttribute("tabindex",tabindex=8)
+  dropDownOptionInitialWord.setAttribute("aria-label", "text");
+  dropDownArrow2.setAttribute(
+    "alt",
+    "menu sous forme de bouton pour trier en fonction de la popularité"
+  );
+  dropDownArrow2.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow2.setAttribute("alt", "icone pour déployer le menu");
   dropDownOption4.appendChild(dropDownOptionInitialWord);
-
 
   const dropDownUl = document.createElement("ul");
   dropDownUl.classList.add("sort-drop");
-  dropDownUl.setAttribute("id","sortDrop")
-  dropDownUl.setAttribute("alt","text")
- 
+  dropDownUl.setAttribute("id", "sortDrop");
+  dropDownUl.setAttribute("alt", "text");
+
   const dropDownIl1 = document.createElement("li");
- 
+
   // popularity button
   const dropDownOption = document.createElement("button");
-   dropDownOption.classList.add("dropdown-options3");
+  dropDownOption.classList.add("dropdown-options3");
   const dropDownOptionSpan = document.createElement("span");
   dropDownOptionSpan.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan.setAttribute("alt","popularité");
-  dropDownOptionSpan.setAttribute("tabindex",tabindex=9);
+  dropDownOptionSpan.setAttribute("alt", "text");
+
   dropDownOptionSpan.value = "Popularité";
   dropDownOptionSpan.textContent = "Popularité";
 
-   // date button
+  // date button
   dropDownOption.appendChild(dropDownOptionSpan);
   dropDownIl1.appendChild(dropDownOption);
   const dropDownOption2 = document.createElement("button");
@@ -185,22 +182,22 @@ function getDropDownMenu() {
   const dropDownOptionSpan2 = document.createElement("span");
   dropDownOptionSpan2.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan2.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan2.setAttribute("alt","date");
-  dropDownOptionSpan2.setAttribute("tabindex",tabindex=10);
+  dropDownOptionSpan2.setAttribute("alt", "date");
+
   dropDownOptionSpan2.value = "Date";
   dropDownOptionSpan2.textContent = "Date";
   dropDownOption2.appendChild(dropDownOptionSpan2);
   const dropDownIl2 = document.createElement("li");
   dropDownIl2.appendChild(dropDownOption2);
 
-   // title button
+  // title button
   const dropDownOption3 = document.createElement("button");
   dropDownOption3.classList.add("dropdown-options5");
   const dropDownOptionSpan3 = document.createElement("span");
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
-  dropDownOptionSpan3.setAttribute("alt","titre");
-  dropDownOptionSpan3.setAttribute("tabindex",tabindex=11);
+  dropDownOptionSpan3.setAttribute("alt", "titre");
+  dropDownOptionSpan3.setAttribute("tabindex", (tabindex = 11));
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);
@@ -211,98 +208,70 @@ function getDropDownMenu() {
   dropDownUl.appendChild(dropDownIl2);
   dropDownUl.appendChild(dropDownIl3);
 
-
-  
- 
-
- 
- 
-
-//creation of the sort button
+  //creation of the sort button
 
   const dropDownTouchOriginal = document.createElement("button");
   dropDownTouchOriginal.classList.add("dropdown-touch");
   dropDownTouchOriginal.setAttribute("id", "dropMenuId");
-  dropDownTouchOriginal.setAttribute("alt","text")
-
-
+  dropDownTouchOriginal.setAttribute(
+    "aria-label",
+    "menu sous forme de Bouton pour trier "
+  );
 
   dropDownTouchOriginal.addEventListener("click", () => {
-  foldDropMenu();
-  
-  }
-  );
+    foldDropMenu();
+  });
 
   dropDownUl.addEventListener("click", (event) => {
-    
     unFoldDropMenu(event);
+  });
 
-}
-  );
+  //fold the menu
+  function foldDropMenu() {
+    const dropDownMenuFold = document.getElementById("sortDrop");
+    dropDownMenuFold.style.display = "block";
+  }
 
+  // unfold the menu
+  function unFoldDropMenu(event) {
+    const dropDownMenuFold = document.getElementById("sortDrop");
+    dropDownMenuFold.style.display = "none";
+    const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");
 
+    changeInitialWord.textContent = event.target.childNodes[0].value;
 
+    dropDownTouchOriginal.appendChild(changeInitialWord);
+    dropDownTouchOriginal.appendChild(dropDownArrow);
+  }
 
-
-
-//fold the menu
-function foldDropMenu(){
-  const dropDownMenuFold = document.getElementById("sortDrop");
-  dropDownMenuFold.style.display = "block";
-}
-
-// unfold the menu
-function unFoldDropMenu(event){
- 
-  const dropDownMenuFold = document.getElementById("sortDrop");
-  dropDownMenuFold.style.display = "none";
-  const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");  
-
-   changeInitialWord.textContent = event.target.childNodes[0].value;
-   
-   dropDownTouchOriginal.appendChild(changeInitialWord);
-   dropDownTouchOriginal.appendChild(dropDownArrow);
-  
-}
- 
-  
   dropDownTouchOriginal.appendChild(dropDownOptionInitialWord);
   dropDownTouchOriginal.appendChild(dropDownArrow);
   dropDownOption.appendChild(dropDownArrow2);
 
   dropDownMenuSection.appendChild(dropDownTouchOriginal);
-  
+
   dropDownMenuSection.appendChild(dropDownUl);
- 
 
   return dropDownMenuSection;
 }
-
-
 
 //calculate the total of all likes
 function getPhotographerLikes(medias) {
   let allLikes = 0;
   if (medias !== undefined) {
-  
     for (let i = 0; i < medias.length; i++) {
       allLikes += parseInt(medias[i].likes);
-
-   
     }
     return allLikes;
   }
 }
 
-
-
 export async function mediaInit() {
   // collects data from photographers
-  let mediaObject  = await getPhotographers();
-   media= mediaObject.media;
-  
-    photographers= mediaObject.photographers;
+  let mediaObject = await getPhotographers();
+  media = mediaObject.media;
 
+  photographers = mediaObject.photographers;
 
   const params = new URL(document.location).searchParams;
   const photographerId = parseInt(params.get("id"));
@@ -319,15 +288,11 @@ export async function mediaInit() {
   displayData(media, photographer);
 }
 
-
-
 //sort the elements
 
 function dropDownEventListener(medias) {
   const dropdownMenu = document.querySelector(".dropdown-menu");
-  dropdownMenu.setAttribute("tabindex",tabindex=7);
   dropdownMenu.addEventListener("click", (e) => {
-
     // Retrieve the selected option value
     const selectedOption = e.target.innerText;
     if (selectedOption == "Popularité") {
@@ -357,19 +322,16 @@ function dropDownEventListener(medias) {
   });
 }
 
-
-
 function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
-  mediaList.innerHTML = "";  
-     
-  medias.forEach((mediaData,index) => {
-    const photographerCreation = mediaFactory(mediaData,medias,index+12); 
-   
+  mediaList.innerHTML = "";
+
+  medias.forEach((mediaData, index) => {
+    const photographerCreation = mediaFactory(mediaData, medias, (index = 0));
+
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
     mediaList.appendChild(userPhotographerCreationCardDOM);
-    
   });
 }
 
