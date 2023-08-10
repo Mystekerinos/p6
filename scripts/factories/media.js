@@ -50,7 +50,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
     isImage.setAttribute("alt", "text");
 
     const isVideo = document.createElement("video");
-
+    isVideo.setAttribute("Controls", "false");
     if (image) {
       isImage.classList.add("card_image");
       isImage.classList.add("hover-shadow");
@@ -263,7 +263,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
     if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
-        <video class="lightbox-video" title="${mediaObject.title}" alt="vidéo ${mediaObject.title}" id="${mediaObject.id}" tabindex=40  controls>
+        <video  controls="false" class="lightbox-video" title="${mediaObject.title}" alt="vidéo ${mediaObject.title}" id="${mediaObject.id}" tabindex=40  controls>
           <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4");>
         </video>
         <figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>
