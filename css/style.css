@@ -460,6 +460,7 @@ header .logo {
     right:-450px;
     top:201px;
     position:relative;
+    overflow:overlay;
   }
 
 
@@ -564,7 +565,8 @@ header .logo {
     font-size:26px;
     z-index:11;
     color:white;
-    left:47%;
+    display:flex;
+    justify-content:center;
     top:280px;
   }
   @media screen and (min-width:1250px){
@@ -664,8 +666,7 @@ header {
         left:27%;
         top:26%;
     }
-    .lightbox-caption{
-        left:46%;
+    .lightbox-caption{ 
         right:0px;
         top:30%;
     }
