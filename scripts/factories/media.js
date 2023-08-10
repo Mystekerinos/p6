@@ -47,15 +47,12 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
     // Create a image element for the artist image
     const isImage = document.createElement("img");
-    isImage.setAttribute("alt", "text");
 
-    const isVideo = document.createElement("video");
-    isVideo.setAttribute("Controls", "false");
     if (image) {
       isImage.classList.add("card_image");
       isImage.classList.add("hover-shadow");
       isImage.setAttribute("src", Image);
-      isImage.setAttribute("alt", "text");
+      isImage.setAttribute("alt", "image avec le titre");
 
       isImage.addEventListener("click", () => {
         renderLightBoxMedia(id);
@@ -66,10 +63,12 @@ export function mediaFactory(data, tabDatas, tabindex) {
     }
 
     // Create a image element for the artist image
+    const isVideo = document.createElement("video");
 
     if (video) {
       isVideo.classList.add("card_video");
       isVideo.setAttribute("src", Video);
+      isVideo.setAttribute("aria-label", "vidéo avec le titre");
 
       isVideo.addEventListener("click", () => {
         renderLightBoxMedia(id);
@@ -89,6 +88,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
     const isTitle = document.createElement("div");
     isTitle.classList.add("card_description_title");
+
     isTitle.textContent = title;
 
     const isTagline = document.createElement("div");
@@ -107,6 +107,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
     isLikes.textContent = likes;
 
     const creationLikes = document.createElement("div");
+
     creationLikes.classList.add("card_description_creationLikes");
     creationLikes.appendChild(isLikes);
     creationLikes.appendChild(isHeart);
@@ -150,27 +151,27 @@ export function mediaFactory(data, tabDatas, tabindex) {
     const article = document.createElement("article");
     article.id = id;
 
-    // Create a location element for the artist city and artist country
-    const location = document.createElement("div");
-    location.classList.add("photograph-header_description_location");
-    location.setAttribute("tabindex", (tabindex = 2));
-    location.textContent = `${city}, ${country}`;
-
     // Create a name element for the artist name
     const isName = document.createElement("h1");
     isName.textContent = name;
-    isName.setAttribute("tabindex", (tabindex = 1));
+    isName.setAttribute("tabindex", (tabindex = 0));
     document.title = `${name} - Fisheye`;
+
+    // Create a location element for the artist city and artist country
+    const location = document.createElement("div");
+    location.classList.add("photograph-header_description_location");
+    location.setAttribute("tabindex", (tabindex = 0));
+    location.textContent = `${city}, ${country}`;
 
     // Create a tagline element for the artist tagline
     const isTagline = document.createElement("div");
     isTagline.classList.add("photograph-header_description_tagline");
     isTagline.textContent = tagline;
-    isTagline.setAttribute("tabindex", (tabindex = 3));
+    isTagline.setAttribute("tabindex", (tabindex = 0));
     const isPicture = document.createElement("img");
     isPicture.setAttribute("src", picture);
     isPicture.setAttribute("alt", "text");
-    isPicture.setAttribute("tabindex", (tabindex = 5));
+    isPicture.setAttribute("tabindex", (tabindex = 0));
 
     // append  a name, a tagline, a location,  to the article element
     article.appendChild(isName);
@@ -263,7 +264,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
     if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
-        <video  controls="false" class="lightbox-video" title="${mediaObject.title}" alt="vidéo ${mediaObject.title}" id="${mediaObject.id}" tabindex=40  controls>
+        <video  controls="false" class="lightbox-video" title=" ${mediaObject.title} XXXXX" alt=" ${mediaObject.title} " id="${mediaObject.id}" tabindex=40  controls>
           <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4");>
         </video>
         <figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>
