@@ -3,7 +3,7 @@ const form = document.getElementById("form");
 const errorMsg = document.querySelectorAll(".invalid-feedback");
 // const confirmation = document.getElementById("confirmation");
 const btnClose = document.getElementById("contactModal");
-const btnCloseConf = document.getElementById("bgroundConf");
+
 const bgGrd = document.getElementById("bgroundConf");
 const btnCloseGrd = document.getElementById("contactModal_background");
 const firstName = document.getElementById("firstName");
