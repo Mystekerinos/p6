@@ -7,7 +7,7 @@ function photographerFactory(data, tabindex) {
   function getUserCardDOM() {
     // Create an article element
     const article = document.createElement("article");
-    article.setAttribute("tabindex", tabindex);
+
     // Create an link element for the card artist
 
     const photographerCardLink = document.createElement("a");
@@ -17,6 +17,7 @@ function photographerFactory(data, tabindex) {
       "aria-label",
       `Lien vers le portfolio de ${name} qui vit à ${city}, ${country} avec le slogan ${tagline} et dont les tarifs sont ${price}€ par jour`
     );
+    photographerCardLink.setAttribute("tabindex", tabindex);
 
     // Create an image element for the portrait
     const img = document.createElement("img");
