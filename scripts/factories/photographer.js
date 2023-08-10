@@ -1,7 +1,4 @@
-
-
-
-function photographerFactory(data,tabindex) {
+function photographerFactory(data, tabindex) {
   const { name, portrait, city, country, tagline, price, id } = data;
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -10,7 +7,7 @@ function photographerFactory(data,tabindex) {
   function getUserCardDOM() {
     // Create an article element
     const article = document.createElement("article");
-    article.setAttribute("tabindex",tabindex);
+    article.setAttribute("tabindex", tabindex);
     // Create an link element for the card artist
 
     const photographerCardLink = document.createElement("a");
@@ -18,13 +15,8 @@ function photographerFactory(data,tabindex) {
     photographerCardLink.setAttribute("href", `photographer.html?id=${id}`);
     photographerCardLink.setAttribute(
       "aria-label",
-      `Lien vers le portfolio de ${name}`
+      `Lien vers le portfolio de ${name} qui vit à ${city}, ${country} avec le slogan ${tagline} et dont les tarifs sont ${price}€ par jour`
     );
-    
-
-       
-    
-   
 
     // Create an image element for the portrait
     const img = document.createElement("img");
@@ -55,7 +47,7 @@ function photographerFactory(data,tabindex) {
     photographerCardLink.appendChild(isName);
 
     // append  a location, a link, a price, a tagline, a name, an image to the article element
-   
+
     article.appendChild(photographerCardLink);
     article.appendChild(location);
     article.appendChild(isTagline);
@@ -63,9 +55,6 @@ function photographerFactory(data,tabindex) {
     return article;
   }
 
-
-
-  
   return {
     getUserCardDOM,
   };
