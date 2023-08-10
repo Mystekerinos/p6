@@ -256,14 +256,14 @@ export function mediaFactory(data, tabDatas, tabindex) {
     // If the media is an image add the appropriate media card html to the lightboxMedia element
 
     if (mediaObject?.image) {
-      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}" tabindex=40 alt="image ${mediaObject.title}"><figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>`;
+      lightboxMedia.innerHTML = `<img class="lightbox-img" title="${mediaObject.title}" id="${mediaObject.id}" src="assets/images/${mediaObject.photographerId}/${mediaObject.image}"  alt="image ${mediaObject.title}"><figcaption class="lightbox-caption"  alt="${mediaObject.title}">${mediaObject.title}</figcaption>`;
     }
 
     // If the media is a video add the appropriate media card html to the lightboxMedia element
 
     if (mediaObject?.video) {
       lightboxMedia.innerHTML = `
-        <video  controls="false" class="lightbox-video" title=" ${mediaObject.title} XXXXX" alt=" ${mediaObject.title} " id="${mediaObject.id}" tabindex=40  controls>
+        <video  controls="false" class="lightbox-video" title=" ${mediaObject.title}  alt=" ${mediaObject.title} " id="${mediaObject.id}"  controls>
           <source src="assets/images/${mediaObject.photographerId}/${mediaObject.video}" type="video/mp4");>
         </video>
         <figcaption class="lightbox-caption" tabindex=41 alt="${mediaObject.title}">${mediaObject.title}</figcaption>
@@ -324,7 +324,6 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
   // closing the lightbox
   function closeModalLightBox() {
-    console.log("XXXXXXXXXXXX");
     // const closeModalLightBox = document.getElementById("lightboxMedia");
     // closeModalLightBox.style.display = "none";
     const closeLightBox = document.getElementById("lightbox");

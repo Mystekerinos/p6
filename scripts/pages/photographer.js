@@ -87,7 +87,6 @@ function displayData(media, photographer) {
   const allLikes = document.createElement("div");
   allLikes.classList.add("allLikes");
   allLikes.innerHTML = userPhotographersAllLikes;
-  allLikes.setAttribute("tabindex", (tabindex = 0));
   allLikes.setAttribute("alt", userPhotographersAllLikes);
 
   // creation of the image of the heart

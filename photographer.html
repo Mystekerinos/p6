@@ -31,24 +31,24 @@
 <div class="contactModal_background" id="contactModal_background">
  <dialog class="modal" id="contactModal">
 				<header class="modal-header">
-          <h2 class="modal-title"  >Contactez-moi <br> 
+          <h2 class="modal-title" alt="contactez-moi" >Contactez-moi <br> 
             <div class="modal_title_namePhotographer"  id="modal_title_namePhotographer"></div></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="fermeture" />
         </header>
 				<form id="form" aria-label="formulaire">
 				  <label class="modal-label" for="firstName"  >Prénom</label><br>
-      <input class="modal-input"  type="text" id="firstName" name="firstName" minlength="2"   />
+      <input class="modal-input" aria-label="Entrer prénom" type="text" id="firstName" name="firstName" minlength="2"   />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="lastName" >Nom</label><br>
-      <input class="modal-input"  type="text" id="lastName" name="lastName" minlength="2"  />
+      <input class="modal-input" aria-label="Entre nom"  type="text" id="lastName" name="lastName" minlength="2"  />
       <div class="invalid-feedback">Veuillez entrer 2 caractères ou plus.</div>
 
       <label class="modal-label" for="email" >E-mail</label><br>
-      <input class="modal-input"  type="email" id="email" name="email" />
+      <input class="modal-input"  aria-label="Entrer votre adresse email" type="email" id="email" name="email" />
     <div class="invalid-feedback">Vous devez entrer votre adresse email.</div>
       <label class="modal-label" for="message" >Votre message</label><br>
-      <textarea class="modal-input modal-msg" rows="15" cols="71" type="text" id="message" name="message" minlength="20" ></textarea>
+      <textarea class="modal-input modal-msg"  aria-label="Entrer votre message" rows="15" cols="71" type="text" id="message" name="message" minlength="20" ></textarea>
       <div class="invalid-feedback">Le message doit contenir au minimum 20 caractères.</div>
           <button class="contact_button" id="submitValidation" type="submit" aria-label="Bouton de soumission du formulaire du modal de contact" >Envoyer</button>
 				</form>
