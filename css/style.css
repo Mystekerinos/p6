@@ -447,7 +447,7 @@ header .logo {
     left:0;
     width:100%;
     height:100%;
-    background-color: rgba(0,0,0,.9);
+    background-color: #FFFFFF;
     z-index:10;
     display:none;
     margin-left:0;
@@ -497,8 +497,8 @@ header .logo {
     border:none;
     background: url(/assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     position:fixed;
-    top:27%;
-    right:18%;
+    top:27vh;
+    right:11rem;
     z-index:5;
   }
 
@@ -566,8 +566,8 @@ header .logo {
     z-index:11;
     color: #901C1C;;
     display:flex;
-    justify-content:center;
-    top:280px;
+    top:24%;
+    right:22%;
   }
   @media screen and (min-width:1250px){
 
@@ -805,3 +805,34 @@ body{
 }
   }
   
+ @media screen and (min-width:1240px) {
+    .lightbox__close{
+   top:6vh;
+   right:2rem;
+ }
+.lightbox-img{
+    width:88%;
+    left: 6%;
+    height:89%;
+    top:5%;
+     
+}
+.lightbox-video {
+    width: 88%;
+    left: 6%;
+    height: 89%;
+    top: 5%;
+    
+}
+.lightbox-caption{
+    top:5%;
+    right:-6%;
+}
+.lightbox__next,
+.lightbox__previous {
+    top:35%;
+    height:34%;
+    margin-top:0;
+}
+
+ }
