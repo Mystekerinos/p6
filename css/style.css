@@ -132,6 +132,7 @@ header h1{
     height : 131px;
     border: none;
     border-radius : 75px;
+    object-fit:cover;
 }
 
 
@@ -379,6 +380,7 @@ header .logo {
     height : 150px;
     border: none;
     border-radius : 75px;
+    object-fit: cover;
 }
 
 
@@ -498,7 +500,7 @@ header .logo {
     background: url(/assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     position:fixed;
     top:27vh;
-    right:11rem;
+    right:4rem;
     z-index:5;
   }
 
@@ -609,6 +611,7 @@ header .logo {
         height : 150px;
         border: none;
         border-radius : 75px;
+        object-fit: cover;
     }
     
 
@@ -662,13 +665,34 @@ header {
         align-items:center;
         justify-content: space-between;
     }
+
+    .lightbox__close {
+       right: 9rem;
+       top:15vh;
+   }
+
+   .lightbox__next,
+   .lightbox__previous {
+    height:20%;
+    margin-top:0px;
+    top:337px;
+   }
+     .lightbox-video {
+    left: 19%;
+        top: 14%;
+        height: 67%;
+        width: 65%;
+                    }
     .lightbox-img{
-        left:27%;
-        top:26%;
+        left:19%;
+        top:14%;
+        height:67%;
+        width:65%;
     }
     .lightbox-caption{ 
-        right:18%;
-        top:30%;
+        right:-19%;
+        top:14%;
+        font-size:24px;
     }
 
     .modal{
@@ -804,6 +828,10 @@ body{
     height:0px;
 }
   }
+
+
+
+
   
  @media screen and (min-width:1240px) {
     .lightbox__close{
