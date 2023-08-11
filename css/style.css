@@ -470,7 +470,7 @@ header .logo {
 
   .lightbox__next, .lightbox__previous{
     border:none;
-    background: url(/assets/icons/arrow.svg) center center / 48px 48px no-repeat;
+    background: url(/assets/icons/arrowLightbox.svg) center center / 48px 48px no-repeat;
     width:96px;
     height:100%;
     position:fixed;
@@ -497,14 +497,13 @@ header .logo {
     border:none;
     background: url(/assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     position:fixed;
-    top:10px;
-    right:105px;
+    top:27%;
+    right:18%;
     z-index:5;
   }
 
   #lightbox button {
     opacity: 1;
-    color:pink;
     cursor:pointer;
     transition: opacity .5s;
     text-indent: -3000px;
@@ -565,7 +564,7 @@ header .logo {
     position:relative;
     font-size:26px;
     z-index:11;
-    color:white;
+    color: #901C1C;;
     display:flex;
     justify-content:center;
     top:280px;
@@ -668,7 +667,7 @@ header {
         top:26%;
     }
     .lightbox-caption{ 
-        right:0px;
+        right:18%;
         top:30%;
     }
 
