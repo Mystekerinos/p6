@@ -324,8 +324,6 @@ export function mediaFactory(data, tabDatas, tabindex) {
 
   // closing the lightbox
   function closeModalLightBox() {
-    // const closeModalLightBox = document.getElementById("lightboxMedia");
-    // closeModalLightBox.style.display = "none";
     const closeLightBox = document.getElementById("lightbox");
     closeLightBox.style.display = "none";
   }
