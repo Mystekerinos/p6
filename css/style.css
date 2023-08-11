@@ -461,6 +461,7 @@ header .logo {
     top:201px;
     position:relative;
     overflow:overlay;
+    object-fit: cover;
   }
 
 

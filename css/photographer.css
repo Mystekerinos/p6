@@ -378,7 +378,8 @@ form input {
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 3rem;
-    margin-bottom:66px
+    margin-bottom:66px;
+    object-fit:cover;
   
   }
   
