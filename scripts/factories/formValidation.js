@@ -43,7 +43,6 @@ function checkIdentityName(identityName, index) {
 
 // check email
 function checkEmail() {
- 
   if (mailFormatRegex.test(email.value) === false) {
     errorMsg[2].style.display = "block";
     return false;
@@ -55,7 +54,6 @@ function checkEmail() {
 // check Message
 
 function checkMessage() {
-  console.log("message", message);
   if (
     message.value.trim().length < 20 ||
     message.value.trim() === "" ||

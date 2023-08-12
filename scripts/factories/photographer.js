@@ -1,4 +1,4 @@
-function photographerFactory(data, tabindex) {
+export function photographerFactory(data, tabindex) {
   const { name, portrait, city, country, tagline, price, id } = data;
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;

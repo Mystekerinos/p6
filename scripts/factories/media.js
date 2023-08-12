@@ -54,11 +54,16 @@ export function mediaFactory(data, tabDatas, tabindex) {
       isImage.setAttribute("src", Image);
       isImage.setAttribute("alt", "image avec le titre");
 
-      isImage.addEventListener("click", () => {
+      card.addEventListener("click", () => {
         renderLightBoxMedia(id);
         addLightBoxActions();
       });
-
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          renderLightBoxMedia(id);
+          addLightBoxActions();
+        }
+      });
       card.appendChild(isImage);
     }
 
@@ -129,7 +134,7 @@ export function mediaFactory(data, tabDatas, tabindex) {
     const closeLightBox = document.getElementById("lightbox");
     closeLightBox.style.display = "block";
     const lightboxNextBtn = document.getElementById("lightboxNextBtn");
-    lightboxNextBtn.addEventListener("click", (e) => {
+    lightboxNextBtn.addEventListener("click", () => {
       nextLightBoxMedia();
     });
 

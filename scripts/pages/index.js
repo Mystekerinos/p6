@@ -1,11 +1,11 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
-
+import { photographerFactory } from "../factories/photographer.js";
 // display photographers
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
-  photographers.forEach((photographer, index) => {
-    const photographerModel = photographerFactory(photographer, (index = 0));
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer, 0);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
   });

@@ -1,7 +1,6 @@
 import { getPhotographers } from "../utils/fetchJsonData.js";
 import { mediaFactory } from "../factories/media.js";
 
-let tabindex;
 let media;
 let photographers;
 
@@ -40,7 +39,7 @@ function displayData(media, photographer) {
   photographersCreationDropDownWord.classList.add(
     "photograph_Creations_dropDown_word"
   );
-  photographersCreationDropDownWord.setAttribute("tabindex", (tabindex = 0));
+  photographersCreationDropDownWord.setAttribute("tabindex", 0);
   photographersCreationDropDownWord.setAttribute("alt", "trier par");
   photographersCreationDropDownWord.setAttribute("alt", "Trier par");
 
@@ -92,7 +91,7 @@ function displayData(media, photographer) {
   // creation of the image of the heart
   const isHeartPrice = document.createElement("img");
   isHeartPrice.classList.add("heartTotal");
-  isHeartPrice.setAttribute("tabindex", (tabindex = 24));
+  isHeartPrice.setAttribute("tabindex", 24);
   isHeartPrice.setAttribute("src", heartTotal);
   isHeartPrice.setAttribute("alt", "coeur");
 
@@ -113,7 +112,6 @@ function displayData(media, photographer) {
   const contactFormFullName = photographerIdentity.getNameForm();
 
   contactFormSection.appendChild(contactFormFullName);
-  console.log("contactFormSection.", contactFormSection);
 
   displayDataList(media);
 }
@@ -131,13 +129,13 @@ function getDropDownMenu() {
   const dropDownArrow2 = document.createElement("img");
   dropDownArrow2.classList.add("dropdown-icon2");
   dropDownArrow2.setAttribute("src", arrow);
-  dropDownArrow2.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow2.setAttribute("tabindex", 0);
   dropDownArrow2.setAttribute("alt", "plier la barre de menu de trie");
 
   const dropDownArrow = document.createElement("img");
   dropDownArrow.classList.add("dropdown-icon");
   dropDownArrow.setAttribute("src", arrow);
-  dropDownArrow.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow.setAttribute("tabindex", 0);
   dropDownArrow.setAttribute("alt", "déployer la barre de menu de trie");
 
   const dropDownOptionInitialWord = document.createElement("span");
@@ -151,7 +149,7 @@ function getDropDownMenu() {
     "alt",
     "menu sous forme de bouton pour trier en fonction de la Date"
   );
-  dropDownArrow2.setAttribute("tabindex", (tabindex = 0));
+  dropDownArrow2.setAttribute("tabindex", 0);
   dropDownArrow2.setAttribute("alt", "icone pour déployer le menu");
   dropDownOption4.appendChild(dropDownOptionInitialWord);
 
@@ -196,7 +194,7 @@ function getDropDownMenu() {
   dropDownOptionSpan3.classList.add("dropdown-optionsSpan");
   dropDownOptionSpan3.setAttribute("id", "dropMenuSpanId");
   dropDownOptionSpan3.setAttribute("alt", "titre");
-  dropDownOptionSpan3.setAttribute("tabindex", (tabindex = 11));
+  dropDownOptionSpan3.setAttribute("tabindex", 11);
   dropDownOptionSpan3.value = "Titre";
   dropDownOptionSpan3.textContent = "Titre";
   dropDownOption3.appendChild(dropDownOptionSpan3);
@@ -236,8 +234,10 @@ function getDropDownMenu() {
     const dropDownMenuFold = document.getElementById("sortDrop");
     dropDownMenuFold.style.display = "none";
     const changeInitialWord = document.querySelector(".dropdown-optionsSpan2");
-
-    changeInitialWord.textContent = event.target.childNodes[0].value;
+    const value = event.target.childNodes[0]?.value;
+    if (value) {
+      changeInitialWord.textContent = value;
+    }
 
     dropDownTouchOriginal.appendChild(changeInitialWord);
     dropDownTouchOriginal.appendChild(dropDownArrow);
@@ -325,8 +325,8 @@ function displayDataList(medias) {
   const mediaList = document.querySelector(".photograph_Creations_card");
   mediaList.innerHTML = "";
 
-  medias.forEach((mediaData, index) => {
-    const photographerCreation = mediaFactory(mediaData, medias, (index = 0));
+  medias.forEach((mediaData) => {
+    const photographerCreation = mediaFactory(mediaData, medias, 0);
 
     const userPhotographerCreationCardDOM =
       photographerCreation.getPhotographerCreationCardDOM();
