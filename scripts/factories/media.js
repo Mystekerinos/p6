@@ -79,6 +79,12 @@ export function mediaFactory(data, tabDatas, tabindex) {
         renderLightBoxMedia(id);
         addLightBoxActions();
       });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          renderLightBoxMedia(id);
+          addLightBoxActions();
+        }
+      });
 
       card.appendChild(isVideo);
     }
