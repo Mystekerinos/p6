@@ -15,11 +15,7 @@ header h1{
     margin-right:33%;
 
 }
-.header-logo{
-    width:175px;
-    margin-left:20%;
-   
-}
+
 
  .photograph_Creations_dropDown_word {
      margin-left: 123px;
@@ -56,6 +52,7 @@ header h1{
 
  .header-logo {
      width: 141px;
+     margin-top:57px;
  }
 
  header h1 {
@@ -476,7 +473,7 @@ header .logo {
     width:96px;
     height:100%;
     position:fixed;
-    top:0;
+    top:767px;
     right:0;
     margin-top:31px;
     z-index:3;  
@@ -494,13 +491,13 @@ header .logo {
   }
 
   .lightbox__close{
+    right:7rem;
     width:35px;
     height:35px;
     border:none;
     background: url(/assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     position:fixed;
     top:27vh;
-    right:4rem;
     z-index:5;
   }
 
@@ -573,18 +570,18 @@ header .logo {
   }
   @media screen and (min-width:1250px){
 
-
+ 
     .card_video{
         width:100%;
     }
   .card{
     width:29%;
-  }
+}
     .photographers_Price{
         right: 0.5rem;
       bottom:0%;
-       
-  
+
+
     } 
     .photographer_section {
         margin-top:23px;
@@ -593,7 +590,7 @@ header .logo {
       column-gap:91px;
       row-gap: -9px;;
       }
-
+ 
       body {
         font-family: "DM Sans", sans-serif;
         width:1441px;
@@ -613,7 +610,7 @@ header .logo {
         border-radius : 75px;
         object-fit: cover;
     }
-    
+
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -657,8 +654,17 @@ header {
 }
 
   }
+@media screen  and (max-width:699px) {
+.lightbox__next,
+    .lightbox__previous {
+       
+        top: 767px;
+    }
+}
 
-  @media screen and (min-width:501px ) and (max-width:1249px){
+
+
+  @media screen and (min-width:700px ) and (max-width:1249px){
 
     header {
         display:flex;
@@ -667,7 +673,7 @@ header {
     }
 
     .lightbox__close {
-       right: 9rem;
+       right: 4rem;
        top:15vh;
    }
 
@@ -675,7 +681,7 @@ header {
    .lightbox__previous {
     height:20%;
     margin-top:0px;
-    top:337px;
+    top:550px;
    }
      .lightbox-video {
     left: 19%;
@@ -692,7 +698,7 @@ header {
     .lightbox-caption{ 
         right:-19%;
         top:14%;
-        font-size:24px;
+        font-size:28px;
     }
 
     .modal{
@@ -792,44 +798,6 @@ header {
         height:0px;
     }
   }
- 
-  @media screen and (min-width:377px)and (max-width:500px){
-  .photographer_section{
-    column-gap:69px;
-  }
-
-  .photographer_section article h2 {
-    font-size:14px;
-    margin-bottom:1px;
-  }
-
-
-
-  .city_and_country{
-    font-size:10px;
-  }
-  .tagline{
-    font-size: 7px;
-  }
-.price_homePage{
-    font-size:7px;
-}
-
-.header-logo{
-    width:128px;
-}
-
-header h1{
-    font-size:20px;
-    margin-right:0px;
-}
-
-body{
-    height:0px;
-}
-  }
-
-
 
 
   
@@ -843,6 +811,11 @@ body{
     left: 6%;
     height:89%;
     top:5%;
+    right: -450px;
+      
+        position: relative;
+        overflow: overlay;
+        object-fit: cover;
      
 }
 .lightbox-video {
@@ -863,4 +836,4 @@ body{
     margin-top:0;
 }
 
- }
+  }
