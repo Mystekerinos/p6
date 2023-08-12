@@ -144,12 +144,12 @@ function getDropDownMenu() {
   dropDownOptionInitialWord.classList.add("dropdown-optionsSpan2");
 
   // creating the initial sort button
-  dropDownOptionInitialWord.value = "Popularité";
-  dropDownOptionInitialWord.textContent = "Popularité";
+  dropDownOptionInitialWord.value = "Date";
+  dropDownOptionInitialWord.textContent = "Date";
   dropDownOptionInitialWord.setAttribute("aria-label", "text");
   dropDownArrow2.setAttribute(
     "alt",
-    "menu sous forme de bouton pour trier en fonction de la popularité"
+    "menu sous forme de bouton pour trier en fonction de la Date"
   );
   dropDownArrow2.setAttribute("tabindex", (tabindex = 0));
   dropDownArrow2.setAttribute("alt", "icone pour déployer le menu");
