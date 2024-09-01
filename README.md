@@ -33,3 +33,12 @@ ESLint est utilisé avec les paramètres par défaut pour s’assurer que le cod
 Une version moderne ES6 ou supérieure de JavaScript est utilisée et les fonctionnalités obsolètes ne sont pas utilisées.
 
 La programmation orientée objet est utilisée.
+
+
+**Technologies:**
+
+. HTML
+
+. Javascript
+
+. CSS
