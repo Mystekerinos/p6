@@ -2,7 +2,7 @@
 <img width="844" alt="Capture d’écran 2024-09-01 à 20 44 38" src="https://github.com/user-attachments/assets/042d5c76-14d8-4187-a120-59c227e3b39b">
 
 
-# Projet6 fisheye : créer un site accessible pour une plateforme de photographe
+# Projet6: fisheye, créer un site accessible pour une plateforme de photographe
 
 <img width="894" alt="Capture d’écran 2024-09-01 à 21 16 09" src="https://github.com/user-attachments/assets/6533f923-bbe3-4a85-89a6-4804801f247d">
 
